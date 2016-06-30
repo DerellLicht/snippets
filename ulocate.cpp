@@ -1,5 +1,5 @@
 //****************************************************************************
-//  Copyright (c) 2006-2012  Daniel D Miller
+//  Copyright (c) 2006-2016  Daniel D Miller
 //  
 //  ulocate: Locate filenames containing a certain component,
 //  starting at specified path.
@@ -30,6 +30,7 @@
 //                   - Convert Win32 build to use Windows calls vs unix calls,
 //                     to get rid of sporadic Windows system log warnings:
 //                     "Invalid parameter passed to C runtime function."
+// 1.12  06/29/16    Convert %llu references to inscrutable new C++ form 
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
 //  but I have no idea what the cause is.  Both errno and GetLastError()
@@ -45,10 +46,16 @@
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
 
-char const * const Version = "ULOCATE.EXE, Version 1.11";
+char const * const Version = "ULOCATE.EXE, Version 1.12";
+
+#define  USE_NEW_LLU  1
 
 #ifdef __MINGW32__
 #include <windows.h>
+#ifdef  USE_NEW_LLU      
+#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
+#endif
 #include <direct.h>  //  _getdrive()
 #include <ctype.h>
 #else
@@ -408,13 +415,6 @@ static void test_display_state(void)
 //**********************************************************
 static void print_output(int month, int day, long year, int hour, int mins, int secs, u64 fsize, char *pathname, bool is_dir)
 {
-// #define  OFMT_NONE   0x00
-// #define  OFMT_DATE   0x01
-// #define  OFMT_TIME   0x02
-// #define  OFMT_SIZES  0x04
-// #define  OFMT_SIZEL  0x08
-// #define  OFMT_NAME   0x10
-// static uint output_format = OFMT_NONE ;
    if (output_format & OFMT_DATE) {
       printf ("%02d/%02d/%02d ", month, day, (int) (year % 100)) ;
    }
@@ -425,19 +425,35 @@ static void print_output(int month, int day, long year, int hour, int mins, int 
 
    if (output_format & OFMT_SIZES) {
       if (fsize > 99999999LU) {
+#ifdef  USE_NEW_LLU      
+         printf("%"PRIu64"M ", fsize / 1000000LU);
+#else         
          printf("%5lluM ", fsize / 1000000LU);
+#endif         
       }
       else if (fsize > 999999L) {
+#ifdef  USE_NEW_LLU      
+         printf("%5"PRIu64"K ", fsize / 1000L);
+#else         
          printf("%5lluK ", fsize / 1000L);
+#endif         
          // nputs (n.colorsize, tempstr);
          // nputs (n.colorsize ^ 0x08, "K");
       }
       else {
+#ifdef  USE_NEW_LLU      
+         printf("%6"PRIu64" ", fsize);
+#else         
          printf("%6llu ", fsize);
+#endif         
       }
    } else 
    if (output_format & OFMT_SIZEL) {
+#ifdef  USE_NEW_LLU      
+      printf("%*"PRIu64" ", (int) size_len, fsize);
+#else         
       printf("%*llu ", (int) size_len, fsize);
+#endif         
    }
 
    if (output_format & OFMT_NAME) {
