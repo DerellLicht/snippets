@@ -46,7 +46,7 @@ int main(int argc, char** argv)
             puts("");
             printf("Enter a number (0 quits): ");
             gets(tempstr) ;
-            givennbr = _atoi64(tempstr) ;
+            givennbr = strtoull(tempstr, NULL, 10) ;
             if (givennbr == 0)
                return 0;
             break;
@@ -54,7 +54,7 @@ int main(int argc, char** argv)
             if (argv[next] == NULL)
                exit(0) ;
             puts("****************************************************\n");
-            givennbr = _atoi64(argv[next++]) ;
+            givennbr = strtoull(argv[next++], NULL, 10) ;
             if (givennbr == 0)
                return 0;
             break;
