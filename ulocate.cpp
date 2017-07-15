@@ -1,5 +1,5 @@
 //****************************************************************************
-//  Copyright (c) 2006-2016  Daniel D Miller
+//  Copyright (c) 2006-2017  Daniel D Miller
 //  
 //  ulocate: Locate filenames containing a certain component,
 //  starting at specified path.
@@ -31,6 +31,7 @@
 //                     to get rid of sporadic Windows system log warnings:
 //                     "Invalid parameter passed to C runtime function."
 // 1.12  06/29/16    Convert %llu references to inscrutable new C++ form 
+// 1.13  07/13/17    Fix path handling for search in root directory
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
 //  but I have no idea what the cause is.  Both errno and GetLastError()
@@ -46,7 +47,7 @@
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
 
-char const * const Version = "ULOCATE.EXE, Version 1.12";
+char const * const Version = "ULOCATE.EXE, Version 1.13";
 
 #define  USE_NEW_LLU  1
 
@@ -1401,6 +1402,9 @@ int main (int argc, char **argv)
       if (p == 0) {
          perror(temp_path) ;
          return 1;
+      }
+      if (strlen(target_path) == 3) {
+         target_path[2] = '/' ;
       }
 
       printf ("searching %s\n", target_path);
