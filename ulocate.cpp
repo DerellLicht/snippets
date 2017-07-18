@@ -6,7 +6,7 @@
 //                                                                 
 //  Written by:   Daniel D. Miller  
 //                                                                 
-//  compile:  gcc -Wall -O2 -s wlocate.cpp -o wlocate
+//  compile:  gcc -Wall -O2 -s ulocate.cpp -o ulocate
 //  lint:    c:\lint9\lint-nt +v -width(160,4) -ic:\lint9 mingw.lnt -os(_lint.tmp) filename
 //                                                                 
 //****************************************************************************
