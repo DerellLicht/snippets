@@ -32,6 +32,7 @@
 //                     "Invalid parameter passed to C runtime function."
 // 1.12  06/29/16    Convert %llu references to inscrutable new C++ form 
 // 1.13  07/13/17    Fix path handling for search in root directory
+// 1.14  07/27/17    Add -/ switch to use backslash vs forward-slash in path
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
 //  but I have no idea what the cause is.  Both errno and GetLastError()
@@ -47,7 +48,7 @@
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
 
-char const * const Version = "ULOCATE.EXE, Version 1.13";
+char const * const Version = "ULOCATE.EXE, Version 1.14";
 
 #define  USE_NEW_LLU  1
 
@@ -137,6 +138,7 @@ static bool path_shown = false ;
 static bool follow_symlinks = false ;
 static bool search_path = false ;
 static bool whole_word_search = false ;
+static bool use_backslashes = false ;
 
 #define  OFMT_NONE   0x00
 #define  OFMT_DATE   0x01
@@ -414,6 +416,20 @@ static void test_display_state(void)
 }
 
 //**********************************************************
+static void convert_slashes(char *pathname)
+{
+    char *p = pathname ;
+    while (*p != 0)
+    {
+        if (*p == '/')
+        {
+            *p = '\\';
+        }
+        p++;
+    }
+}
+                
+//**********************************************************
 static void print_output(int month, int day, long year, int hour, int mins, int secs, u64 fsize, char *pathname, bool is_dir)
 {
    if (output_format & OFMT_DATE) {
@@ -458,6 +474,9 @@ static void print_output(int month, int day, long year, int hour, int mins, int 
    }
 
    if (output_format & OFMT_NAME) {
+      if (use_backslashes) {
+         convert_slashes(pathname);
+      }
       if (is_dir) 
          printf("[%s]", pathname) ;
       else
@@ -1298,6 +1317,7 @@ void usage (void)
    puts(" -b  Debug mode - show other process information") ;
    puts(" -l  follow symbolic links") ;
    puts(" -w  match exact string (whole-word search)") ;
+   puts(" -/  Use backslash vs forward slash for path elements") ;
    puts("") ;
    puts(" -p  Search for name_component in the directories in the PATH variable") ;
    puts("     NOTE: This option replaces the normal ulocate functionality with") ;
@@ -1350,6 +1370,7 @@ int main (int argc, char **argv)
             case 'l':  follow_symlinks = true ;  break;
             case 'p':  search_path = true ;  break;
             case 'w':  whole_word_search = true ;  break;
+            case '/':  use_backslashes = true ;  break;
 
             default:
                usage() ;
