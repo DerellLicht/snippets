@@ -33,6 +33,7 @@
 // 1.12  06/29/16    Convert %llu references to inscrutable new C++ form 
 // 1.13  07/13/17    Fix path handling for search in root directory
 // 1.14  07/27/17    Add -/ switch to use backslash vs forward-slash in path
+// 1.15  07/28/17    Add ULOCATE environment variable support
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
 //  but I have no idea what the cause is.  Both errno and GetLastError()
@@ -48,7 +49,7 @@
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
 
-char const * const Version = "ULOCATE.EXE, Version 1.14";
+char const * const Version = "ULOCATE.EXE, Version 1.15";
 
 #define  USE_NEW_LLU  1
 
@@ -71,6 +72,8 @@ char const * const Version = "ULOCATE.EXE, Version 1.14";
 #include <limits.h>
 #include <dirent.h>
 #include <sys/stat.h>
+
+//lint -e10    Expecting '}'
 
 //lint -e534   Ignoring return value of function
 //lint -e716   while(1) ... 
@@ -1334,13 +1337,24 @@ int main (int argc, char **argv)
 
    puts (Version);
 
+   //***********************************************************
+   //  parse environment variable, *before* command line
+   //***********************************************************
+   int start_idx = 1 ;
+   char *ulocate_env = getenv("ULOCATE");
+   if (ulocate_env != NULL)
+   {
+      argv[0] = ulocate_env ;
+      start_idx = 0 ;
+   }
+
    // printf("size of PATH_MAX=%u bytes\n", PATH_MAX) ;  //  4096 bytes
    //***********************************************************
    //  parse command line
    //***********************************************************
    temp_path[0] = 0;
    name_comp[0] = 0;
-   for (j = 1; j < argc; j++) {
+   for (j = start_idx; j < argc; j++) {
       p = argv[j];
       if (*p == '-') {
          p++ ;
