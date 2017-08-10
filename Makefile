@@ -6,10 +6,13 @@ else
 CFLAGS=-Wall -O3 -s
 endif
 
-all: beer_cals.exe dms2dd.exe mortgage.exe prime32.exe printf2.exe ulocate.exe serial_enum.exe
+all: ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime32.exe printf2.exe ulocate.exe serial_enum.exe
 
 clean:
 	rm -f *.exe
+
+ascii.exe: ascii.cpp
+	g++ $(CFLAGS) -Weffc++ $< -o $@
 
 beer_cals.exe: beer_cals.cpp
 	g++ $(CFLAGS) -Weffc++ $< -o $@
