@@ -1,11 +1,10 @@
-//*************************************************************
-//  HEX_DUMP.CPP: Read data and display as both binary
-//                and ASCII data.
+//***************************************************************************
+//  HEX_DUMP.CPP: Read data and display as both binary and ASCII data.
 //  
 //  Written by:   Daniel D. Miller
 //  
-//  Last Update:  11/11/99 02:54PM
-//*************************************************************
+//  Last Update:  08/15/17 19:56
+//***************************************************************************
 #include <stdio.h>
 #include <string.h>
 #include <io.h>
@@ -24,7 +23,7 @@ typedef  unsigned int   uint ;
 static uint8 inframe[260] ;
 static char infile[260] ;
 
-/********************************************************************************/
+//***************************************************************************
 static uint hex_dump(uint8 const * const bfr, uint bytes, uint base_index)
 {
    uint j, len ;

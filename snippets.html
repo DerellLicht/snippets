@@ -1,3 +1,4 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
 <HTML><HEAD><TITLE>Win32 Source code snippets in C</TITLE>
 <BODY>
 <P>
@@ -34,21 +35,22 @@ target=_top>http://www.mingw.org/</A>
     <tbody>
     <TR>
     <TD bgColor=#cccccc>
-      <FONT size=+1>
+      <DIV class=h3 style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px;
+      COLOR: #205080; TEXT-ALIGN: left"><FONT size=+1>
       <CODE><B>ulocate</B></CODE> - This was initially written for use under 
 			Linux, as a replacement for the obtuse <B><CODE>find</CODE></B> 
 			command. &nbsp;It also works in Windows consoles. &nbsp;
-			<B><CODE>ulocate</CODE></B> searches all subdirectories below the 
-			specified starting point for any filename containing the provided string.<br>
-			Optionally, it can also search the PATH for the same criteria.
-			</FONT>
-      <br>
-      Last Update: <B>June 29, 2016</B><br><br>
+      <B><CODE>ulocate</CODE></B> performs a case-insensitive search of all subdirectories below the 
+			specified starting point for any filename containing the provided string.
+			 &nbsp;Optionally, it can also search the PATH for the same criteria.
+			</FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>July 28, 2017</B></DIV>
     </TD></TR>
   <TR>
     <TD bgColor=#ffffff>
+      <DIV class=t_news>
 			<pre>
-ULOCATE.EXE, Version 1.12
+ULOCATE.EXE, Version 1.15
 Usage: ulocate [options] name_component start_path
 This program displays all filenames containing a specified
 name component, starting at directory [start_path].
@@ -67,15 +69,19 @@ other options:
  -b  Debug mode - show other process information
  -l  follow symbolic links
  -w  match exact string (whole-word search)
+ -/  Use backslash vs forward slash for path elements
 
  -p  Search for name_component in the directories in the PATH variable
      NOTE: This option replaces the normal ulocate functionality with
      alternate functionality.  In this mode, subdirectories are NOT searched!!
+
+ Options can also be placed in the ULOCATE environment variable
       </pre>
       <CENTER>Download 
-			<A href="./ulocate.cpp">ulocate.cpp</A> here
+			<A href="files/ulocate.cpp">
+			ulocate.cpp</A> here
 			</CENTER>
-			</TD></tr>
+			</DIV></TD></tr>
     </tbody>
   </table>
     </td>
@@ -87,13 +93,13 @@ other options:
     <tbody>
   <TR>
     <TD bgColor=#cccccc>
-      <FONT size=+1>
-      <CODE><B>printf2</B></CODE> - source code for <CODE>printf/sprintf</CODE>,
-      with floating-point support, and no header-file dependencies</FONT><br>
-      Last Update: <B>October 08, 2013</B> 
-    </TD></TR>
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>printf2</B></CODE> - source code for <CODE>printf/sprintf</CODE>,
+      with floating-point support, and no header-file dependencies</FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>October 08, 2013</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3><br>
+    <TD bgColor=#ffffff colSpan=3>
 			Embedded firmware environments provide a variety of challenges to the
 			software developer. &nbsp;One of these challenges is that, typically,
 			there is no "standard output" device to display messages on, so the
@@ -141,8 +147,9 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
 
       <BR><BR>
       <CENTER>Download 
-			<A href="./printf2.c">printf2.c</A> here
-			</CENTER></TD></TR>
+			<A href="files/printf2.c">
+			printf2.c</A> here
+			</CENTER></DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -154,10 +161,12 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
     <tbody>
   <TR>
     <TD bgColor=#cccccc>
-      <FONT size=+1><CODE><B>serial_enum</B></CODE> - 
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>serial_enum</B></CODE> - 
       Uses standard Windows/Win32 methods to enumerate serial devices
-      </FONT><br>
-      Last Update: <B>February 02, 2015</B></TD></TR>
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>February 02, 2015</B> </DIV></TD></TR>
   <TR>
     <TD bgColor=#ffffff colSpan=3>
       This is the Microsoft-approved method to enumerate all serial ports
@@ -167,8 +176,9 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
       which can be passed to CreateFile().
       <BR><BR>
       <CENTER>Download 
-      <A href="./serial_enum.cpp">serial_enum.cpp</A> here
-      </CENTER></TD></TR>
+      <A href="files/serial_enum.cpp">
+      serial_enum.cpp</A> here
+      </CENTER></DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -180,18 +190,48 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
     <tbody>
   <TR>
     <TD bgColor=#cccccc>
-      <FONT size=+1><CODE><B>beer_cals</B></CODE> - 
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>hex_dump</B></CODE> - 
+      Read data and display as both binary and ASCII data.
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>August 15, 2017</B> </DIV></TD></TR>
+  <TR>
+    <TD bgColor=#ffffff colSpan=3>
+      This displays a data file in standard hex-dump format, 
+      comprising address + hex_data + ascii_data, looking like this:
+      <pre>
+007A0:  0C 89 5C 24 08 89 5C 24 04 C7 04 24 EE 30 40 00  | .?\$.?\$.?.$?0@. |
+      </pre>
+      <CENTER>Download 
+      <A href="files/hex_dump.cpp">hex_dump.cpp</A> here
+      </CENTER></DIV></TD></TR>
+    </tbody>
+  </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+  <table>
+    <tbody>
+  <TR>
+    <TD bgColor=#cccccc>
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>beer_cals</B></CODE> - 
       Estimates calories of ale
-      </FONT>
-      <br>Last Update: <B>September 22, 2015</B> </TD></TR>
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>September 22, 2015</B> </DIV></TD></TR>
   <TR>
     <TD bgColor=#ffffff colSpan=3>
       Estimates calories of ale, from both alcohol and carbohydrates, 
       based upon volume and alcohol content.  Volume may be input in milliliters or ounces.
       <BR><BR>
       <CENTER>Download 
-      <A href="./beer_cals.cpp">beer_cals.cpp</A> here
-      </CENTER></TD></TR>
+      <A href="files/beer_cals.cpp">
+      beer_cals.cpp</A> here
+      </CENTER></DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -203,10 +243,64 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
     <tbody>
   <TR>
     <TD bgColor=#cccccc>
-      <FONT size=+1><CODE><B>dms2dd</B></CODE> - 
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>ascii</B></CODE> - 
+      Displays an ASCII table, in decimal, hex and ASCII, for all 256 characters
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>August 10, 2017</B> </DIV></TD></TR>
+  <TR>
+    <TD bgColor=#ffffff colSpan=3>
+      <BR>
+      <CENTER>Download 
+      <A href="files/ascii.cpp">
+      ascii.cpp</A> here
+      </CENTER></DIV></TD>
+      </TR>
+    </tbody>
+  </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+  <table>
+    <tbody>
+  <TR>
+    <TD bgColor=#cccccc>
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>apptest</B></CODE> - 
+      This inappropriately-named file demonstrates two common WinAPI tasks
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>December 03, 2013</B> </DIV></TD></TR>
+  <TR>
+    <TD bgColor=#ffffff colSpan=3>
+			This console application demonstrates two common WinAPI tasks:
+			<li>Use printf() to output UNICODE messages to the console
+			<li>Display various Windows system/user directories
+      <BR><BR>
+      <CENTER>Download 
+      <A href="files/apptest.cpp">
+      apptest.cpp</A> here
+      </CENTER></DIV></TD></TR>
+    </tbody>
+  </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+  <table>
+    <tbody>
+  <TR>
+    <TD bgColor=#cccccc>
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>dms2dd</B></CODE> - 
       Convert between degrees/minutes/seconds and decimal degrees
-      </FONT>
-      <br>Last Update: <B>September 30, 2010</B></TD></TR>
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>September 30, 2010</B> </DIV></TD></TR>
   <TR>
     <TD bgColor=#ffffff colSpan=3>
 Usage: dms2dd input_value<br>
@@ -216,10 +310,11 @@ If dms2dd sees two decimal points in the input,<br>
 the value will be treated as dms, and dd will be calculated and output.<br><br>
 If dms2dd sees one decimal points in the input,<br>
 the value will be treated as dd, and dms will be calculated and output.<br>
-      <BR>
+      <BR><BR>
       <CENTER>Download 
-      <A href="./dms2dd.cpp">dms2dd.cpp</A> here
-      </CENTER></TD></TR>
+      <A href="files/dms2dd.cpp">
+      dms2dd.cpp</A> here
+      </CENTER></DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -231,11 +326,12 @@ the value will be treated as dd, and dms will be calculated and output.<br>
     <tbody>
   <TR>
     <TD bgColor=#cccccc>
-      <FONT size=+1><CODE><B>mortgage</B></CODE> - 
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>mortgage</B></CODE> - 
       Performs mortgage calculations
-      </FONT>
-      <br>Last Update: <B>December 23, 2011</B>
-      </TD></TR>
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>December 23, 2011</B> </DIV></TD></TR>
   <TR>
     <TD bgColor=#ffffff colSpan=3>
 Usage: MORTGAGE principle interest number_months overpay
@@ -251,8 +347,9 @@ Also, if overpay is greater than payment, then overpay is treated as
 total payment amount, and overpay is calculated from that.
       <BR><BR>
       <CENTER>Download 
-      <A href="./mortgage.cpp">mortgage.cpp</A> here
-      </CENTER></TD></TR>
+      <A href="files/mortgage.cpp">
+      mortgage.cpp</A> here
+      </CENTER></DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -264,10 +361,12 @@ total payment amount, and overpay is calculated from that.
     <tbody>
   <TR>
     <TD bgColor=#cccccc>
-      <FONT size=+1><CODE><B>prime32</B></CODE> - 
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>prime32</B></CODE> - 
       calculates factors of a number, or reports if input is prime
-      </FONT>
-      <br>Last Update: <B>February 22, 2012</B></TD></TR>
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>February 22, 2012</B> </DIV></TD></TR>
   <TR>
     <TD bgColor=#ffffff colSpan=3>
 PRIME32.EXE - Written by: Daniel D. Miller<br>
@@ -275,17 +374,68 @@ PRIME32.EXE - Written by: Daniel D. Miller<br>
 This program determines whether a number is a prime,<br>
 then displays either the number or its factors.<br>
       <BR>
-      <CENTER>Download <A href="./prime32.cpp">prime32.cpp</A> here
-      </CENTER></TD></TR>
+      <CENTER>Download 
+      <A href="files/prime32.cpp">
+      prime32.cpp</A> here
+      </CENTER></DIV></TD></TR>
+    </tbody>
+  </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+    <table>
+    <tbody>
+  <TR>
+    <TD bgColor=#cccccc>
+      <DIV
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left">
+      <FONT size=+1>C/C++ makefile-dependency generator </FONT></DIV>
+      <DIV>Last Update: <B>February 02, 2007</B> </DIV></TD></TR>
+  <TR>
+    <TD bgColor=#ffffff colSpan=3>
+      <DIV>
+      This is the version of makedepend which is distributed with Xfree86.
+      &nbsp;It is <b>Copyright (c) 1993, 1994, 1998 The Open Group</b> and has
+      a free-distribution message in each source file. &nbsp;I made a couple of
+      trivial changes to the source to make it compile with modern gcc,
+      but otherwise it still works superbly and needs no changes.
+      <BR>
+      To use this utility, make the following changes to your makefile:
+      <BR><BR>
+      1. Add this line to the end of the makefile:<pre>
+# DO NOT DELETE</pre>
+      2. Add a rule for running makedepend:<pre>
+SRCS=file1.cpp file2.cpp file3.cpp
+depend:
+  makedepend -I. $(SRCS)
+</pre>
+      3. run <pre>make depend</pre> to update the dependencies. &nbsp;
+      That's it!!  Your makefile now has the appropriate dependency list.
+      <BR><BR>
+      <CENTER><A
+      href="files/makedepend.src.zip">
+      Download the source code package here</A> </CENTER></DIV>
+      </TD></TR>
     </tbody>
   </table>
     </td>
   </tr>
 
 
+
   </tbody>
 </table>
 
+<CENTER>
+<BR>
+
+<FORM name=buttons onsubmit="return false" method=post>
+  <INPUT onclick="location.href='index.htm'" type=button
+  value="back to derelict home page">
+</FORM>
+</CENTER>
 <P></P><!--//-->
 </LI>
 </BODY></HTML>
