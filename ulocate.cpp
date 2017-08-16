@@ -1,12 +1,12 @@
 //****************************************************************************
-//  Copyright (c) 2006-2016  Daniel D Miller
+//  Copyright (c) 2006-2017  Daniel D Miller
 //  
 //  ulocate: Locate filenames containing a certain component,
 //  starting at specified path.
 //                                                                 
 //  Written by:   Daniel D. Miller  
 //                                                                 
-//  compile:  gcc -Wall -O2 -s wlocate.cpp -o wlocate
+//  compile:  gcc -Wall -O2 -s ulocate.cpp -o ulocate
 //  lint:    c:\lint9\lint-nt +v -width(160,4) -ic:\lint9 mingw.lnt -os(_lint.tmp) filename
 //                                                                 
 //****************************************************************************
@@ -31,6 +31,9 @@
 //                     to get rid of sporadic Windows system log warnings:
 //                     "Invalid parameter passed to C runtime function."
 // 1.12  06/29/16    Convert %llu references to inscrutable new C++ form 
+// 1.13  07/13/17    Fix path handling for search in root directory
+// 1.14  07/27/17    Add -/ switch to use backslash vs forward-slash in path
+// 1.15  07/28/17    Add ULOCATE environment variable support
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
 //  but I have no idea what the cause is.  Both errno and GetLastError()
@@ -46,7 +49,7 @@
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
 
-char const * const Version = "ULOCATE.EXE, Version 1.12";
+char const * const Version = "ULOCATE.EXE, Version 1.15";
 
 #define  USE_NEW_LLU  1
 
@@ -69,6 +72,8 @@ char const * const Version = "ULOCATE.EXE, Version 1.12";
 #include <limits.h>
 #include <dirent.h>
 #include <sys/stat.h>
+
+//lint -e10    Expecting '}'
 
 //lint -e534   Ignoring return value of function
 //lint -e716   while(1) ... 
@@ -136,6 +141,7 @@ static bool path_shown = false ;
 static bool follow_symlinks = false ;
 static bool search_path = false ;
 static bool whole_word_search = false ;
+static bool use_backslashes = false ;
 
 #define  OFMT_NONE   0x00
 #define  OFMT_DATE   0x01
@@ -413,6 +419,20 @@ static void test_display_state(void)
 }
 
 //**********************************************************
+static void convert_slashes(char *pathname)
+{
+    char *p = pathname ;
+    while (*p != 0)
+    {
+        if (*p == '/')
+        {
+            *p = '\\';
+        }
+        p++;
+    }
+}
+                
+//**********************************************************
 static void print_output(int month, int day, long year, int hour, int mins, int secs, u64 fsize, char *pathname, bool is_dir)
 {
    if (output_format & OFMT_DATE) {
@@ -457,6 +477,9 @@ static void print_output(int month, int day, long year, int hour, int mins, int 
    }
 
    if (output_format & OFMT_NAME) {
+      if (use_backslashes) {
+         convert_slashes(pathname);
+      }
       if (is_dir) 
          printf("[%s]", pathname) ;
       else
@@ -1297,6 +1320,7 @@ void usage (void)
    puts(" -b  Debug mode - show other process information") ;
    puts(" -l  follow symbolic links") ;
    puts(" -w  match exact string (whole-word search)") ;
+   puts(" -/  Use backslash vs forward slash for path elements") ;
    puts("") ;
    puts(" -p  Search for name_component in the directories in the PATH variable") ;
    puts("     NOTE: This option replaces the normal ulocate functionality with") ;
@@ -1313,13 +1337,24 @@ int main (int argc, char **argv)
 
    puts (Version);
 
+   //***********************************************************
+   //  parse environment variable, *before* command line
+   //***********************************************************
+   int start_idx = 1 ;
+   char *ulocate_env = getenv("ULOCATE");
+   if (ulocate_env != NULL)
+   {
+      argv[0] = ulocate_env ;
+      start_idx = 0 ;
+   }
+
    // printf("size of PATH_MAX=%u bytes\n", PATH_MAX) ;  //  4096 bytes
    //***********************************************************
    //  parse command line
    //***********************************************************
    temp_path[0] = 0;
    name_comp[0] = 0;
-   for (j = 1; j < argc; j++) {
+   for (j = start_idx; j < argc; j++) {
       p = argv[j];
       if (*p == '-') {
          p++ ;
@@ -1349,6 +1384,7 @@ int main (int argc, char **argv)
             case 'l':  follow_symlinks = true ;  break;
             case 'p':  search_path = true ;  break;
             case 'w':  whole_word_search = true ;  break;
+            case '/':  use_backslashes = true ;  break;
 
             default:
                usage() ;
@@ -1401,6 +1437,9 @@ int main (int argc, char **argv)
       if (p == 0) {
          perror(temp_path) ;
          return 1;
+      }
+      if (strlen(target_path) == 3) {
+         target_path[2] = '/' ;
       }
 
       printf ("searching %s\n", target_path);

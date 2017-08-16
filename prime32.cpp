@@ -8,11 +8,13 @@
 //*****************************************************************
 //  Maximum integer input: 18,446,744,073,709,551,615              
 //                                                                 
-//  Largest found prime:    2,041,945,040,465,531,213              
+//  Largest found prime:   12,764,787,846,358,441,471
+//                               12764787846358441471
 //*****************************************************************
 //  Version    Date        Description
 //   1.00      07/23/05    Original
 //   1.01      02/22/12    Fix bug on N*N, with N prime
+//   1.02      01/11/16    Change number-read function to strtoull()
 //*****************************************************************
 
 #include <stdio.h>
@@ -46,7 +48,7 @@ int main(int argc, char** argv)
             puts("");
             printf("Enter a number (0 quits): ");
             gets(tempstr) ;
-            givennbr = _atoi64(tempstr) ;
+            givennbr = strtoull(tempstr, NULL, 10) ;
             if (givennbr == 0)
                return 0;
             break;
@@ -54,7 +56,7 @@ int main(int argc, char** argv)
             if (argv[next] == NULL)
                exit(0) ;
             puts("****************************************************\n");
-            givennbr = _atoi64(argv[next++]) ;
+            givennbr = strtoull(argv[next++], NULL, 10) ;
             if (givennbr == 0)
                return 0;
             break;
