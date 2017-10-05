@@ -6,7 +6,7 @@ else
 CFLAGS=-Wall -O3 -s
 endif
 
-all: hex_dump.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime32.exe printf2.exe ulocate.exe serial_enum.exe
+all: hex_dump.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime32.exe printf2.exe ulocate.exe serial_enum.exe textfont.exe
 
 clean:
 	rm -f *.exe
@@ -33,6 +33,9 @@ printf2.exe: printf2.c
 	gcc $(CFLAGS) -DTEST_PRINTF $< -o $@
 
 ulocate.exe: ulocate.cpp
+	g++ $(CFLAGS) -Weffc++ $< -o $@
+
+textfont.exe: textfont.cpp
 	g++ $(CFLAGS) -Weffc++ $< -o $@
 
 serial_enum.exe: serial_enum.cpp
