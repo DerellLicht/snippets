@@ -1,6 +1,4 @@
-<!-- saved from url=(0022)http://internet.e-mail -->
-<HTML><HEAD><TITLE>Win32 Source code snippets in C</TITLE>
-<BODY>
+###Win32 Source code snippets in C
 <P>
 <CENTER><FONT face="Comic Sans MS" size=+2>
 <B>Win32 Source code snippets by the derelict</B>
@@ -463,4 +461,3 @@ depend:
 </CENTER>
 <P></P><!--//-->
 </LI>
-</BODY></HTML>
