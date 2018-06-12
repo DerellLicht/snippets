@@ -1,4 +1,4 @@
-###Win32 Source code snippets in C
+### Win32 Source code snippets in C
 <P>
 <CENTER><FONT face="Comic Sans MS" size=+2>
 <B>Win32 Source code snippets by the derelict</B>
