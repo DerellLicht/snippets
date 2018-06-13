@@ -76,7 +76,7 @@ other options:
  Options can also be placed in the ULOCATE environment variable
       </pre>
       <CENTER>Download 
-			<A href="files/ulocate.cpp">
+                        <A href="ulocate.cpp">
 			ulocate.cpp</A> here
 			</CENTER>
 			</DIV></TD></tr>
