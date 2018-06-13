@@ -166,7 +166,7 @@ Download <A href="printf2.c"> printf2.c</A> here
       which can be passed to CreateFile().
       <BR><BR>
       Download 
-      <A href="files/serial_enum.cpp">
+      <A href="serial_enum.cpp">
       serial_enum.cpp</A> here
 </DIV></TD></TR>
     </tbody>
@@ -193,7 +193,7 @@ Download <A href="printf2.c"> printf2.c</A> here
       <pre>
 007A0:  0C 89 5C 24 08 89 5C 24 04 C7 04 24 EE 30 40 00  | .?\$.?\$.?.$?0@. |
       </pre>
-      Download <A href="files/hex_dump.cpp">hex_dump.cpp</A> here
+      Download <A href="hex_dump.cpp">hex_dump.cpp</A> here
 </DIV></TD></TR>
     </tbody>
   </table>
@@ -216,7 +216,7 @@ Download <A href="printf2.c"> printf2.c</A> here
     <TD bgColor=#ffffff colSpan=3>
       reads and displays MSDOS bit-mapped font files.
       <BR><BR>
-Download <A href="files/beer_cals.cpp">textfont.cpp</A> here
+Download <A href="beer_cals.cpp">textfont.cpp</A> here
 </DIV></TD></TR>
     </tbody>
   </table>
@@ -240,7 +240,7 @@ Download <A href="files/beer_cals.cpp">textfont.cpp</A> here
       Estimates calories of ale, from both alcohol and carbohydrates, 
       based upon volume and alcohol content.  Volume may be input in milliliters or ounces.
       <BR><BR>
-      Download <A href="files/beer_cals.cpp">beer_cals.cpp</A> here
+      Download <A href="beer_cals.cpp">beer_cals.cpp</A> here
       </DIV></TD></TR>
     </tbody>
   </table>
@@ -263,7 +263,7 @@ Download <A href="files/beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#ffffff colSpan=3>
       <BR>
       <CENTER>Download 
-      <A href="files/ascii.cpp">
+      <A href="ascii.cpp">
       ascii.cpp</A> here
       </CENTER></DIV></TD>
       </TR>
@@ -290,7 +290,7 @@ Download <A href="files/beer_cals.cpp">textfont.cpp</A> here
 			<li>Use printf() to output UNICODE messages to the console
 			<li>Display various Windows system/user directories
       <BR><BR>
-      Download <A href="files/apptest.cpp">apptest.cpp</A> here
+      Download <A href="apptest.cpp">apptest.cpp</A> here
       </DIV></TD></TR>
     </tbody>
   </table>
@@ -319,7 +319,7 @@ the value will be treated as dms, and dd will be calculated and output.<br><br>
 If dms2dd sees one decimal points in the input,<br>
 the value will be treated as dd, and dms will be calculated and output.<br>
       <BR>
-      Download <A href="files/dms2dd.cpp">dms2dd.cpp</A> here
+      Download <A href="dms2dd.cpp">dms2dd.cpp</A> here
 </DIV></TD></TR>
     </tbody>
   </table>
@@ -352,7 +352,7 @@ required to pay off principle.
 Also, if overpay is greater than payment, then overpay is treated as
 total payment amount, and overpay is calculated from that.
       <BR><BR>
-      Download <A href="files/mortgage.cpp">mortgage.cpp</A> here
+      Download <A href="mortgage.cpp">mortgage.cpp</A> here
       </DIV></TD></TR>
     </tbody>
   </table>
@@ -378,7 +378,7 @@ PRIME32.EXE - Written by: Daniel D. Miller<br>
 This program determines whether a number is a prime,<br>
 then displays either the number or its factors.<br>
       <BR>
-      Download <A href="files/prime32.cpp">prime32.cpp</A> here
+      Download <A href="prime32.cpp">prime32.cpp</A> here
       </DIV></TD></TR>
     </tbody>
   </table>
@@ -416,7 +416,7 @@ depend:
       3. run <pre>make depend</pre> to update the dependencies. &nbsp;
       That's it!!  Your makefile now has the appropriate dependency list.
       <BR><BR>
-      <A href="files/makedepend.src.zip">
+      <A href="makedepend.src.zip">
       Download the source code package here</A>
       </DIV></TD></TR>
     </tbody>
