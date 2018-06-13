@@ -138,10 +138,8 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
       <li>10/08/13 - Add support for signed/unsigned long long (u64/i64)
 
       <BR><BR>
-      <CENTER>Download 
-			<A href="files/printf2.c">
-			printf2.c</A> here
-			</CENTER></DIV></TD></TR>
+Download <A href="printf2.c"> printf2.c</A> here
+</DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -167,10 +165,10 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
       available for use).  Also added an option to display the Device Name,
       which can be passed to CreateFile().
       <BR><BR>
-      <CENTER>Download 
+      Download 
       <A href="files/serial_enum.cpp">
       serial_enum.cpp</A> here
-      </CENTER></DIV></TD></TR>
+</DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -195,9 +193,8 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
       <pre>
 007A0:  0C 89 5C 24 08 89 5C 24 04 C7 04 24 EE 30 40 00  | .?\$.?\$.?.$?0@. |
       </pre>
-      <CENTER>Download 
-      <A href="files/hex_dump.cpp">hex_dump.cpp</A> here
-      </CENTER></DIV></TD></TR>
+      Download <A href="files/hex_dump.cpp">hex_dump.cpp</A> here
+</DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -219,10 +216,8 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
     <TD bgColor=#ffffff colSpan=3>
       reads and displays MSDOS bit-mapped font files.
       <BR><BR>
-      <CENTER>Download 
-      <A href="files/beer_cals.cpp">
-      textfont.cpp</A> here
-      </CENTER></DIV></TD></TR>
+Download <A href="files/beer_cals.cpp">textfont.cpp</A> here
+</DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -245,10 +240,8 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
       Estimates calories of ale, from both alcohol and carbohydrates, 
       based upon volume and alcohol content.  Volume may be input in milliliters or ounces.
       <BR><BR>
-      <CENTER>Download 
-      <A href="files/beer_cals.cpp">
-      beer_cals.cpp</A> here
-      </CENTER></DIV></TD></TR>
+      Download <A href="files/beer_cals.cpp">beer_cals.cpp</A> here
+      </DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -297,10 +290,8 @@ for now, I'll just try to remember to use %% instead of &#92;% for normal output
 			<li>Use printf() to output UNICODE messages to the console
 			<li>Display various Windows system/user directories
       <BR><BR>
-      <CENTER>Download 
-      <A href="files/apptest.cpp">
-      apptest.cpp</A> here
-      </CENTER></DIV></TD></TR>
+      Download <A href="files/apptest.cpp">apptest.cpp</A> here
+      </DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -327,11 +318,9 @@ If dms2dd sees two decimal points in the input,<br>
 the value will be treated as dms, and dd will be calculated and output.<br><br>
 If dms2dd sees one decimal points in the input,<br>
 the value will be treated as dd, and dms will be calculated and output.<br>
-      <BR><BR>
-      <CENTER>Download 
-      <A href="files/dms2dd.cpp">
-      dms2dd.cpp</A> here
-      </CENTER></DIV></TD></TR>
+      <BR>
+      Download <A href="files/dms2dd.cpp">dms2dd.cpp</A> here
+</DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -363,10 +352,8 @@ required to pay off principle.
 Also, if overpay is greater than payment, then overpay is treated as
 total payment amount, and overpay is calculated from that.
       <BR><BR>
-      <CENTER>Download 
-      <A href="files/mortgage.cpp">
-      mortgage.cpp</A> here
-      </CENTER></DIV></TD></TR>
+      Download <A href="files/mortgage.cpp">mortgage.cpp</A> here
+      </DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -391,10 +378,8 @@ PRIME32.EXE - Written by: Daniel D. Miller<br>
 This program determines whether a number is a prime,<br>
 then displays either the number or its factors.<br>
       <BR>
-      <CENTER>Download 
-      <A href="files/prime32.cpp">
-      prime32.cpp</A> here
-      </CENTER></DIV></TD></TR>
+      Download <A href="files/prime32.cpp">prime32.cpp</A> here
+      </DIV></TD></TR>
     </tbody>
   </table>
     </td>
@@ -431,10 +416,9 @@ depend:
       3. run <pre>make depend</pre> to update the dependencies. &nbsp;
       That's it!!  Your makefile now has the appropriate dependency list.
       <BR><BR>
-      <CENTER><A
-      href="files/makedepend.src.zip">
-      Download the source code package here</A> </CENTER></DIV>
-      </TD></TR>
+      <A href="files/makedepend.src.zip">
+      Download the source code package here</A>
+      </DIV></TD></TR>
     </tbody>
   </table>
     </td>
