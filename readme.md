@@ -76,10 +76,8 @@ other options:
 
  Options can also be placed in the ULOCATE environment variable
       </pre>
-      Download 
-                        <A href="ulocate.cpp">
-			ulocate.cpp</A> here
-        </DIV></TD></tr>
+      Download <A href="ulocate.cpp">ulocate.cpp</A> here
+    </DIV></TD></tr>
     </tbody>
   </table>
     </td>
