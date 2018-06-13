@@ -1,9 +1,5 @@
 ### Win32 Source code snippets in C
 <P>
-<CENTER><FONT face="Comic Sans MS" size=+2>
-<B>Win32 Source code snippets by the derelict</B>
-</FONT></CENTER>
-<P></P>
 <HR>
 <FONT size=+1>
 <LI>These are all small, typically command-line utilities that I've found
