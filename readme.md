@@ -44,6 +44,7 @@ target=_top>http://www.mingw.org/</A>
 			</FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>July 28, 2017</B></DIV>
     </TD></TR>
+
   <TR>
     <TD bgColor=#ffffff>
       <DIV class=t_news>
@@ -75,18 +76,14 @@ other options:
 
  Options can also be placed in the ULOCATE environment variable
       </pre>
-      <CENTER>Download 
+      Download 
                         <A href="ulocate.cpp">
 			ulocate.cpp</A> here
-			</CENTER>
-			</DIV></TD></tr>
+        </DIV></TD></tr>
     </tbody>
   </table>
     </td>
   </tr>
-+
-Download [ulocate.cpp](ulocate.cpp) here
-+
 
   <tr>
     <td>
