@@ -130,7 +130,6 @@ other options:
            that was not appropriate for general use
       <li>10/08/13 - Add support for signed/unsigned long long (u64/i64)
 
-      <BR><BR>
 Download <A href="printf2.c"> printf2.c</A> here
 </DIV></TD></TR>
     </tbody>
