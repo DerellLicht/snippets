@@ -119,13 +119,6 @@ other options:
       <li>12/02/09 - fixed floating-point bug related to padding decimal
       portion with zeroes.<BR>
       <li>03/19/10 - pad fractional portion of floating-point number with 0s<BR>
-      <li>03/30/10 - document the &#92;%char bug<BR>
-If '&#92;%' is included in a format string, followed by a non-format character
-(typically because the user desires to place the % char in the output string),
-this function will mis-handle the data entirely!!  
-Essentially, it will just discard the character following the percent sign.  
-This bug is not easy to fix in the existing code; 
-for now, I'll just try to remember to use %% instead of &#92;% for normal output.<br>
       <li>07/20/10 - Fix a round-off bug in floating-point conversions<br>
                  ( 0.99 with %.1f did not round to 1.0 )
       <li>10/25/11 - Add support for %+ format (always show + on positive numbers)<BR>
