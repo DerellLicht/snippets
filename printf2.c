@@ -26,21 +26,12 @@
 //  as described above.
 //  11/06/09 - adding floating-point support
 //  03/19/10 - pad fractional portion of floating-point number with 0s
-//  03/30/10 - document the \% bug
 //  07/20/10 - Fix a round-off bug in floating-point conversions
 //             ( 0.99 with %.1f did not round to 1.0 )
 //  10/25/11 - Add support for %+ format (always show + on positive numbers)
 //  05/10/13 - Add stringfn() function, which takes a maximum-output-buffer
 //             length as an argument.  Similar to snprintf()
 //  10/08/13 - Add support for signed/unsigned long long (u64/i64)
-//*******************************************************************************
-//  BUGS
-//  If '%' is included in a format string, in the form \% with the intent
-//  of including the percent sign in the output string, this function will
-//  mis-handle the data entirely!!  
-//  Essentially, it will just discard the character following the percent sign.  
-//  This bug is not easy to fix in the existing code; 
-//  for now, I'll just try to remember to use %% instead of \% ...
 //*******************************************************************************
 //  compile command for stand-alone mode (TEST_PRINTF)
 //  gcc -Wall -O2 -DTEST_PRINTF -s printf2.c -o printf2.exe
