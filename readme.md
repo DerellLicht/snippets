@@ -275,7 +275,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
       size=+1><CODE><B>apptest</B></CODE> - 
       This inappropriately-named file demonstrates two common WinAPI tasks
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>December 03, 2013</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>June 24, 2018</B> </DIV></TD></TR>
   <TR>
     <TD bgColor=#ffffff colSpan=3>
 			This console application demonstrates two common WinAPI tasks:

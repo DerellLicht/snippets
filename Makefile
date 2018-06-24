@@ -6,13 +6,16 @@ else
 CFLAGS=-Wall -O3 -s
 endif
 
-all: hex_dump.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime32.exe printf2.exe ulocate.exe serial_enum.exe textfont.exe
+all: hex_dump.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime32.exe printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe
 
 clean:
 	rm -f *.exe
 
 ascii.exe: ascii.cpp
 	g++ $(CFLAGS) -Weffc++ $< -o $@
+
+apptest.exe: apptest.cpp
+	g++ $(CFLAGS) -DUNICODE -D_UNICODE -Wno-write-strings -Weffc++ $< -o $@
 
 hex_dump.exe: hex_dump.cpp
 	g++ $(CFLAGS) -Weffc++ $< -o $@
