@@ -421,8 +421,4 @@ depend:
   </tbody>
 </table>
 
-<CENTER>
-<BR>
-
-</CENTER>
 </LI>
