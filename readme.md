@@ -15,8 +15,8 @@ target=_top>http://www.mingw.org/</A>
 <table cellSpacing=0 cellPadding=0 width="100%" border=1>
   <tbody>
   <tr>
-    <td bgColor=#2060a0>
-       <CENTER><FONT color=#ffffff>
+    <td bgColor=#FBEFD5>
+       <CENTER><FONT color=#FBEFD5>
          T<SMALL>HE</SMALL>
          S<SMALL>OFTWARE</SMALL>
        </FONT></CENTER>
@@ -28,7 +28,7 @@ target=_top>http://www.mingw.org/</A>
   <table>
     <tbody>
     <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3 style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px;
       COLOR: #205080; TEXT-ALIGN: left"><FONT size=+1>
       <CODE><B>ulocate</B></CODE> - This was initially written for use under 
@@ -42,7 +42,7 @@ target=_top>http://www.mingw.org/</A>
     </TD></TR>
 
   <TR>
-    <TD bgColor=#ffffff>
+    <TD bgColor=#FBEFD5>
       <DIV class=t_news>
 			<pre>
 ULOCATE.EXE, Version 1.15
@@ -84,14 +84,14 @@ other options:
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>printf2</B></CODE> - source code for <CODE>printf/sprintf</CODE>,
       with floating-point support, and no header-file dependencies</FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>October 08, 2013</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
 			Embedded firmware environments provide a variety of challenges to the
 			software developer. &nbsp;One of these challenges is that, typically,
 			there is no "standard output" device to display messages on, so the
@@ -142,7 +142,7 @@ Download <A href="printf2.c"> printf2.c</A> here
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>serial_enum</B></CODE> - 
@@ -150,7 +150,7 @@ Download <A href="printf2.c"> printf2.c</A> here
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>February 02, 2015</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
       This is the Microsoft-approved method to enumerate all serial ports
       on a machine, including USB-serial devices. &nbsp;In addition to listing
       all the ports, it will report which ports can be opened (i.e., are 
@@ -171,7 +171,7 @@ Download <A href="printf2.c"> printf2.c</A> here
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>hex_dump</B></CODE> - 
@@ -179,7 +179,7 @@ Download <A href="printf2.c"> printf2.c</A> here
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>August 15, 2017</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
       This displays a data file in standard hex-dump format, 
       comprising address + hex_data + ascii_data, looking like this:
       <pre>
@@ -197,7 +197,7 @@ Download <A href="printf2.c"> printf2.c</A> here
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>textfont</B></CODE> - 
@@ -205,7 +205,7 @@ Download <A href="printf2.c"> printf2.c</A> here
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>October 04, 2017</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
       reads and displays MSDOS bit-mapped font files.
       <BR><BR>
 Download <A href="beer_cals.cpp">textfont.cpp</A> here
@@ -220,7 +220,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>beer_cals</B></CODE> - 
@@ -228,7 +228,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>September 22, 2015</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
       Estimates calories of ale, from both alcohol and carbohydrates, 
       based upon volume and alcohol content.  Volume may be input in milliliters or ounces.
       <BR><BR>
@@ -244,7 +244,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>ascii</B></CODE> - 
@@ -252,7 +252,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>August 10, 2017</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
       <BR>
       <CENTER>Download 
       <A href="ascii.cpp">
@@ -269,7 +269,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>apptest</B></CODE> - 
@@ -277,7 +277,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>June 24, 2018</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
 			This console application demonstrates two common WinAPI tasks:
 			<li>Use printf() to output UNICODE messages to the console
 			<li>Display various Windows system/user directories
@@ -294,7 +294,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>dms2dd</B></CODE> - 
@@ -302,7 +302,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>September 30, 2010</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
 Usage: dms2dd input_value<br>
 Enter dms as degrees.minutes.seconds<br>
 Enter dd as integer_degrees.fractional_degrees<br><br>
@@ -323,7 +323,7 @@ the value will be treated as dd, and dms will be calculated and output.<br>
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>mortgage</B></CODE> - 
@@ -331,7 +331,7 @@ the value will be treated as dd, and dms will be calculated and output.<br>
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>December 23, 2011</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
 Usage: MORTGAGE principle interest number_months overpay
 In normal operation, this program computes the monthly payment,
 and payment summary table, for a loan with the input parameters.
@@ -356,7 +356,7 @@ total payment amount, and overpay is calculated from that.
   <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>prime32</B></CODE> - 
@@ -364,7 +364,7 @@ total payment amount, and overpay is calculated from that.
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>February 22, 2012</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
 PRIME32.EXE - Written by: Daniel D. Miller<br>
 ****************************************************<br>
 This program determines whether a number is a prime,<br>
@@ -382,13 +382,13 @@ then displays either the number or its factors.<br>
     <table>
     <tbody>
   <TR>
-    <TD bgColor=#cccccc>
+    <TD bgColor=#F5DEB3>
       <DIV
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left">
       <FONT size=+1>C/C++ makefile-dependency generator </FONT></DIV>
       <DIV>Last Update: <B>February 02, 2007</B> </DIV></TD></TR>
   <TR>
-    <TD bgColor=#ffffff colSpan=3>
+    <TD bgColor=#FBEFD5 colSpan=3>
       <DIV>
       This is the version of makedepend which is distributed with Xfree86.
       &nbsp;It is <b>Copyright (c) 1993, 1994, 1998 The Open Group</b> and has
