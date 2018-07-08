@@ -10,6 +10,7 @@ libraries. &nbsp;MinGW is available from:
 <A href="http://www.mingw.org/"
 target=_top>http://www.mingw.org/</A>
 <LI>All are FREEWARE for any and all uses!!
+</LI>
 </FONT><BR><BR>
 
 <table cellSpacing=0 cellPadding=0 width="100%" border=1>
@@ -415,10 +416,6 @@ depend:
   </table>
     </td>
   </tr>
-
-
-
   </tbody>
 </table>
 
-</LI>
