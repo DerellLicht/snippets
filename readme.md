@@ -424,10 +424,5 @@ depend:
 <CENTER>
 <BR>
 
-<FORM name=buttons onsubmit="return false" method=post>
-  <INPUT onclick="location.href='index.htm'" type=button
-  value="back to derelict home page">
-</FORM>
 </CENTER>
-<P></P><!--//-->
 </LI>
