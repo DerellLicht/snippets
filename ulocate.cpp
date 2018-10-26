@@ -34,6 +34,8 @@
 // 1.13  07/13/17    Fix path handling for search in root directory
 // 1.14  07/27/17    Add -/ switch to use backslash vs forward-slash in path
 // 1.15  07/28/17    Add ULOCATE environment variable support
+// 1.16  10/25/18    ULOCATE environment variable now only carries 
+//                   optional search path.
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
 //  but I have no idea what the cause is.  Both errno and GetLastError()
@@ -49,7 +51,7 @@
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
 
-char const * const Version = "ULOCATE.EXE, Version 1.15";
+char const * const Version = "ULOCATE.EXE, Version 1.16";
 
 #define  USE_NEW_LLU  1
 
@@ -1339,14 +1341,15 @@ int main (int argc, char **argv)
 
    //***********************************************************
    //  parse environment variable, *before* command line
+   //  10/25/2018 - 
    //***********************************************************
    int start_idx = 1 ;
    char *ulocate_env = getenv("ULOCATE");
-   if (ulocate_env != NULL)
-   {
-      argv[0] = ulocate_env ;
-      start_idx = 0 ;
-   }
+   // if (ulocate_env != NULL)
+   // {
+   //    argv[0] = ulocate_env ;
+   //    start_idx = 0 ;
+   // }
 
    // printf("size of PATH_MAX=%u bytes\n", PATH_MAX) ;  //  4096 bytes
    //***********************************************************
@@ -1414,8 +1417,14 @@ int main (int argc, char **argv)
       usage ();
       return 1;
    }
-   if (output_format == OFMT_NONE)
+
+   if (ulocate_env != NULL)
+   {
+      strncpy (temp_path, ulocate_env, sizeof (temp_path));
+   }
+   if (output_format == OFMT_NONE) {
        output_format = OFMT_NAME ;
+   }
    printf("output format = 0x%04X, size_len=%u\n", output_format, size_len) ;
 
    //***********************************************************
