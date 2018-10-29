@@ -36,6 +36,8 @@
 // 1.15  07/28/17    Add ULOCATE environment variable support
 // 1.16  10/25/18    ULOCATE environment variable now only carries 
 //                   optional search path.
+// 1.17  10/29/18    ULOCATE mod - no, we *still* want to support switches,
+//                   as *well* as base search path
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
 //  but I have no idea what the cause is.  Both errno and GetLastError()
@@ -51,7 +53,7 @@
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
 
-char const * const Version = "ULOCATE.EXE, Version 1.16";
+char const * const Version = "ULOCATE.EXE, Version 1.17";
 
 #define  USE_NEW_LLU  1
 
@@ -92,9 +94,9 @@ typedef unsigned int        uint ;
 typedef unsigned long       u32 ;
 typedef unsigned long long  u64 ;
 
-#ifndef __MINGW32__
+// #ifndef __MINGW32__
 static const bool LOOP_FOREVER = true ;
-#endif
+// #endif
 
 static char target_path[PATH_MAX];
 static char temp_path[PATH_MAX];
@@ -1331,6 +1333,42 @@ void usage (void)
 }
 
 //************************************************************
+bool loop_over_switches(char *p)
+{
+   while (*p != 0) {
+      switch (*p) {
+      //  output-format options
+      case 'd':  output_format |= OFMT_DATE  ;  break;
+      case 't':  output_format |= OFMT_TIME  ;  break;
+      case 's':  output_format |= OFMT_SIZES ;  break;
+      case 'S':  output_format |= OFMT_SIZEL ;  break;
+      case 'n':  output_format |= OFMT_NAME  ;  break;
+
+      case 'x':
+         p++ ;
+         size_len = (uint) atoi(p) ;
+         if (size_len == 0)
+             size_len = 6 ;
+         break;
+      
+      //  other options
+      case 'b':  debug = true ;  break;
+      case 'v':  verbose = true ;  break;
+      case 'l':  follow_symlinks = true ;  break;
+      case 'p':  search_path = true ;  break;
+      case 'w':  whole_word_search = true ;  break;
+      case '/':  use_backslashes = true ;  break;
+
+      default:
+         usage() ;
+         return false;
+      }  //  switch 
+      p++ ;
+   }  //  while not done with current switch
+   return true;
+}
+
+//************************************************************
 int main (int argc, char **argv)
 {
    int j;
@@ -1341,15 +1379,42 @@ int main (int argc, char **argv)
 
    //***********************************************************
    //  parse environment variable, *before* command line
-   //  10/25/2018 - 
    //***********************************************************
    int start_idx = 1 ;
    char *ulocate_env = getenv("ULOCATE");
-   // if (ulocate_env != NULL)
-   // {
-   //    argv[0] = ulocate_env ;
-   //    start_idx = 0 ;
-   // }
+   if (ulocate_env != NULL)
+   {
+      // argv[0] = ulocate_env ;
+      // start_idx = 0 ;
+      p = ulocate_env ;
+      while (LOOP_FOREVER)
+      {
+         //  see if there are any further args in string
+         char *next_arg = strchr(p, ' ');
+         if (next_arg != NULL)
+         {
+            *next_arg++ = 0 ;
+         }
+
+         //  parse current string
+         if (*p == '-')
+         {
+            p++ ;
+            loop_over_switches(p);
+         }
+         else
+         {
+            //  non-switch arg in ULOCATE is *always* base search path
+            strncpy (temp_path, p, sizeof (temp_path));
+         }
+         //  goto next arg, if any
+         p = next_arg ;
+         if (next_arg == NULL)
+         {
+            break;
+         }
+      }
+   }
 
    // printf("size of PATH_MAX=%u bytes\n", PATH_MAX) ;  //  4096 bytes
    //***********************************************************
@@ -1365,38 +1430,11 @@ int main (int argc, char **argv)
             usage() ;
             return 1;
          }
-         while (*p != 0) {
-            switch (*p) {
-            //  output-format options
-            case 'd':  output_format |= OFMT_DATE  ;  break;
-            case 't':  output_format |= OFMT_TIME  ;  break;
-            case 's':  output_format |= OFMT_SIZES ;  break;
-            case 'S':  output_format |= OFMT_SIZEL ;  break;
-            case 'n':  output_format |= OFMT_NAME  ;  break;
-
-            case 'x':
-               p++ ;
-               size_len = (uint) atoi(p) ;
-               if (size_len == 0)
-                   size_len = 6 ;
-               break;
-            
-            //  other options
-            case 'b':  debug = true ;  break;
-            case 'v':  verbose = true ;  break;
-            case 'l':  follow_symlinks = true ;  break;
-            case 'p':  search_path = true ;  break;
-            case 'w':  whole_word_search = true ;  break;
-            case '/':  use_backslashes = true ;  break;
-
-            default:
-               usage() ;
-               return 1;
-            }  //  switch 
-            p++ ;
-         }  //  while not done with current switch
+         loop_over_switches(p);
       }  //  if switch is specified
       else {
+         //  if ULOCATE environment variable is defined,
+         //  treat any non-switch argument
          switch (strIdx) {
          case 0:
             strncpy (name_comp, p, sizeof (name_comp));
@@ -1418,10 +1456,10 @@ int main (int argc, char **argv)
       return 1;
    }
 
-   if (ulocate_env != NULL)
-   {
-      strncpy (temp_path, ulocate_env, sizeof (temp_path));
-   }
+   // if (ulocate_env != NULL)
+   // {
+   //    strncpy (temp_path, ulocate_env, sizeof (temp_path));
+   // }
    if (output_format == OFMT_NONE) {
        output_format = OFMT_NAME ;
    }
