@@ -1374,6 +1374,8 @@ int main (int argc, char **argv)
    int j;
    char *p;
    int strIdx = 0;
+   temp_path[0] = 0;
+   name_comp[0] = 0;
 
    puts (Version);
 
@@ -1420,8 +1422,6 @@ int main (int argc, char **argv)
    //***********************************************************
    //  parse command line
    //***********************************************************
-   temp_path[0] = 0;
-   name_comp[0] = 0;
    for (j = start_idx; j < argc; j++) {
       p = argv[j];
       if (*p == '-') {
