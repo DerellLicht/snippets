@@ -1,0 +1,13 @@
+ NDIR 2.47 C:\SourceCode\Git\snippets\              Volume label is derelict rebirth
+         6,656 a____ Aug 23, 2019 18:55:53 apptest.exe 
+         6,656 a____ Aug 23, 2019 18:55:50 ascii.exe 
+        24,576 a____ Aug 23, 2019 18:55:50 beer_cals.exe 
+        25,600 a____ Aug 23, 2019 18:55:50 dms2dd.exe 
+         7,168 a____ Aug 23, 2019 18:55:50 hex_dump.exe 
+        27,136 a____ Aug 23, 2019 18:55:50 mortgage.exe 
+         8,704 a____ Aug 23, 2019 18:55:51 prime32.exe 
+        13,312 a____ Aug 23, 2019 18:55:51 printf2.exe 
+        25,088 a____ Aug 23, 2019 18:55:52 serial_enum.exe 
+         9,216 a____ Aug 23, 2019 18:55:53 textfont.exe 
+        28,160 a____ Aug 23, 2019 18:55:52 ulocate.exe 
+11 files: 182,272 <204,800>; Disk: 1,294,773,727,232 <2,000,291,885,056>

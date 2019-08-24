@@ -128,7 +128,7 @@ struct  ftime   {
 //*********************************************************
 union parse_time {
    unsigned short dtime[2] ;
-   ftime outdata ;
+   struct ftime outdata ;
    } ;
 
 #else
