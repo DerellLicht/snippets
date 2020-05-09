@@ -1,2 +1,4 @@
 *.exe
 *.o
+_lint.tmp
+
