@@ -193,6 +193,8 @@ void usage(void)
 int main(int argc, char **argv)
 {
    int idx ;
+
+   //  parse command line
    for (idx=1; idx<argc; idx++) {
       char *p = argv[idx] ;
       if (*p == '-') {
@@ -246,6 +248,7 @@ int main(int argc, char **argv)
    }
    printf("mRNA:   [%s]\n", input_codon_buf);
 
+   //  do the codon translation and protein output
    char *hd = &input_codon_buf[0] ;
    bool done = false ;
    while (!done) {
