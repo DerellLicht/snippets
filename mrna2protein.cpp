@@ -7,6 +7,16 @@
 //  Written by:   Daniel D. Miller  
 //                                                                 
 //  compile:  gcc -Wall -O2 -s mrna2protein.cpp -o mrna2protein.exe
+// 
+// Usage: mrna2protein -options CODON_SEQUENCE
+// Options:
+// -3 means output 3-character protein code (default)
+// -1 means output 1-character protein code
+// -t means assume template (3') DNA strand (default is sense (5') strand)
+// 
+// Note regarding CODON_SEQUENCE :
+// 5' prefix and 3' suffix should *not* be included !!
+// Only [A,U,G,C] characters are valid
 //                                                                 
 // > mrna2protein.exe AUGGUGCACCUGACUCCUGAGGAGAAGUCUGCC
 // codons: [AUGGUGCACCUGACUCCUGAGGAGAAGUCUGCC]

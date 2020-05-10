@@ -201,6 +201,38 @@ Download <A href="printf2.c"> printf2.c</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>mrna2protein</B></CODE> - 
+parse an mRNA nucleotide sequence, and output corresponding protein codes, in either 3 or 1 character format.
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>May 09, 2020</B> </DIV></TD></TR>
+  <TR>
+    <TD bgColor=#FBEFD5 colSpan=3>
+      <pre>
+Usage: mrna2protein -options CODON_SEQUENCE
+Options:
+-3 means output 3-character protein code (default)
+-1 means output 1-character protein code
+-t means assume template (3') DNA strand (default is sense (5') strand)
+
+Note regarding CODON_SEQUENCE :
+5' prefix and 3' suffix should *not* be included !!
+Only [A,U,G,C] characters are valid
+      </pre>
+      Download <A href="hex_dump.cpp">mrna2protein.cpp</A> here
+</DIV></TD></TR>
+    </tbody>
+  </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+  <table>
+    <tbody>
+  <TR>
+    <TD bgColor=#F5DEB3>
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>textfont</B></CODE> - 
       reads and displays MSDOS bit-mapped font files
       </FONT></DIV>
