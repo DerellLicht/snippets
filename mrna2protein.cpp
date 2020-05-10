@@ -15,6 +15,7 @@
 
 #include <windows.h>
 #include <stdio.h>
+#include <stdlib.h>  //  exit()
 
 //lint -esym(818, argv)  Pointer parameter 'argv' could be declared as pointing to const
 //lint -e10  Expecting '}'
@@ -26,6 +27,7 @@ static const uint MAX_MRNA_LEN = (3 * MAX_CODONS) ;
 static char input_codon_buf[MAX_MRNA_LEN + 1] = "" ;
 
 static bool use_3byte_codon = true ;
+static bool use_template_strand = false ;
 
 //****************************************************************************
 //  codon lookup structure
@@ -71,12 +73,70 @@ static int parse_codon(char *hd)
    }
    int idx ;
    for (idx=0; idx<(int)TABLE_ENTRIES; idx++) {
-      if (strncmp(hd, codon_table[idx].codon, 3) == 0) {
+      if (strncasecmp(hd, codon_table[idx].codon, 3) == 0) {
          return idx;
       }
    }
    printf("ERROR: invalid codon [%c%c%c], aborting\n", *(hd), *(hd+1), *(hd+2));
    return -1;
+}
+
+//****************************************************************************
+//  if template (3') strand is specified,
+//  convert characters as required:  ATGC --> TUCG
+//****************************************************************************
+static void convert_template_to_mRNA(char *hd)
+{
+   char *p = hd ;
+   while (*p != 0) {
+      switch (*p) {
+      case 'a':
+      case 'A':
+         *p = 'U' ;
+         break;
+      case 't':
+      case 'T':
+         *p = 'A' ;
+         break;
+      case 'g':
+      case 'G':
+         *p = 'C' ;
+         break;
+      case 'c':
+      case 'C':
+         *p = 'G' ;
+         break;
+
+      //  if chars are not correct for template strand, abort
+      default:
+         puts("Invalid 3' template DNA strand, aborting...");
+         printf("[%s]\n", hd);
+         exit(1);
+      }
+      p++ ;
+   }
+}
+
+//****************************************************************************
+//  if template (3') strand is *NOT* specified,
+//  convert characters as required:  T/t --> U
+//  This allows for input being sense strand rather than mRNA
+//****************************************************************************
+static void convert_sense_to_mRNA(char *hd)
+{
+   char *p = hd ;
+   while (*p != 0) {
+      switch (*p) {
+      case 't':
+      case 'T':
+         *p = 'U' ;
+         break;
+
+      default:
+         break;
+      }
+      p++ ;
+   }
 }
 
 //****************************************************************************
@@ -89,6 +149,12 @@ static bool validate_codon_chars(char *codons)
       case 'U':
       case 'G':
       case 'C':
+      case 'T':
+      case 'a':
+      case 'u':
+      case 'g':
+      case 'c':
+      case 't':
          break;
 
       default:
@@ -106,6 +172,7 @@ void usage(void)
    puts("Options:");
    puts("-3 means output 3-character protein code (default)");
    puts("-1 means output 1-character protein code");
+   puts("-t means assume template (3') DNA strand (default is sense (5') strand)");
    puts("");
    puts("Note regarding CODON_SEQUENCE :");
    puts("5' prefix and 3' suffix should *not* be included !!");
@@ -127,6 +194,10 @@ int main(int argc, char **argv)
 
          case '3':
             use_3byte_codon = true ;
+            break;
+
+         case 't':
+            use_template_strand = true ;
             break;
 
          default:
@@ -154,6 +225,16 @@ int main(int argc, char **argv)
       puts("Aborting...");
       return 1;
    }
+
+   //  if template (3') strand is specified,
+   //  convert characters as required:  ATGC --> TUCG
+   if (use_template_strand) {
+      convert_template_to_mRNA(input_codon_buf);   
+   }
+   else {
+      convert_sense_to_mRNA(input_codon_buf);   
+   }
+   printf("mRNA:   [%s]\n", input_codon_buf);
 
    char *hd = &input_codon_buf[0] ;
    bool done = false ;
