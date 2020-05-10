@@ -218,7 +218,7 @@ Note regarding CODON_SEQUENCE :
 5' prefix and 3' suffix should *not* be included !!
 Only [A,U,G,C] characters are valid
       </pre>
-      Download <A href="hex_dump.cpp">mrna2protein.cpp</A> here
+      Download <A href="mrna2protein.cpp">mrna2protein.cpp</A> here
 </DIV></TD></TR>
     </tbody>
   </table>
