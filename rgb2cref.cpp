@@ -1,6 +1,11 @@
 //********************************************************************************
-//  rgb2cref.cpp - convert 
-
+//  Copyright (c) 2020  Daniel D Miller
+//  License: freeware
+//  
+//  rgb2cref.cpp - convert RGB value into hex/decimal form
+//  This is typically to aid in updating syntax-highlighting values for 
+//  programming editors
+//  
 //  build: g++ -Wall -O2 -s rgb2cref.cpp -o rgb2cref.exe
 //********************************************************************************
 #include <windows.h>

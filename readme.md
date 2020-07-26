@@ -175,6 +175,31 @@ Download <A href="printf2.c"> printf2.c</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>rgb2cref</B></CODE> - 
+      convert RGB value into hex/decimal form
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>July 26, 2020</B> </DIV></TD></TR>
+  <TR>
+    <TD bgColor=#FBEFD5 colSpan=3>
+This is typically to aid in updating syntax-highlighting values for programming editors
+      <BR><BR>
+      Download 
+      <A href="rgb2cref.cpp">
+      rgb2cref.cpp</A> here
+</DIV></TD></TR>
+    </tbody>
+  </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+  <table>
+    <tbody>
+  <TR>
+    <TD bgColor=#F5DEB3>
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>hex_dump</B></CODE> - 
       Read data and display as both binary and ASCII data.
       </FONT></DIV>
