@@ -1,9 +1,15 @@
+//********************************************************************************
+//  rgb2cref.cpp - convert 
+
+//  build: g++ -Wall -O2 -s rgb2cref.cpp -o rgb2cref.exe
+//********************************************************************************
 #include <windows.h>
 #include <stdio.h>
 #ifdef _lint
 #include <stdlib.h>  //  strtoul()
 #endif
 //lint -esym(818, argv)
+//lint -e10  Expecting '}'
 
 typedef unsigned int   uint ;
 typedef unsigned char  u8 ;
