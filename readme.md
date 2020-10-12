@@ -305,6 +305,29 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
+      size=+1><CODE><B>readall</B></CODE> - 
+      list all files specified by a filespec with wildcards
+      </FONT></DIV>
+      <DIV class=NEWS_FULL_SM>Last Update: <B>October 12, 2020</B> </DIV></TD></TR>
+  <TR>
+    <TD bgColor=#FBEFD5 colSpan=3>
+      list all files specified by a filespec with wildcards
+      <BR><BR>
+      Download <A href="readall.cpp">readall.cpp</A> here
+      </DIV></TD></TR>
+    </tbody>
+  </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+  <table>
+    <tbody>
+  <TR>
+    <TD bgColor=#F5DEB3>
+      <DIV class=h3
+      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
       size=+1><CODE><B>ascii</B></CODE> - 
       Displays an ASCII table, in decimal, hex and ASCII, for all 256 characters
       </FONT></DIV>
