@@ -51,8 +51,6 @@ int main(int argc, char** argv)
          printf("Enter a number (0 quits): ");
          gets(tempstr) ;   //lint !e421  dangerous function
          givennbr = strtoull(tempstr, NULL, 10) ;
-         if (givennbr == 0)
-            return 0;
          break;
          
       // case D_STANDARD:
@@ -61,11 +59,12 @@ int main(int argc, char** argv)
             exit(0) ;
          puts("****************************************************\n");
          givennbr = strtoull(argv[next++], NULL, 10) ;
-         if (givennbr == 0)
-            return 0;
          break;
       }
-
+      if (givennbr == 0) {
+         break ;
+      }
+      
       //****************************************************
       //  factor out powers of 2
       //****************************************************
@@ -105,12 +104,18 @@ int main(int argc, char** argv)
          }  /* IF nbrleft%nextodd    */
          nextodd += 2;
       }     /* while nextodd*nbrleft <= nbrleft */
+      // printf("DEBUG: %I64u %I64u\n", nbrleft, nextodd) ;
+      // DEBUG: 9851141 3139
+      // 9851141 is a prime number
 
       //****************************************************
       //  check for remaining value
       //****************************************************
       if (!header_displayed) {
          printf("%I64u is a prime number\n", givennbr) ; 
+      }
+      else if (nbrleft > 1) {
+         printf("   %20I64u       %20I64u\n", nbrleft, (__int64) 1) ;
       }
    }
    while (givennbr != 0);
