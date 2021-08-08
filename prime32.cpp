@@ -69,7 +69,8 @@ int main(int argc, char** argv)
       if (!(nbrleft & 1)) {
          while (!(nbrleft & 1)) {      /* while nbrleft mod 2 = 0  */
             power++ ;
-            nbrleft /= 2 ;
+            // nbrleft /= 2 ;
+            nbrleft >>= 1 ;
          }
          if (prime) {
             printf("The factors of %I64u are:\n\n", givennbr) ;
