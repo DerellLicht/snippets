@@ -1,5 +1,5 @@
 //****************************************************************************
-//  Copyright (c) 2006-2017  Daniel D Miller
+//  Copyright (c) 2006-2021  Daniel D Miller
 //  
 //  ulocate: Locate filenames containing a certain component,
 //  starting at specified path.
@@ -38,6 +38,7 @@
 //                   optional search path.
 // 1.17  10/29/18    ULOCATE mod - no, we *still* want to support switches,
 //                   as *well* as base search path
+// 1.18  08/27/21    -p option prepends '.' to search path
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
 //  but I have no idea what the cause is.  Both errno and GetLastError()
@@ -53,7 +54,7 @@
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
 
-char const * const Version = "ULOCATE.EXE, Version 1.17";
+char const * const Version = "ULOCATE.EXE, Version 1.18";
 
 #define  USE_NEW_LLU  1
 
@@ -160,9 +161,9 @@ static uint size_len = 6 ;
 //  directory structure for directory_tree routines
 //**********************************************************
 struct dirs {
-	dirs *brothers;
-	dirs *sons;
-	char *name;
+   dirs *brothers;
+   dirs *sons;
+   char *name;
 };
 static dirs *top = NULL;
 
@@ -1259,12 +1260,9 @@ static const char path_sep = ':' ;
 
 static int search_path_for_name(void)
 {
-   char mypath[1024] ;
+   char mypath[PATH_MAX] ;
    char *my_path = getenv("PATH") ;
    if (my_path == 0) {
-      //  In default Petalinux environment, getenv() does not work
-      // puts("could not find PATH variable") ;
-      // perror("getenv(PATH):") ;
       FILE *fd = popen("echo $PATH", "r") ;
       if (fd == 0) {
          perror("popen(PATH)") ;
@@ -1280,8 +1278,18 @@ static int search_path_for_name(void)
 #ifndef __MINGW32__
    strip_newlines(my_path);
 #endif
-   if (debug)
+   //  in Windows environment, prepend '.' to path
+#ifdef __MINGW32__
+   {
+   char tempath[PATH_MAX] ;
+   sprintf(tempath, ".;%s", my_path);
+   strcpy(mypath, tempath);
+   my_path = mypath ;
+   }
+#endif
+   if (debug) {
       printf("PATH=[%s]\n", my_path) ;
+   }
    char *hd = my_path ;
    while (1) {
       unsigned copy_count = 0 ;
