@@ -1100,12 +1100,12 @@ static int read_single_dir(char *sub_path)
                ft = fdata.ftLastWriteTime;
                FileTimeToLocalFileTime (&(ft), &lft);
                FileTimeToDosDateTime (&lft, &(outdt.dtime[1]), &(outdt.dtime[0]));
-               secs = outdt.outdata.ft_tsec;
-               mins = outdt.outdata.ft_min;
-               hour = outdt.outdata.ft_hour;
-               day  = outdt.outdata.ft_day;
+               secs  = outdt.outdata.ft_tsec;
+               mins  = outdt.outdata.ft_min;
+               hour  = outdt.outdata.ft_hour;
+               day   = outdt.outdata.ft_day;
                month = outdt.outdata.ft_month;
-               year = 1980L + (long) outdt.outdata.ft_year;
+               year  = 1980L + (long) outdt.outdata.ft_year;
 
                //  convert file size
                iconv.u[0] = fdata.nFileSizeLow;
@@ -1115,13 +1115,7 @@ static int read_single_dir(char *sub_path)
                test_display_state() ;
                print_output(month, day, year, hour, mins, secs, fsize, pathname, false) ;
                // printf ("%02d/%02d/%02d %02d:%02d:%02d  %s\n", 
-               //    month,
-               //    day,
-               //    (int) (year % 100),
-               //    hour,
-               //    mins,
-               //    secs,
-               //    pathname);
+               //    month, day, (int) (year % 100), hour, mins, secs, pathname);
             }
          }
       }  //  if file is parseable...
