@@ -2,6 +2,10 @@
 //  readall.cpp 
 //  This will be a generic utility to identify all files specified 
 //  by a provided file spec with wildcards
+//  This is intended as a template for reading all files in current directory,
+//  then performing some task on them.  The print statement at the end
+//  can be replaced with a function call to perform the desired operation
+//  on each discovered file.
 //  
 //  Written by:  Derell Licht
 //**********************************************************************************
