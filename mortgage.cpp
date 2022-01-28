@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <math.h>
 
+//lint -esym(119, strtod) //Too many arguments (2) for prototype 'strtod(const char *)'
+//lint -esym(818, argv)   // Pointer parameter 'argv' (line 147) could be declared as pointing to const
+
 typedef unsigned int  uint ;
 
 static double balance = 0.0 ;
@@ -81,7 +84,7 @@ static void compute_mortgage_payment(void)
       tprinciple += yprinciple;
       tinterest += yinterest;
 
-      printf ("%02d:    %9.2f  %9.2f  %9.2f\n", j, yinterest, yprinciple, balance);
+      printf ("%02u:    %9.2f  %9.2f  %9.2f\n", j, yinterest, yprinciple, balance);
       ibalance = (int) (balance * 100) ;
       j++;
    }
@@ -145,7 +148,7 @@ static void compute_months_remaining(void)
 int main (int argc, char **argv)
 {
    //  read command-line arguments
-	if (argc != 5) {
+   if (argc != 5) {
       usage() ;
 		return 1;
 	}
