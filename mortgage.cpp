@@ -70,10 +70,10 @@ static void compute_mortgage_payment(void)
       for (k = 0; k < 12; k++) {
          interest = balance * r;
          if (balance + interest > payment) {
-            principle = payment - interest + overpay;
-            balance -= principle;
-            yinterest += interest;
+            principle  =  payment - interest + overpay;
+            balance    -= principle;
             yprinciple += principle;
+            yinterest  += interest;
          }
          else {
             yprinciple += balance;
