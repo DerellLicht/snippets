@@ -64,6 +64,7 @@ static void compute_mortgage_payment(void)
    ibalance = (int) (balance * 100) ;
    // while (balance > 0.00) {
    while (ibalance > 0) {
+      //  calculate one year of data, in monthly increments
       yprinciple = 0;
       yinterest = 0;
       for (k = 0; k < 12; k++) {
