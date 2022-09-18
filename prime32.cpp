@@ -11,6 +11,15 @@
 //  Largest found prime:   12,764,787,846,358,441,471
 //                               12764787846358441471
 //*****************************************************************
+//  Compare 32-bit and 64-bit builds:
+// 
+// 12764787846358441471 is a prime number
+// Timer 1 off: 09:17:10  Elapsed: 0:00:34.19
+// 
+// 12764787846358441471 is a prime number
+// Timer 1 off: 09:48:03  Elapsed: 0:00:25.24
+// 
+//*****************************************************************
 //  Version    Date        Description
 //   1.00      07/23/05    Original
 //   1.01      02/22/12    Fix bug on N*N, with N prime
@@ -38,7 +47,8 @@ int main(int argc, char** argv)
    int next = 1 ;
    int display = (argc > 1) ? D_STANDARD : D_INTERACTIVE ;
 
-   puts("PRIME32.EXE - Written by: Daniel D. Miller") ;
+   // puts("PRIME32.EXE - Written by: Daniel D. Miller") ;
+   puts("PRIME64.EXE - Written by: Daniel D. Miller") ;
    puts("****************************************************");
    puts("This program determines whether a number is a prime,");
    puts("then displays either the number or its factors.");

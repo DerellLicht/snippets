@@ -8,7 +8,7 @@ CFLAGS=-Wall -O3 -s
 endif
 
 ifeq ($(USE_64BIT),YES)
-TOOLS=c:\tdm64\bin
+TOOLS=d:\tdm64\bin
 else
 TOOLS=c:\mingw\bin
 endif
