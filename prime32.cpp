@@ -85,7 +85,7 @@ int main(int argc, char** argv)
             power++ ;
             nbrleft >>= 1 ;
          }
-         printf("The factors of %I64u are:\n\n", givennbr) ;   //lint !e539 Did not expect positive indentation
+         printf("The factors of %I64u are:\n\n", givennbr) ;
          printf("          Factor                       Power \n");
          header_displayed = true ;
          //  Okay, I get it... when the preceding while loop is done,
