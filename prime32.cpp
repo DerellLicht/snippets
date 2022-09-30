@@ -98,6 +98,7 @@ int main(int argc, char** argv)
       //  factor out odd powers
       //****************************************************
       nextodd = 3;
+      //  this is an indirect way of saying "stop at square root of current target [nextodd]"
       while ((nbrleft / nextodd) >= nextodd) {
          power = 0 ;
          if (nbrleft % nextodd == 0) {
