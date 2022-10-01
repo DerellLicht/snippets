@@ -1,5 +1,5 @@
 USE_DEBUG = NO
-USE_64BIT = NO
+USE_64BIT = YES
 
 ifeq ($(USE_DEBUG),YES)
 CFLAGS=-Wall -O -g
@@ -7,6 +7,7 @@ else
 CFLAGS=-Wall -O3 -s
 endif
 
+#  this flag does *not* enable %llu in printf...
 #CFLAGS += -std=c++98
 #LFLAGS += -std=c++98
 
