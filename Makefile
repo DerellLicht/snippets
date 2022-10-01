@@ -7,6 +7,9 @@ else
 CFLAGS=-Wall -O3 -s
 endif
 
+#CFLAGS += -std=c++98
+#LFLAGS += -std=c++98
+
 ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
 else
