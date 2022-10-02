@@ -6,18 +6,19 @@
 //  written by:   Daniel D. Miller                                 
 //                                                                 
 //*****************************************************************
-//  Maximum integer input: 18,446,744,073,709,551,615              
-//                                                                 
-//  Largest found prime:   12,764,787,846,358,441,471
-//                               12764787846358441471
+//  Maximum integer input: 18,446,744,073,709,551,615
+//                         18446744073709551615      
+//                                                   
+//  Largest found prime:   18,446,744,073,709,551,557
+//                         18446744073709551557      
 //*****************************************************************
 //  Compare 32-bit and 64-bit builds:
 // 
-// 12764787846358441471 is a prime number
-// Timer 1 off: 09:17:10  Elapsed: 0:00:34.19
+// 18446744073709551557 is a prime number
+// Timer 1 off: 14:11:41  Elapsed: 0:00:43.11
 // 
-// 12764787846358441471 is a prime number
-// Timer 1 off: 09:48:03  Elapsed: 0:00:25.24
+// 18446744073709551557 is a prime number
+// Timer 1 off: 14:08:40  Elapsed: 0:00:30.28
 // 
 //*****************************************************************
 //  Version    Date        Description
@@ -86,6 +87,7 @@ int main(int argc, char** argv)
             nbrleft >>= 1 ;
          }
          printf("The factors of %I64u are:\n\n", givennbr) ;
+         // printf("The factors of %llu are:\n\n", givennbr) ;
          printf("          Factor                       Power \n");
          header_displayed = true ;
          //  Okay, I get it... when the preceding while loop is done,
