@@ -118,9 +118,27 @@ int main(int argc, char** argv)
          power = 0 ;
          // if (nbrleft % nextodd == 0) {
          if ((nbrdiv * nextodd) == nbrleft) {
-            while (nbrleft % nextodd == 0) {
-                nbrleft /= nextodd ;
-                power++ ; 
+            //  Note that NEW_METHOD could also be used here, 
+            //  to avoid the dual divide operations.
+            //  However, it would require finding a useful test number to observe the benefits; 
+            //  typically, for non-prime numbers (even 64-bit), this loop proceeds very quickly.
+            //  
+            //  Later note: sadly, this inner loop only executes repeatedly,
+            //  if a factor is present in a *very* large number, which is quite rare.
+            //  otherwise, we don't get much penefit from the inner conversion loop,
+            //  because we end up back out at the outer loop.
+            // 
+            //  sample case:
+            // The factors of 18446744073709551597 are:
+            //           Factor                       Power
+            //                       3                          1
+            //     6148914691236517199                          1
+            // Timer 1 off: 12:18:23  Elapsed: 0:00:08.72
+            // while (nbrleft % nextodd == 0) {
+            while ((nbrdiv * nextodd) == nbrleft) {
+               // nbrleft /= nextodd ;
+               nbrdiv = nbrleft / nextodd ;
+               power++ ; 
             }
             if (!header_displayed) {
                printf("The factors of %I64u are:\n\n", givennbr) ;
