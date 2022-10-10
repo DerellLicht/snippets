@@ -1,5 +1,5 @@
 //*****************************************************************
-//  PRIME32.CPP:                                                   
+//  PRIME64.CPP:                                                   
 //  This program reads in a number, determines whether it          
 //  is a prime, and prints either the number or its factors.       
 //                                                                 
@@ -18,20 +18,26 @@
 // Timer 1 off: 14:11:41  Elapsed: 0:00:43.11
 // 
 // 18446744073709551557 is a prime number
-// Timer 1 off: 14:08:40  Elapsed: 0:00:30.28
-// 
+// Timer 1 off: 14:08:40  Elapsed: 0:00:30.28  (old method)
+// Timer 1 off: 11:04:24  Elapsed: 0:00:15.14  (new method)
 //*****************************************************************
 //  Version    Date        Description
 //   1.00      07/23/05    Original
 //   1.01      02/22/12    Fix bug on N*N, with N prime
 //   1.02      01/11/16    Change number-read function to strtoull()
+//   1.03      10/10/22    In odd-number scan, replace second divide 
+//                         (for MOD operation) with a multiply
 //*****************************************************************
 
 #include <stdio.h>
 #include <stdlib.h>
 
+static char const version_string[] = "1.03" ;
+
 //lint -esym(818, argv)  could be declared as pointing to const
 //lint -esym(534, gets)  Ignoring return value of function
+
+#define  LOOP_FOREVER   true
 
 char tempstr[81] ;
 
@@ -49,7 +55,7 @@ int main(int argc, char** argv)
    int display = (argc > 1) ? D_STANDARD : D_INTERACTIVE ;
 
    // puts("PRIME32.EXE - Written by: Daniel D. Miller") ;
-   puts("PRIME64.EXE - Written by: Daniel D. Miller") ;
+   printf("PRIME64 V%s - Written by: Daniel D. Miller\n", version_string) ;
    puts("****************************************************");
    puts("This program determines whether a number is a prime,");
    puts("then displays either the number or its factors.");
@@ -101,9 +107,22 @@ int main(int argc, char** argv)
       //****************************************************
       nextodd = 3;
       //  this is an indirect way of saying "stop at square root of current target [nextodd]"
-      while ((nbrleft / nextodd) >= nextodd) {
+      //  
+      //  NOTE: NEW_METHOD replaces second divide (for MOD operation) with a multiply
+#define  NEW_METHOD  1
+#ifndef  NEW_METHOD
+      while ((nbrleft / nextodd) >= nextodd) {  
          power = 0 ;
          if (nbrleft % nextodd == 0) {
+#else      
+      while (LOOP_FOREVER) {  
+         unsigned __int64 nbrdiv = nbrleft / nextodd ;
+         if (nbrdiv < nextodd) {
+            break ;
+         }
+         power = 0 ;
+         if ((nbrdiv * nextodd) == nbrleft) {
+#endif         
             while (nbrleft % nextodd == 0) {
                 nbrleft /= nextodd ;
                 power++ ; 
