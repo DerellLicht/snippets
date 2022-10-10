@@ -109,20 +109,15 @@ int main(int argc, char** argv)
       //  this is an indirect way of saying "stop at square root of current target [nextodd]"
       //  
       //  NOTE: NEW_METHOD replaces second divide (for MOD operation) with a multiply
-#define  NEW_METHOD  1
-#ifndef  NEW_METHOD
-      while ((nbrleft / nextodd) >= nextodd) {  
-         power = 0 ;
-         if (nbrleft % nextodd == 0) {
-#else      
+      // while ((nbrleft / nextodd) >= nextodd) {  
       while (LOOP_FOREVER) {  
          unsigned __int64 nbrdiv = nbrleft / nextodd ;
          if (nbrdiv < nextodd) {
             break ;
          }
          power = 0 ;
+         // if (nbrleft % nextodd == 0) {
          if ((nbrdiv * nextodd) == nbrleft) {
-#endif         
             while (nbrleft % nextodd == 0) {
                 nbrleft /= nextodd ;
                 power++ ; 
