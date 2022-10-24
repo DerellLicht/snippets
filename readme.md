@@ -10,8 +10,7 @@ NOTE: from September 2022, all of this files in this folder are built with
 64-bit compiler, in order to support functionality in certain utilities.
 - All are FREEWARE for any and all uses!!
 
-<hr>
-
+<hr>  
 __ulocate__ - This was initially written for use under 
    Linux, as a replacement for the obtuse __find__
    command. It also works in Windows consoles. 
