@@ -85,7 +85,7 @@ portion with zeroes.
 - 10/25/11 - Add support for %+ format (always show + on positive numbers)
 - 01/19/12 - fix handling of %f with no decimal; it was defaulting 
       to 0 decimal places, rather than 6 in printf.  
-- 05/10/13 - Add stringfn() function, which takes a maximum-output-buffer
+- 05/10/13 - Add `stringfn()` function, which takes a maximum-output-buffer
     length as an argument.  Similar to `snprintf()`
 - 09/28/13 - Fix bug in printchar(), which was using a fixed length test
      that was not appropriate for general use
@@ -119,28 +119,14 @@ comprising address + hex_data + ascii_data, looking like this:
 ```
 007A0:  0C 89 5C 24 08 89 5C 24 04 C7 04 24 EE 30 40 00  | .?\$.?\$.?.$?0@. |
 ```
-      Download <A href="hex_dump.cpp">hex_dump.cpp</A> here
-</DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__mrna2protein__` - 
-parse an mRNA nucleotide sequence, and output corresponding protein codes, in either 3 or 1 character format.
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __May 09, 2020__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-      <pre>
+<hr>
+
+__mrna2protein__ - parse an mRNA nucleotide sequence, and output corresponding 
+protein codes, in either 3 or 1 character format.  
+Last Update: __May 09, 2020__
+
+```
 Usage: mrna2protein -options CODON_SEQUENCE
 Options:
 -3 means output 3-character protein code (default)
@@ -150,83 +136,25 @@ Options:
 Note regarding CODON_SEQUENCE :
 5' prefix and 3' suffix should *not* be included !!
 Only [A,U,G,C] characters are valid
-      </pre>
-      Download <A href="mrna2protein.cpp">mrna2protein.cpp</A> here
-</DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+```
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__textfont__` - 
-      reads and displays MSDOS bit-mapped font files
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __October 04, 2017__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-      reads and displays MSDOS bit-mapped font files.
-      <BR><BR>
-Download <A href="beer_cals.cpp">textfont.cpp</A> here
-</DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+<hr>
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__beer_cals__` - 
-      Estimates calories of ale
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __September 22, 2015__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-      Estimates calories of ale, from both alcohol and carbohydrates, 
-      based upon volume and alcohol content.  Volume may be input in milliliters or ounces.
-      <BR><BR>
-      Download <A href="beer_cals.cpp">beer_cals.cpp</A> here
-      </DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+__beer_cals__ - Estimates calories of ale  
+Last Update: __September 22, 2015__
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__readall__` - 
-      list all files specified by a filespec with wildcards
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __October 12, 2020__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-      list all files specified by a filespec with wildcards
-      <BR><BR>
-      Download <A href="readall.cpp">readall.cpp</A> here
-      </DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+Estimates calories of ale, from both alcohol and carbohydrates, 
+based upon volume and alcohol content.  Volume may be input in milliliters or ounces.
+
+<hr>
+
+__readall__ - list all files specified by a filespec with wildcards  
+Last Update: __October 12, 2020__
+
+List all files specified by a filespec with wildcards
+This can be used as a template file for reading text files and
+doing various tasks.
+
 
   <tr>
     <td>
