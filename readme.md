@@ -187,7 +187,9 @@ the value will be treated as dd, and dms will be calculated and output.
 __mortgage__ - Performs mortgage calculations  
 Last Update: __December 23, 2011__
 
-`Usage: MORTGAGE principle interest number_months overpay`
+```
+Usage: MORTGAGE principle interest number_months overpay
+```
 In normal operation, this program computes the monthly payment,
 and payment summary table, for a loan with the input parameters.
   
