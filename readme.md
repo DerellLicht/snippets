@@ -9,7 +9,6 @@ libraries. &nbsp;MinGW is available from:
 - All are FREEWARE for any and all uses!!
 
 <hr>
-
 __ulocate__ - This was initially written for use under 
    Linux, as a replacement for the obtuse __find__
    command. It also works in Windows consoles. 
@@ -46,22 +45,11 @@ other options:
 
  Options can also be placed in the ULOCATE environment variable
  ```
-Download [ulocate.cpp](https://www.derelllicht.com/files/ulocate.cpp) here
-    </tbody>
-  </table>
-    </td>
-  </tr>
+Download [ulocate.cpp](ulocate.cpp) here
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>printf2</B></CODE> - source code for <CODE>printf/sprintf</CODE>,
-      with floating-point support, and no header-file dependencies</FONT></DIV>
+<hr>
+__printf2__ - source code for `printf/sprintf`, with floating-point support, 
+and no header-file dependencies
       <DIV class=NEWS_FULL_SM>Last Update: <B>October 08, 2013</B> </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
