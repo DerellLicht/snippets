@@ -10,7 +10,6 @@ libraries. &nbsp;MinGW is available from:
 
 <hr>
 
-`#F5DEB3`
 __ulocate__ - This was initially written for use under 
    Linux, as a replacement for the obtuse __find__
    command. It also works in Windows consoles. 
@@ -20,8 +19,6 @@ __ulocate__ - This was initially written for use under
    </FONT></DIV>
 Last Update: __July 28, 2017__
 
-`#FBEFD5`
-      <DIV class=t_news>
          <pre>
 ULOCATE.EXE, Version 1.15
 Usage: ulocate [options] name_component start_path
@@ -51,7 +48,6 @@ other options:
  Options can also be placed in the ULOCATE environment variable
       </pre>
       Download <A href="ulocate.cpp">ulocate.cpp</A> here
-    </DIV></TD></tr>
     </tbody>
   </table>
     </td>
