@@ -10,7 +10,7 @@ libraries. &nbsp;MinGW is available from:
 
 <hr>
 
-`#F5DEB3
+`#F5DEB3`
 __ulocate__ - This was initially written for use under 
    Linux, as a replacement for the obtuse __find__
    command. It also works in Windows consoles. 
@@ -18,9 +18,9 @@ __ulocate__ - This was initially written for use under
    specified starting point for any filename containing the provided string.
     &nbsp;Optionally, it can also search the PATH for the same criteria.
    </FONT></DIV>
-<DIV class=NEWS_FULL_SM>Last Update: <B>July 28, 2017</B></DIV>
+Last Update: __July 28, 2017__
 
-`#FBEFD5
+`#FBEFD5`
       <DIV class=t_news>
          <pre>
 ULOCATE.EXE, Version 1.15
