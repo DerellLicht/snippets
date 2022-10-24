@@ -174,35 +174,19 @@ This console application demonstrates two common WinAPI tasks:
 __dms2dd__ - Convert between degrees/minutes/seconds and decimal degrees  
 Last Update: __September 30, 2010__
 
-Usage: dms2dd input_value 
-Enter dms as degrees.minutes.seconds 
+Usage: dms2dd input_value  
+Enter dms as degrees.minutes.seconds  
 Enter dd as integer_degrees.fractional_degrees  
 If dms2dd sees two decimal points in the input, 
 the value will be treated as dms, and dd will be calculated and output.  
 If dms2dd sees one decimal points in the input, 
 the value will be treated as dd, and dms will be calculated and output. 
        
-      Download <A href="dms2dd.cpp">dms2dd.cpp</A> here
-</DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+<hr>
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__mortgage__` - 
-      Performs mortgage calculations
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __December 23, 2011__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
+__mortgage__ - Performs mortgage calculations  
+Last Update: __December 23, 2011__
+
 Usage: MORTGAGE principle interest number_months overpay
 In normal operation, this program computes the monthly payment,
 and payment summary table, for a loan with the input parameters.
@@ -215,77 +199,38 @@ required to pay off principle.
 Also, if overpay is greater than payment, then overpay is treated as
 total payment amount, and overpay is calculated from that.
         
-      Download <A href="mortgage.cpp">mortgage.cpp</A> here
-      </DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+<hr>
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__prime32__` - 
-      calculates factors of a number, or reports if input is prime
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __February 22, 2012__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
+__prime32__ - calculates factors of a number, or reports if input is prime  
+Last Update: __February 22, 2012__
+
 PRIME32.EXE - Written by: Daniel D. Miller 
 **************************************************** 
 This program determines whether a number is a prime, 
 then displays either the number or its factors. 
        
-      Download <A href="prime32.cpp">prime32.cpp</A> here
-      </DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+<hr>
 
-  <tr>
-    <td>
-    <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left">
-      <FONT size=+1>C/C++ makefile-dependency generator </FONT></DIV>
-      <DIV>Last Update: __February 02, 2007__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-      <DIV>
-      This is the version of makedepend which is distributed with Xfree86.
-      &nbsp;It is __Copyright (c) 1993, 1994, 1998 The Open Group__ and has
-      a free-distribution message in each source file. &nbsp;I made a couple of
-      trivial changes to the source to make it compile with modern gcc,
-      but otherwise it still works superbly and needs no changes.
-       
-      To use this utility, make the following changes to your makefile:
-        
-      1. Add this line to the end of the makefile:<pre>
-# DO NOT DELETE</pre>
-      2. Add a rule for running makedepend:<pre>
+__makedepend__ - C/C++ makefile-dependency generator  
+__February 02, 2007__
+
+This is the version of makedepend which is distributed with Xfree86.
+&nbsp;It is __Copyright (c) 1993, 1994, 1998 The Open Group__ and has
+a free-distribution message in each source file. &nbsp;I made a couple of
+trivial changes to the source to make it compile with modern gcc,
+but otherwise it still works superbly and needs no changes.
+ 
+To use this utility, make the following changes to your makefile:
+  
+1. Add this line to the end of the makefile:<pre>
+`# DO NOT DELETE`
+2. Add a rule for running makedepend:<pre>
+```
 SRCS=file1.cpp file2.cpp file3.cpp
 depend:
   makedepend -I. $(SRCS)
-</pre>
-      3. run <pre>make depend</pre> to update the dependencies. &nbsp;
-      That's it!!  Your makefile now has the appropriate dependency list.
-        
-      <A href="makedepend.src.zip">
-      Download the source code package here</A>
-      </DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
-  </tbody>
-</table>
+```
 
+3. run <pre>make depend</pre> to update the dependencies.  
+
+That is it!!  Your makefile now has the appropriate dependency list.
