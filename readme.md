@@ -174,6 +174,7 @@ This console application demonstrates two common WinAPI tasks:
 __dms2dd__ - Convert between degrees/minutes/seconds and decimal degrees  
 Last Update: __September 30, 2010__
 
+```
 Usage: dms2dd input_value  
 Enter dms as degrees.minutes.seconds  
 Enter dd as integer_degrees.fractional_degrees  
@@ -181,6 +182,7 @@ If dms2dd sees two decimal points in the input,
 the value will be treated as dms, and dd will be calculated and output.  
 If dms2dd sees one decimal points in the input, 
 the value will be treated as dd, and dms will be calculated and output. 
+```
        
 <hr>
 
