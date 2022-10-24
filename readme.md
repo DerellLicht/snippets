@@ -63,8 +63,8 @@ formatted strings.  Unfortunately, in most embedded environments,
 linking stdio libraries is not an option, so a non-stdio version of 
 sprintf is very handy - but find such a function is ___very___ 
 challenging, especially if floating-point support is required!!
-In 2002, Georges Menie distributed a version of [printf]
-(http://www.menie.org/georges/embedded/)
+In 2002, Georges Menie distributed a version of 
+[printf](http://www.menie.org/georges/embedded/)
 which had no `stdio/stdlib` dependencies, and seems to support all of the
 various obtuse `printf` syntaxes.
  &nbsp;His code is clean, short, efficient, and builds on modern gcc
