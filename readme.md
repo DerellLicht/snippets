@@ -171,28 +171,17 @@ This console application demonstrates two common WinAPI tasks:
 
 <hr>
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__dms2dd__` - 
-      Convert between degrees/minutes/seconds and decimal degrees
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __September 30, 2010__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-Usage: dms2dd input_value<br>
-Enter dms as degrees.minutes.seconds<br>
-Enter dd as integer_degrees.fractional_degrees<br><br>
-If dms2dd sees two decimal points in the input,<br>
-the value will be treated as dms, and dd will be calculated and output.<br><br>
-If dms2dd sees one decimal points in the input,<br>
-the value will be treated as dd, and dms will be calculated and output.<br>
-      <BR>
+__dms2dd__ - Convert between degrees/minutes/seconds and decimal degrees  
+Last Update: __September 30, 2010__
+
+Usage: dms2dd input_value 
+Enter dms as degrees.minutes.seconds 
+Enter dd as integer_degrees.fractional_degrees  
+If dms2dd sees two decimal points in the input, 
+the value will be treated as dms, and dd will be calculated and output.  
+If dms2dd sees one decimal points in the input, 
+the value will be treated as dd, and dms will be calculated and output. 
+       
       Download <A href="dms2dd.cpp">dms2dd.cpp</A> here
 </DIV></TD></TR>
     </tbody>
@@ -217,15 +206,15 @@ the value will be treated as dd, and dms will be calculated and output.<br>
 Usage: MORTGAGE principle interest number_months overpay
 In normal operation, this program computes the monthly payment,
 and payment summary table, for a loan with the input parameters.
-<br><br>
+  
 Alternate mode:
 If number_months is 0, overpay is treated as the payment amount,
 and this program will // calculate and display the number of months
 required to pay off principle.
-<br><br>
+  
 Also, if overpay is greater than payment, then overpay is treated as
 total payment amount, and overpay is calculated from that.
-      <BR><BR>
+        
       Download <A href="mortgage.cpp">mortgage.cpp</A> here
       </DIV></TD></TR>
     </tbody>
@@ -247,11 +236,11 @@ total payment amount, and overpay is calculated from that.
       <DIV class=NEWS_FULL_SM>Last Update: __February 22, 2012__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
-PRIME32.EXE - Written by: Daniel D. Miller<br>
-****************************************************<br>
-This program determines whether a number is a prime,<br>
-then displays either the number or its factors.<br>
-      <BR>
+PRIME32.EXE - Written by: Daniel D. Miller 
+**************************************************** 
+This program determines whether a number is a prime, 
+then displays either the number or its factors. 
+       
       Download <A href="prime32.cpp">prime32.cpp</A> here
       </DIV></TD></TR>
     </tbody>
@@ -277,9 +266,9 @@ then displays either the number or its factors.<br>
       a free-distribution message in each source file. &nbsp;I made a couple of
       trivial changes to the source to make it compile with modern gcc,
       but otherwise it still works superbly and needs no changes.
-      <BR>
+       
       To use this utility, make the following changes to your makefile:
-      <BR><BR>
+        
       1. Add this line to the end of the makefile:<pre>
 # DO NOT DELETE</pre>
       2. Add a rule for running makedepend:<pre>
@@ -289,7 +278,7 @@ depend:
 </pre>
       3. run <pre>make depend</pre> to update the dependencies. &nbsp;
       That's it!!  Your makefile now has the appropriate dependency list.
-      <BR><BR>
+        
       <A href="makedepend.src.zip">
       Download the source code package here</A>
       </DIV></TD></TR>
