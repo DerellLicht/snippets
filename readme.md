@@ -86,45 +86,23 @@ portion with zeroes.
 - 01/19/12 - fix handling of %f with no decimal; it was defaulting 
       to 0 decimal places, rather than printf's 6.
 - 05/10/13 - Add stringfn() function, which takes a maximum-output-buffer
-    length as an argument.  Similar to snprintf()
+    length as an argument.  Similar to `snprintf()`
 - 09/28/13 - Fix bug in printchar(), which was using a fixed length test
      that was not appropriate for general use
 - 10/08/13 - Add support for signed/unsigned long long (u64/i64)
 
-</DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+<hr>
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>serial_enum</B>` - 
-      Uses standard Windows/Win32 methods to enumerate serial devices
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>February 02, 2015</B> </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-      This is the Microsoft-approved method to enumerate all serial ports
-      on a machine, including USB-serial devices. &nbsp;In addition to listing
-      all the ports, it will report which ports can be opened (i.e., are 
-      available for use).  Also added an option to display the Device Name,
-      which can be passed to CreateFile().
-      <BR><BR>
-      Download 
-      <A href="serial_enum.cpp">
-      serial_enum.cpp</A> here
-</DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+__serial_enum__ - Uses standard Windows/Win32 methods to enumerate serial devices  
+Last Update: __February 02, 2015__
+
+This is the Microsoft-approved method to enumerate all serial ports
+on a machine, including USB-serial devices. &nbsp;In addition to listing
+all the ports, it will report which ports can be opened (i.e., are 
+available for use).  Also added an option to display the Device Name,
+which can be passed to `CreateFile()`.
+
+<hr>
 
   <tr>
     <td>
