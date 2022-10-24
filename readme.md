@@ -11,8 +11,8 @@ NOTE: from September 2022, all of this files in this folder are built with
 - All are FREEWARE for any and all uses!!
 
 <hr>  
-__ulocate__ - This was initially written for use under 
-   Linux, as a replacement for the obtuse __find__
+**ulocate** - This was initially written for use under 
+   Linux, as a replacement for the obtuse `find` 
    command. It also works in Windows consoles. 
 __ulocate__ performs a case-insensitive search of all subdirectories below the 
    specified starting point for any filename containing the provided string.
