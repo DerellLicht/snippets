@@ -51,7 +51,7 @@ other options:
 <hr>
 
 __printf2__ - source code for `printf/sprintf`, with floating-point support, 
-and no header-file dependencies  
+and no header-file dependencies, for use in embedded projects.  
 Last Update: __October 08, 2013__
 
 Embedded firmware environments provide a variety of challenges to the
@@ -84,7 +84,7 @@ portion with zeroes.
            ( 0.99 with %.1f did not round to 1.0 )
 - 10/25/11 - Add support for %+ format (always show + on positive numbers)
 - 01/19/12 - fix handling of %f with no decimal; it was defaulting 
-      to 0 decimal places, rather than printf's 6.
+      to 0 decimal places, rather than printf''s 6.  
 - 05/10/13 - Add stringfn() function, which takes a maximum-output-buffer
     length as an argument.  Similar to `snprintf()`
 - 09/28/13 - Fix bug in printchar(), which was using a fixed length test
@@ -104,18 +104,8 @@ which can be passed to `CreateFile()`.
 
 <hr>
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>rgb2cref</B>` - 
-      convert RGB value into hex/decimal form
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>July 26, 2020</B> </DIV></TD></TR>
+__rgb2cref__ - convert RGB value into hex/decimal form  
+Last Update: __July 26, 2020__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
 This is typically to aid in updating syntax-highlighting values for programming editors
@@ -137,10 +127,10 @@ This is typically to aid in updating syntax-highlighting values for programming 
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>hex_dump</B>` - 
+      size=+1>`__hex_dump__` - 
       Read data and display as both binary and ASCII data.
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>August 15, 2017</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __August 15, 2017__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
       This displays a data file in standard hex-dump format, 
@@ -163,10 +153,10 @@ This is typically to aid in updating syntax-highlighting values for programming 
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>mrna2protein</B>` - 
+      size=+1>`__mrna2protein__` - 
 parse an mRNA nucleotide sequence, and output corresponding protein codes, in either 3 or 1 character format.
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>May 09, 2020</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __May 09, 2020__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
       <pre>
@@ -195,10 +185,10 @@ Only [A,U,G,C] characters are valid
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>textfont</B>` - 
+      size=+1>`__textfont__` - 
       reads and displays MSDOS bit-mapped font files
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>October 04, 2017</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __October 04, 2017__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
       reads and displays MSDOS bit-mapped font files.
@@ -218,10 +208,10 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>beer_cals</B>` - 
+      size=+1>`__beer_cals__` - 
       Estimates calories of ale
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>September 22, 2015</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __September 22, 2015__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
       Estimates calories of ale, from both alcohol and carbohydrates, 
@@ -242,10 +232,10 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>readall</B>` - 
+      size=+1>`__readall__` - 
       list all files specified by a filespec with wildcards
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>October 12, 2020</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __October 12, 2020__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
       list all files specified by a filespec with wildcards
@@ -265,10 +255,10 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>ascii</B>` - 
+      size=+1>`__ascii__` - 
       Displays an ASCII table, in decimal, hex and ASCII, for all 256 characters
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>August 10, 2017</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __August 10, 2017__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
       <BR>
@@ -290,10 +280,10 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>apptest</B>` - 
+      size=+1>`__apptest__` - 
       This inappropriately-named file demonstrates two common WinAPI tasks
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>June 24, 2018</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __June 24, 2018__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
          This console application demonstrates two common WinAPI tasks:
@@ -315,10 +305,10 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>dms2dd</B>` - 
+      size=+1>`__dms2dd__` - 
       Convert between degrees/minutes/seconds and decimal degrees
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>September 30, 2010</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __September 30, 2010__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
 Usage: dms2dd input_value<br>
@@ -344,10 +334,10 @@ the value will be treated as dd, and dms will be calculated and output.<br>
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>mortgage</B>` - 
+      size=+1>`__mortgage__` - 
       Performs mortgage calculations
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>December 23, 2011</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __December 23, 2011__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
 Usage: MORTGAGE principle interest number_months overpay
@@ -377,10 +367,10 @@ total payment amount, and overpay is calculated from that.
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`<B>prime32</B>` - 
+      size=+1>`__prime32__` - 
       calculates factors of a number, or reports if input is prime
       </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>February 22, 2012</B> </DIV></TD></TR>
+      <DIV class=NEWS_FULL_SM>Last Update: __February 22, 2012__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
 PRIME32.EXE - Written by: Daniel D. Miller<br>
@@ -404,12 +394,12 @@ then displays either the number or its factors.<br>
       <DIV
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left">
       <FONT size=+1>C/C++ makefile-dependency generator </FONT></DIV>
-      <DIV>Last Update: <B>February 02, 2007</B> </DIV></TD></TR>
+      <DIV>Last Update: __February 02, 2007__ </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
       <DIV>
       This is the version of makedepend which is distributed with Xfree86.
-      &nbsp;It is <b>Copyright (c) 1993, 1994, 1998 The Open Group</b> and has
+      &nbsp;It is __Copyright (c) 1993, 1994, 1998 The Open Group__ and has
       a free-distribution message in each source file. &nbsp;I made a couple of
       trivial changes to the source to make it compile with modern gcc,
       but otherwise it still works superbly and needs no changes.
