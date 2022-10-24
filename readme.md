@@ -18,6 +18,7 @@ __ulocate__ performs a case-insensitive search of all subdirectories below the
      Optionally, it can also search the PATH for the same criteria.  
 Last Update: __July 28, 2017__
 
+```
 ULOCATE.EXE, Version 1.15
 Usage: ulocate [options] name_component start_path
 This program displays all filenames containing a specified
@@ -44,8 +45,8 @@ other options:
      alternate functionality.  In this mode, subdirectories are NOT searched!!
 
  Options can also be placed in the ULOCATE environment variable
-      </pre>
-      Download <A href="ulocate.cpp">ulocate.cpp</A> here
+ ```
+Download [ulocate.cpp](https://www.derelllicht.com/files/ulocate.cpp) here
     </tbody>
   </table>
     </td>
