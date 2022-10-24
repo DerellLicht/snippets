@@ -45,12 +45,11 @@ other options:
 
  Options can also be placed in the ULOCATE environment variable
  ```
-Download [ulocate.cpp](ulocate.cpp) here
 
 <hr>
 __printf2__ - source code for `printf/sprintf`, with floating-point support, 
-and no header-file dependencies
-      <DIV class=NEWS_FULL_SM>Last Update: <B>October 08, 2013</B> </DIV></TD></TR>
+and no header-file dependencies  
+Last Update: __October 08, 2013__
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
          Embedded firmware environments provide a variety of challenges to the
