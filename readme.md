@@ -48,7 +48,6 @@ other options:
 
  Options can also be placed in the ULOCATE environment variable
  ```
-
 <hr>
 
 __printf2__ - source code for `printf/sprintf`, with floating-point support, 
