@@ -84,7 +84,7 @@ portion with zeroes.
            ( 0.99 with %.1f did not round to 1.0 )
 - 10/25/11 - Add support for %+ format (always show + on positive numbers)
 - 01/19/12 - fix handling of %f with no decimal; it was defaulting 
-      to 0 decimal places, rather than printf''s 6.  
+      to 0 decimal places, rather than 6 in printf.  
 - 05/10/13 - Add stringfn() function, which takes a maximum-output-buffer
     length as an argument.  Similar to `snprintf()`
 - 09/28/13 - Fix bug in printchar(), which was using a fixed length test
@@ -105,39 +105,20 @@ which can be passed to `CreateFile()`.
 <hr>
 
 __rgb2cref__ - convert RGB value into hex/decimal form  
-Last Update: __July 26, 2020__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-This is typically to aid in updating syntax-highlighting values for programming editors
-      <BR><BR>
-      Download 
-      <A href="rgb2cref.cpp">
-      rgb2cref.cpp</A> here
-</DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+Last Update: __July 26, 2020__
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__hex_dump__` - 
-      Read data and display as both binary and ASCII data.
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __August 15, 2017__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-      This displays a data file in standard hex-dump format, 
-      comprising address + hex_data + ascii_data, looking like this:
-      <pre>
+This is typically to aid in updating syntax-highlighting values for programming editors
+
+<hr>
+
+__hex_dump__ - Read data and display as both binary and ASCII data  
+Last Update: __August 15, 2017__
+
+This displays a data file in standard hex-dump format, 
+comprising address + hex_data + ascii_data, looking like this:
+```
 007A0:  0C 89 5C 24 08 89 5C 24 04 C7 04 24 EE 30 40 00  | .?\$.?\$.?.$?0@. |
-      </pre>
+```
       Download <A href="hex_dump.cpp">hex_dump.cpp</A> here
 </DIV></TD></TR>
     </tbody>
