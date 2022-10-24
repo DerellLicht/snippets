@@ -5,7 +5,7 @@
 - All are compiled using the MinGW compiler package. This is an excellent,
 *FREE* compiler package which is based on the GNU compiler, but links to Windows
 libraries. &nbsp;MinGW is available from: 
-[mingw](https://sourceforge.net/projects/mingw/files/latest/download)
+[mingw.org](https://sourceforge.net/projects/mingw/)
 - All are FREEWARE for any and all uses!!
 
 <hr>
