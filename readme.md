@@ -1,33 +1,15 @@
 ## Win32 Source code snippets in C
 
-
-- These are all small, typically command-line utilities that I've found
+- These are all small, typically command-line utilities that I have found
    to be useful.
 - All are compiled using the MinGW compiler package. This is an excellent,
 *FREE* compiler package which is based on the GNU compiler, but links to Windows
 libraries. &nbsp;MinGW is available from: 
-<A href="http://www.mingw.org/" target=_top>http://www.mingw.org/</A>
+[mingw](http://www.mingw.org/)
 - All are FREEWARE for any and all uses!!
 
-<table cellSpacing=0 cellPadding=0 width="100%" border=1>
-  <tbody>
-  <tr>
-    <td bgColor=#FBEFD5>
-       <CENTER><FONT color=#FBEFD5>
-         T<SMALL>HE</SMALL>
-         S<SMALL>OFTWARE</SMALL>
-       </FONT></CENTER>
-    </td>
-  </tr>
+<hr>
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-    <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3 style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px;
-      COLOR: #205080; TEXT-ALIGN: left"><FONT size=+1>
       <CODE><B>ulocate</B></CODE> - This was initially written for use under 
          Linux, as a replacement for the obtuse <B><CODE>find</CODE></B> 
          command. &nbsp;It also works in Windows consoles. &nbsp;
