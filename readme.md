@@ -13,10 +13,9 @@ libraries. &nbsp;MinGW is available from:
 __ulocate__ - This was initially written for use under 
    Linux, as a replacement for the obtuse __find__
    command. It also works in Windows consoles. 
-<B><CODE>ulocate</CODE></B> performs a case-insensitive search of all subdirectories below the 
+__ulocate__ performs a case-insensitive search of all subdirectories below the 
    specified starting point for any filename containing the provided string.
-    &nbsp;Optionally, it can also search the PATH for the same criteria.
-   </FONT></DIV>
+   Optionally, it can also search the PATH for the same criteria.
 Last Update: __July 28, 2017__
 
          <pre>
