@@ -10,18 +10,17 @@ libraries. &nbsp;MinGW is available from:
 
 <hr>
 
-      <CODE><B>ulocate</B></CODE> - This was initially written for use under 
-         Linux, as a replacement for the obtuse <B><CODE>find</CODE></B> 
-         command. &nbsp;It also works in Windows consoles. &nbsp;
-      <B><CODE>ulocate</CODE></B> performs a case-insensitive search of all subdirectories below the 
-         specified starting point for any filename containing the provided string.
-          &nbsp;Optionally, it can also search the PATH for the same criteria.
-         </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: <B>July 28, 2017</B></DIV>
-    </TD></TR>
+`#F5DEB3
+__ulocate__ - This was initially written for use under 
+   Linux, as a replacement for the obtuse __find__
+   command. It also works in Windows consoles. 
+<B><CODE>ulocate</CODE></B> performs a case-insensitive search of all subdirectories below the 
+   specified starting point for any filename containing the provided string.
+    &nbsp;Optionally, it can also search the PATH for the same criteria.
+   </FONT></DIV>
+<DIV class=NEWS_FULL_SM>Last Update: <B>July 28, 2017</B></DIV>
 
-  <TR>
-    <TD bgColor=#FBEFD5>
+`#FBEFD5
       <DIV class=t_news>
          <pre>
 ULOCATE.EXE, Version 1.15
