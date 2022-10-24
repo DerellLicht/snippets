@@ -78,20 +78,19 @@ standard headers or libraries.
 
 Updates:
 - 12/02/09 - fixed floating-point bug related to padding decimal
-portion with zeroes.<BR>
-- 03/19/10 - pad fractional portion of floating-point number with 0s<BR>
-- 07/20/10 - Fix a round-off bug in floating-point conversions<br>
+portion with zeroes.
+- 03/19/10 - pad fractional portion of floating-point number with 0s
+- 07/20/10 - Fix a round-off bug in floating-point conversions
            ( 0.99 with %.1f did not round to 1.0 )
-- 10/25/11 - Add support for %+ format (always show + on positive numbers)<BR>
+- 10/25/11 - Add support for %+ format (always show + on positive numbers)
 - 01/19/12 - fix handling of %f with no decimal; it was defaulting 
-      to 0 decimal places, rather than printf's 6.<BR>
+      to 0 decimal places, rather than printf's 6.
 - 05/10/13 - Add stringfn() function, which takes a maximum-output-buffer
     length as an argument.  Similar to snprintf()
 - 09/28/13 - Fix bug in printchar(), which was using a fixed length test
      that was not appropriate for general use
 - 10/08/13 - Add support for signed/unsigned long long (u64/i64)
 
-Download <A href="printf2.c"> printf2.c</A> here
 </DIV></TD></TR>
     </tbody>
   </table>
