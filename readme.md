@@ -15,10 +15,9 @@ __ulocate__ - This was initially written for use under
    command. It also works in Windows consoles. 
 __ulocate__ performs a case-insensitive search of all subdirectories below the 
    specified starting point for any filename containing the provided string.
-   Optionally, it can also search the PATH for the same criteria.
+     Optionally, it can also search the PATH for the same criteria.  
 Last Update: __July 28, 2017__
 
-         <pre>
 ULOCATE.EXE, Version 1.15
 Usage: ulocate [options] name_component start_path
 This program displays all filenames containing a specified
