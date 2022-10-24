@@ -1,17 +1,13 @@
 ### Win32 Source code snippets in C
-<P>
-<HR>
-<FONT size=+1>
-<LI>These are all small, typically command-line utilities that I've found
-	to be useful.
-<LI>All are compiled using the MinGW compiler package. This is an excellent,
+================
+
+- These are all small, typically command-line utilities that I've found
+   to be useful.
+- All are compiled using the MinGW compiler package. This is an excellent,
 *FREE* compiler package which is based on the GNU compiler, but links to Windows
 libraries. &nbsp;MinGW is available from: 
-<A href="http://www.mingw.org/"
-target=_top>http://www.mingw.org/</A>
-<LI>All are FREEWARE for any and all uses!!
-</LI>
-</FONT><BR><BR>
+<A href="http://www.mingw.org/" target=_top>http://www.mingw.org/</A>
+- All are FREEWARE for any and all uses!!
 
 <table cellSpacing=0 cellPadding=0 width="100%" border=1>
   <tbody>
@@ -33,19 +29,19 @@ target=_top>http://www.mingw.org/</A>
       <DIV class=h3 style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px;
       COLOR: #205080; TEXT-ALIGN: left"><FONT size=+1>
       <CODE><B>ulocate</B></CODE> - This was initially written for use under 
-			Linux, as a replacement for the obtuse <B><CODE>find</CODE></B> 
-			command. &nbsp;It also works in Windows consoles. &nbsp;
+         Linux, as a replacement for the obtuse <B><CODE>find</CODE></B> 
+         command. &nbsp;It also works in Windows consoles. &nbsp;
       <B><CODE>ulocate</CODE></B> performs a case-insensitive search of all subdirectories below the 
-			specified starting point for any filename containing the provided string.
-			 &nbsp;Optionally, it can also search the PATH for the same criteria.
-			</FONT></DIV>
+         specified starting point for any filename containing the provided string.
+          &nbsp;Optionally, it can also search the PATH for the same criteria.
+         </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>July 28, 2017</B></DIV>
     </TD></TR>
 
   <TR>
     <TD bgColor=#FBEFD5>
       <DIV class=t_news>
-			<pre>
+         <pre>
 ULOCATE.EXE, Version 1.15
 Usage: ulocate [options] name_component start_path
 This program displays all filenames containing a specified
@@ -93,28 +89,28 @@ other options:
       <DIV class=NEWS_FULL_SM>Last Update: <B>October 08, 2013</B> </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
-			Embedded firmware environments provide a variety of challenges to the
-			software developer. &nbsp;One of these challenges is that, typically,
-			there is no "standard output" device to display messages on, so the
-			archetypal <CODE>printf</CODE> function is not an option. &nbsp;However, the
-			<CODE>sprintf</CODE> function is often still very useful for generating
-			formatted strings.  Unfortunately, in most embedded environments, 
-			linking stdio libraries is not an option, so a non-stdio version of 
-			sprintf is very handy - but find such a function is <B><I>very</I></B> 
-			challenging, especially if floating-point support is required!!<BR><BR>
-			In 2002, Georges Menie distributed a version of 
-			<A href="http://www.menie.org/georges/embedded/">
-			<CODE>printf</CODE></A> 
-			which had no <CODE>stdio/stdlib</CODE> dependencies, and seems to support all of the
-			various obtuse <CODE>printf</CODE> syntaxes.
-			 &nbsp;His code is clean, short, efficient, and builds on modern gcc
-			 with almost no warnings!
-			 &nbsp;Furthermore, it is distributed under
-			LGPL, which means it can be used freely by anyone, for any purpose!
-			 &nbsp;The only option missing from his function was floating-point
-			support, which I need in my ARM9 implementation, so I added that
-			capability to it. &nbsp;This version has no dependencies on any 
-			standard headers or libraries.
+         Embedded firmware environments provide a variety of challenges to the
+         software developer. &nbsp;One of these challenges is that, typically,
+         there is no "standard output" device to display messages on, so the
+         archetypal <CODE>printf</CODE> function is not an option. &nbsp;However, the
+         <CODE>sprintf</CODE> function is often still very useful for generating
+         formatted strings.  Unfortunately, in most embedded environments, 
+         linking stdio libraries is not an option, so a non-stdio version of 
+         sprintf is very handy - but find such a function is <B><I>very</I></B> 
+         challenging, especially if floating-point support is required!!<BR><BR>
+         In 2002, Georges Menie distributed a version of 
+         <A href="http://www.menie.org/georges/embedded/">
+         <CODE>printf</CODE></A> 
+         which had no <CODE>stdio/stdlib</CODE> dependencies, and seems to support all of the
+         various obtuse <CODE>printf</CODE> syntaxes.
+          &nbsp;His code is clean, short, efficient, and builds on modern gcc
+          with almost no warnings!
+          &nbsp;Furthermore, it is distributed under
+         LGPL, which means it can be used freely by anyone, for any purpose!
+          &nbsp;The only option missing from his function was floating-point
+         support, which I need in my ARM9 implementation, so I added that
+         capability to it. &nbsp;This version has no dependencies on any 
+         standard headers or libraries.
       <BR><BR>
       Updates:<BR>
       <li>12/02/09 - fixed floating-point bug related to padding decimal
@@ -124,7 +120,7 @@ other options:
                  ( 0.99 with %.1f did not round to 1.0 )
       <li>10/25/11 - Add support for %+ format (always show + on positive numbers)<BR>
       <li>01/19/12 - fix handling of %f with no decimal; it was defaulting 
-				to 0 decimal places, rather than printf's 6.<BR>
+            to 0 decimal places, rather than printf's 6.<BR>
       <li>05/10/13 - Add stringfn() function, which takes a maximum-output-buffer
           length as an argument.  Similar to snprintf()
       <li>09/28/13 - Fix bug in printchar(), which was using a fixed length test
@@ -359,9 +355,9 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
       <DIV class=NEWS_FULL_SM>Last Update: <B>June 24, 2018</B> </DIV></TD></TR>
   <TR>
     <TD bgColor=#FBEFD5 colSpan=3>
-			This console application demonstrates two common WinAPI tasks:
-			<li>Use printf() to output UNICODE messages to the console
-			<li>Display various Windows system/user directories
+         This console application demonstrates two common WinAPI tasks:
+         <li>Use printf() to output UNICODE messages to the console
+         <li>Display various Windows system/user directories
       <BR><BR>
       Download <A href="apptest.cpp">apptest.cpp</A> here
       </DIV></TD></TR>
