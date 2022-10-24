@@ -53,30 +53,29 @@ other options:
 __printf2__ - source code for `printf/sprintf`, with floating-point support, 
 and no header-file dependencies  
 Last Update: __October 08, 2013__
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-         Embedded firmware environments provide a variety of challenges to the
-         software developer. &nbsp;One of these challenges is that, typically,
-         there is no "standard output" device to display messages on, so the
-         archetypal <CODE>printf</CODE> function is not an option. &nbsp;However, the
-         <CODE>sprintf</CODE> function is often still very useful for generating
-         formatted strings.  Unfortunately, in most embedded environments, 
-         linking stdio libraries is not an option, so a non-stdio version of 
-         sprintf is very handy - but find such a function is <B><I>very</I></B> 
-         challenging, especially if floating-point support is required!!<BR><BR>
-         In 2002, Georges Menie distributed a version of 
-         <A href="http://www.menie.org/georges/embedded/">
-         <CODE>printf</CODE></A> 
-         which had no <CODE>stdio/stdlib</CODE> dependencies, and seems to support all of the
-         various obtuse <CODE>printf</CODE> syntaxes.
-          &nbsp;His code is clean, short, efficient, and builds on modern gcc
-          with almost no warnings!
-          &nbsp;Furthermore, it is distributed under
-         LGPL, which means it can be used freely by anyone, for any purpose!
-          &nbsp;The only option missing from his function was floating-point
-         support, which I need in my ARM9 implementation, so I added that
-         capability to it. &nbsp;This version has no dependencies on any 
-         standard headers or libraries.
+
+Embedded firmware environments provide a variety of challenges to the
+software developer. &nbsp;One of these challenges is that, typically,
+there is no "standard output" device to display messages on, so the
+archetypal `printf` function is not an option. &nbsp;However, the
+`sprintf` function is often still very useful for generating
+formatted strings.  Unfortunately, in most embedded environments, 
+linking stdio libraries is not an option, so a non-stdio version of 
+sprintf is very handy - but find such a function is ___very___ 
+challenging, especially if floating-point support is required!!
+In 2002, Georges Menie distributed a version of [printf]
+(http://www.menie.org/georges/embedded/)
+which had no `stdio/stdlib` dependencies, and seems to support all of the
+various obtuse `printf` syntaxes.
+ &nbsp;His code is clean, short, efficient, and builds on modern gcc
+ with almost no warnings!
+ &nbsp;Furthermore, it is distributed under
+LGPL, which means it can be used freely by anyone, for any purpose!
+ &nbsp;The only option missing from his function was floating-point
+support, which I need in my ARM9 implementation, so I added that
+capability to it. &nbsp;This version has no dependencies on any 
+standard headers or libraries.
+
       <BR><BR>
       Updates:<BR>
       <li>12/02/09 - fixed floating-point bug related to padding decimal
@@ -108,7 +107,7 @@ Download <A href="printf2.c"> printf2.c</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>serial_enum</B></CODE> - 
+      size=+1>`<B>serial_enum</B>` - 
       Uses standard Windows/Win32 methods to enumerate serial devices
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>February 02, 2015</B> </DIV></TD></TR>
@@ -137,7 +136,7 @@ Download <A href="printf2.c"> printf2.c</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>rgb2cref</B></CODE> - 
+      size=+1>`<B>rgb2cref</B>` - 
       convert RGB value into hex/decimal form
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>July 26, 2020</B> </DIV></TD></TR>
@@ -162,7 +161,7 @@ This is typically to aid in updating syntax-highlighting values for programming 
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>hex_dump</B></CODE> - 
+      size=+1>`<B>hex_dump</B>` - 
       Read data and display as both binary and ASCII data.
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>August 15, 2017</B> </DIV></TD></TR>
@@ -188,7 +187,7 @@ This is typically to aid in updating syntax-highlighting values for programming 
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>mrna2protein</B></CODE> - 
+      size=+1>`<B>mrna2protein</B>` - 
 parse an mRNA nucleotide sequence, and output corresponding protein codes, in either 3 or 1 character format.
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>May 09, 2020</B> </DIV></TD></TR>
@@ -220,7 +219,7 @@ Only [A,U,G,C] characters are valid
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>textfont</B></CODE> - 
+      size=+1>`<B>textfont</B>` - 
       reads and displays MSDOS bit-mapped font files
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>October 04, 2017</B> </DIV></TD></TR>
@@ -243,7 +242,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>beer_cals</B></CODE> - 
+      size=+1>`<B>beer_cals</B>` - 
       Estimates calories of ale
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>September 22, 2015</B> </DIV></TD></TR>
@@ -267,7 +266,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>readall</B></CODE> - 
+      size=+1>`<B>readall</B>` - 
       list all files specified by a filespec with wildcards
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>October 12, 2020</B> </DIV></TD></TR>
@@ -290,7 +289,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>ascii</B></CODE> - 
+      size=+1>`<B>ascii</B>` - 
       Displays an ASCII table, in decimal, hex and ASCII, for all 256 characters
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>August 10, 2017</B> </DIV></TD></TR>
@@ -315,7 +314,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>apptest</B></CODE> - 
+      size=+1>`<B>apptest</B>` - 
       This inappropriately-named file demonstrates two common WinAPI tasks
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>June 24, 2018</B> </DIV></TD></TR>
@@ -340,7 +339,7 @@ Download <A href="beer_cals.cpp">textfont.cpp</A> here
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>dms2dd</B></CODE> - 
+      size=+1>`<B>dms2dd</B>` - 
       Convert between degrees/minutes/seconds and decimal degrees
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>September 30, 2010</B> </DIV></TD></TR>
@@ -369,7 +368,7 @@ the value will be treated as dd, and dms will be calculated and output.<br>
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>mortgage</B></CODE> - 
+      size=+1>`<B>mortgage</B>` - 
       Performs mortgage calculations
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>December 23, 2011</B> </DIV></TD></TR>
@@ -402,7 +401,7 @@ total payment amount, and overpay is calculated from that.
     <TD bgColor=#F5DEB3>
       <DIV class=h3
       style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1><CODE><B>prime32</B></CODE> - 
+      size=+1>`<B>prime32</B>` - 
       calculates factors of a number, or reports if input is prime
       </FONT></DIV>
       <DIV class=NEWS_FULL_SM>Last Update: <B>February 22, 2012</B> </DIV></TD></TR>
