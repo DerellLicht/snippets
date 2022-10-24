@@ -116,11 +116,9 @@ int main(int argc, char** argv)
             break ;
          }
          power = 0 ;
+         //  use multiply with previous calc, to avoid second division
          // if (nbrleft % nextodd == 0) {
          if ((nbrdiv * nextodd) == nbrleft) {
-            //  Note that NEW_METHOD could also be used here, 
-            //  to avoid the dual divide operations.
-            //  
             //  Later note: this inner loop only executes repeatedly,
             //  if a large factor is present in a *very* large number, which is quite rare.
             //  otherwise, we don't get much penefit from the inner conversion loop,
