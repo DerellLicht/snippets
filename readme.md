@@ -151,60 +151,25 @@ based upon volume and alcohol content.  Volume may be input in milliliters or ou
 __readall__ - list all files specified by a filespec with wildcards  
 Last Update: __October 12, 2020__
 
-List all files specified by a filespec with wildcards
+List all files specified by a filespec with wildcards.  
 This can be used as a template file for reading text files and
 doing various tasks.
 
+<hr>
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__ascii__` - 
-      Displays an ASCII table, in decimal, hex and ASCII, for all 256 characters
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __August 10, 2017__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-      <BR>
-      <CENTER>Download 
-      <A href="ascii.cpp">
-      ascii.cpp</A> here
-      </CENTER></DIV></TD>
-      </TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+__ascii__ - Displays an ASCII table, in decimal, hex and ASCII, for all 256 characters  
+Last Update: __August 10, 2017__
 
-  <tr>
-    <td>
-  <table>
-    <tbody>
-  <TR>
-    <TD bgColor=#F5DEB3>
-      <DIV class=h3
-      style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 2px; COLOR: #205080; TEXT-ALIGN: left"><FONT
-      size=+1>`__apptest__` - 
-      This inappropriately-named file demonstrates two common WinAPI tasks
-      </FONT></DIV>
-      <DIV class=NEWS_FULL_SM>Last Update: __June 24, 2018__ </DIV></TD></TR>
-  <TR>
-    <TD bgColor=#FBEFD5 colSpan=3>
-         This console application demonstrates two common WinAPI tasks:
-         - Use printf() to output UNICODE messages to the console
-         - Display various Windows system/user directories
-      <BR><BR>
-      Download <A href="apptest.cpp">apptest.cpp</A> here
-      </DIV></TD></TR>
-    </tbody>
-  </table>
-    </td>
-  </tr>
+<hr>
+
+__apptest__ - This inappropriately-named file demonstrates two common WinAPI tasks
+Last Update: __June 24, 2018__
+
+This console application demonstrates two common WinAPI tasks:
+- Use printf() to output UNICODE messages to the console
+- Display various Windows system/user directories
+
+<hr>
 
   <tr>
     <td>
