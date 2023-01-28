@@ -209,7 +209,7 @@ __prime64__ (formerly __prime32__)- calculates factors of a number, or reports i
 Last Update: __October 24, 2022__
 
 PRIME64.EXE - Written by: Daniel D. Miller 
-**************************************************** 
+==========================================
 This program determines whether a number is a prime, 
 then displays either the number or its factors. 
 
