@@ -208,7 +208,7 @@ total payment amount, and overpay is calculated from that.
 __prime64__ (formerly __prime32__)- calculates factors of a number, or reports if input is prime  
 Last Update: __October 24, 2022__
 
-PRIME64.EXE - Written by: Daniel D. Miller 
+PRIME64.EXE - Written by: Daniel D. Miller  
 This program determines whether a number is a prime, 
 then displays either the number or its factors. 
 
