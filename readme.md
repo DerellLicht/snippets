@@ -213,7 +213,7 @@ This program determines whether a number is a prime,
 then displays either the number or its factors. 
 
 Note: converting to 64-bit build, sped up handling of number which had
-a factor that was greater than 32 bits.
+a factor that was greater than 32 bits, by about 25%.
        
 <hr>
 
