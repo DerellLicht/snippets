@@ -50,6 +50,16 @@ other options:
  ```  
 <hr>
 
+__heron__ - This program implements Heron''s Formula,
+which calculates the area of an irregular triangle,
+given only the lengths of the three sides, but no angles.
+
+```
+   puts("Usage: heron side1_len side2_len side3_len");
+```   
+
+<hr>
+
 __printf2__ - source code for `printf/sprintf`, with floating-point support, 
 and no header-file dependencies, for use in embedded projects.  
 Last Update: __October 08, 2013__
