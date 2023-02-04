@@ -55,7 +55,15 @@ which calculates the area of an irregular triangle,
 given only the lengths of the three sides, but no angles.
 
 ```
-   puts("Usage: heron side1_len side2_len side3_len");
+Usage: heron side1_len side2_len side3_len
+
+This program implements Heron's Formula,
+which calculates the area of an irregular triangle,
+given only the lengths of the three sides, but no angles.
+
+parameters: side1: 950.000, side2: 510.000, side3: 1200.000
+intermediate sum parameter: 1330.000
+area: 232111.266
 ```   
 
 <hr>
