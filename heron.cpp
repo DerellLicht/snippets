@@ -63,7 +63,8 @@ int main(int argc, char** argv)
    }
    
    double min_valid_value = 0.001 ;
-   if (side1 < min_valid_value  ||
+   if (sides_count != 3  ||
+       side1 < min_valid_value  ||
        side2 < min_valid_value  ||
        side3 < min_valid_value) {
       return 1 ;      

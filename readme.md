@@ -65,7 +65,6 @@ parameters: side1: 950.000, side2: 510.000, side3: 1200.000
 intermediate sum parameter: 1330.000
 area: 232111.266
 ```   
-
 <hr>
 
 __printf2__ - source code for `printf/sprintf`, with floating-point support, 
