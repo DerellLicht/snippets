@@ -72,7 +72,7 @@ int main(int argc, char** argv)
    
    printf("parameters: side1: %5.3f, side2: %5.3f, side3: %5.3f\n", side1, side2, side3);
    
-   //  compute the summ parameter
+   //  compute the sum parameter
    double sum = (side1 + side2 + side3) / 2.0 ;
    printf("intermediate sum parameter: %5.3f\n", sum);
    
