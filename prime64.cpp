@@ -14,12 +14,17 @@
 //*****************************************************************
 //  Compare 32-bit and 64-bit builds:
 // 
-// 18446744073709551557 is a prime number
+// 18446744073709551557 is a prime number (32 bit)
 // Timer 1 off: 14:11:41  Elapsed: 0:00:43.11
 // 
-// 18446744073709551557 is a prime number
+// 18446744073709551557 is a prime number (64 bit)
 // Timer 1 off: 14:08:40  Elapsed: 0:00:30.28  (old method)
 // Timer 1 off: 11:04:24  Elapsed: 0:00:15.14  (new method)
+// 
+// 64-bit version on new Ryzen 7 5800X3D CPU
+// 18446744073709551557 is a prime number
+// Timer 1 off: 18:15:23  Elapsed: 0:00:03.41
+// 
 //*****************************************************************
 //  Version    Date        Description
 //   1.00      07/23/05    Original
@@ -106,7 +111,8 @@ int main(int argc, char** argv)
       //  factor out odd powers
       //****************************************************
       nextodd = 3;
-      //  this is an indirect way of saying "stop at square root of current target [nextodd]"
+      //  this is an indirect way of saying 
+      //  "stop at square root of current target [nextodd]"
       //  
       //  NOTE: NEW_METHOD replaces second divide (for MOD operation) with a multiply
       // while ((nbrleft / nextodd) >= nextodd) {  
