@@ -90,6 +90,27 @@ char *get_system_message(void)
 }
 
 //**********************************************************************
+// https://learn.microsoft.com/en-us/windows/win32/api/shlobj_core/nf-shlobj_core-shgetfolderpatha
+// Only some CSIDL values are supported, including the following:
+// 
+//     CSIDL_ADMINTOOLS
+//     CSIDL_APPDATA
+//     CSIDL_COMMON_ADMINTOOLS
+//     CSIDL_COMMON_APPDATA
+//     CSIDL_COMMON_DOCUMENTS
+//     CSIDL_COOKIES
+//     CSIDL_FLAG_CREATE
+//     CSIDL_FLAG_DONT_VERIFY
+//     CSIDL_HISTORY
+//     CSIDL_INTERNET_CACHE
+//     CSIDL_LOCAL_APPDATA
+//     CSIDL_MYPICTURES
+//     CSIDL_PERSONAL
+//     CSIDL_PROGRAM_FILES
+//     CSIDL_PROGRAM_FILES_COMMON
+//     CSIDL_SYSTEM
+//     CSIDL_WINDOWS
+//**********************************************************************
 typedef struct shgfp_s {
    int csidl_number ;
    TCHAR *desc ;
@@ -102,6 +123,8 @@ shgfp_t path_info[] = {
 { CSIDL_COMMON_PROGRAMS, L"common" },
 { CSIDL_WINDOWS,         L"sysroot" },
 { CSIDL_SYSTEM,          L"system" },
+{ CSIDL_COOKIES,         L"cookies" },
+{ CSIDL_INTERNET_CACHE,  L"inet cache" },
 { 0,                     L"end of list" }} ;
 
 int main(void)
@@ -116,9 +139,9 @@ int main(void)
                              path_info[idx].csidl_number,
                              NULL, 0, szPath) ;
       if (result == 0) {
-         _tprintf(L"%-8s: [%s]\n", path_info[idx].desc, szPath) ;
+         _tprintf(L"%-11s: [%s]\n", path_info[idx].desc, szPath) ;
       } else {
-         _tprintf(L"%-8s: \n", path_info[idx].desc, get_system_message()) ;
+         _tprintf(L"%-11s: \n", path_info[idx].desc, get_system_message()) ;
       }
    }
    return 0;
