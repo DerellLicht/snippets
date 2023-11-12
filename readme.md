@@ -48,7 +48,6 @@ other options:
 
  Options can also be placed in the ULOCATE environment variable
 ```  
-
 *** 
 
 __heron__ - This program implements Heron's Formula,
@@ -109,7 +108,7 @@ portion with zeroes.
      that was not appropriate for general use
 - 10/08/13 - Add support for signed/unsigned long long (u64/i64)
 
-<hr>
+*** 
 
 __serial_enum__ - Uses standard Windows/Win32 methods to enumerate serial devices  
 Last Update: __February 02, 2015__
@@ -120,14 +119,14 @@ all the ports, it will report which ports can be opened (i.e., are
 available for use).  Also added an option to display the Device Name,
 which can be passed to `CreateFile()`.
 
-<hr>
+*** 
 
 __rgb2cref__ - convert RGB value into hex/decimal form  
 Last Update: __July 26, 2020__
 
 This is typically to aid in updating syntax-highlighting values for programming editors
 
-<hr>
+*** 
 
 __hex_dump__ - Read data and display as both binary and ASCII data  
 Last Update: __August 15, 2017__
@@ -138,7 +137,7 @@ comprising address + hex_data + ascii_data, looking like this:
 007A0:  0C 89 5C 24 08 89 5C 24 04 C7 04 24 EE 30 40 00  | .?\$.?\$.?.$?0@. |
 ```
 
-<hr>
+*** 
 
 __mrna2protein__ - parse an mRNA nucleotide sequence, and output corresponding 
 protein codes, in either 3 or 1 character format.  
@@ -156,7 +155,7 @@ Note regarding CODON_SEQUENCE :
 Only [A,U,G,C] characters are valid
 ```
 
-<hr>
+*** 
 
 __beer_cals__ - Estimates calories of ale  
 Last Update: __September 22, 2015__
@@ -164,7 +163,7 @@ Last Update: __September 22, 2015__
 Estimates calories of ale, from both alcohol and carbohydrates, 
 based upon volume and alcohol content.  Volume may be input in milliliters or ounces.
 
-<hr>
+*** 
 
 __readall__ - list all files specified by a filespec with wildcards  
 Last Update: __October 12, 2020__
@@ -173,12 +172,12 @@ List all files specified by a filespec with wildcards.
 This can be used as a template file for reading text files and
 doing various tasks.
 
-<hr>
+*** 
 
 __ascii__ - Displays an ASCII table, in decimal, hex and ASCII, for all 256 characters  
 Last Update: __August 10, 2017__
 
-<hr>
+*** 
 
 __apptest__ - This inappropriately-named file demonstrates two common WinAPI tasks
 Last Update: __June 24, 2018__
@@ -187,7 +186,7 @@ This console application demonstrates two common WinAPI tasks:
 - Use printf() to output UNICODE messages to the console
 - Display various Windows system/user directories
 
-<hr>
+*** 
 
 __dms2dd__ - Convert between degrees/minutes/seconds and decimal degrees  
 Last Update: __September 30, 2010__
@@ -202,7 +201,7 @@ If dms2dd sees one decimal points in the input,
 the value will be treated as dd, and dms will be calculated and output. 
 ```
        
-<hr>
+*** 
 
 __mortgage__ - Performs mortgage calculations  
 Last Update: __December 23, 2011__
@@ -221,7 +220,7 @@ required to pay off principle.
 Also, if overpay is greater than payment, then overpay is treated as
 total payment amount, and overpay is calculated from that.
         
-<hr>
+*** 
 
 __prime64__ (formerly __prime32__)- calculates factors of a number, or reports if input is prime  
 Last Update: __October 24, 2022__
@@ -233,7 +232,7 @@ then displays either the number or its factors.
 Note: converting to 64-bit build, sped up handling of number which had
 a factor that was greater than 32 bits, by about 25%.
        
-<hr>
+*** 
 
 __makedepend__ - C/C++ makefile-dependency generator  
 __February 02, 2007__
