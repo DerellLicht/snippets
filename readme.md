@@ -50,7 +50,7 @@ other options:
 ```  
 *** 
 
-__heron__ - This program implements Heron's Formula,
+__heron__ - This program implements Heron's Formula,                        '
 which calculates the area of an irregular triangle,
 given only the lengths of the three sides, but no angles.
 
@@ -125,6 +125,14 @@ __rgb2cref__ - convert RGB value into hex/decimal form
 Last Update: __July 26, 2020__
 
 This is typically to aid in updating syntax-highlighting values for programming editors
+
+*** 
+
+__cline__ - generate argc/argv data from command-line input
+Last Update: __July 26, 2023__
+
+How to generate argc/argv data for programs which do not have conventional main() function.
+These include Windows (WinMain) and embedded projects
 
 *** 
 
