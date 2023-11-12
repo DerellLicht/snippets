@@ -10,7 +10,7 @@ NOTE: from September 2022, all of this files in this folder are built with
 64-bit compiler, in order to support functionality in certain utilities.
 - All are FREEWARE for any and all uses!!
 
-<hr>  
+*** 
 
 __ulocate__ - This was initially written for use under 
    Linux, as a replacement for the obtuse `find` 
@@ -49,7 +49,7 @@ other options:
  Options can also be placed in the ULOCATE environment variable
 ```  
 
-<hr>
+*** 
 
 __heron__ - This program implements Heron's Formula,
 which calculates the area of an irregular triangle,
@@ -66,7 +66,7 @@ parameters: side1: 950.000, side2: 510.000, side3: 1200.000
 intermediate sum parameter: 1330.000
 area: 232111.266
 ```   
-<hr>
+*** 
 
 __printf2__ - source code for `printf/sprintf`, with floating-point support, 
 and no header-file dependencies, for use in embedded projects.  
