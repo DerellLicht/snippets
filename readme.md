@@ -51,7 +51,7 @@ other options:
 
 <hr>
 
-__heron__ - This program implements Heron''s Formula,
+__heron__ - This program implements Heron's Formula,
 which calculates the area of an irregular triangle,
 given only the lengths of the three sides, but no angles.
 
