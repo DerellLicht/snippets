@@ -128,7 +128,7 @@ This is typically to aid in updating syntax-highlighting values for programming 
 
 *** 
 
-__cline__ - generate argc/argv data from command-line input
+__cline__ - generate argc/argv data from command-line input  
 Last Update: __July 26, 2023__
 
 How to generate argc/argv data for programs which do not have conventional main() function.
