@@ -20,7 +20,7 @@ __ulocate__ performs a case-insensitive search of all subdirectories below the
      Optionally, it can also search the PATH for the same criteria.  
 Last Update: __July 28, 2017__
 
-```
+``` 
 ULOCATE.EXE, Version 1.15
 Usage: ulocate [options] name_component start_path
 This program displays all filenames containing a specified
@@ -47,14 +47,15 @@ other options:
      alternate functionality.  In this mode, subdirectories are NOT searched!!
 
  Options can also be placed in the ULOCATE environment variable
- ```  
+```  
+
 <hr>
 
-__heron__ - This program implements Heron's Formula,
+__heron__ - This program implements Heron''s Formula,
 which calculates the area of an irregular triangle,
 given only the lengths of the three sides, but no angles.
 
-```
+``` 
 Usage: heron side1_len side2_len side3_len
 
 This program implements Heron's Formula,
