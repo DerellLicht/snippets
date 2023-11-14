@@ -53,6 +53,7 @@ other options:
 __heron__ - This program implements Heron's Formula,
 which calculates the area of an irregular triangle,
 given only the lengths of the three sides, but no angles.
+Last Update: __February 10, 2023__
 
 ``` 
 Usage: heron side1_len side2_len side3_len
