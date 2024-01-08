@@ -7,7 +7,7 @@
 libraries. I recommend the [TDM](http://tdm-gcc.tdragon.net/) distribution, 
 to avoid certain issues with library accessibility. 
 
-NOTE: from September 2022, some of this files in this folder are built with
+NOTE: from September 2022, some of the files in this folder are built with
 64-bit compiler, in order to support functionality in certain utilities.
 
 - All programs here are licensed under Creative Commons CC0 1.0 Universal;  
