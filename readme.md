@@ -4,11 +4,14 @@
    to be useful.
 - All are compiled using the MinGW compiler package. This is an excellent,
 *FREE* compiler package which is based on the GNU compiler, but links to Windows
-libraries. &nbsp;MinGW is available from: 
-[mingw.org](https://sourceforge.net/projects/mingw/)  
-NOTE: from September 2022, all of this files in this folder are built with
+libraries. I recommend the [TDM](http://tdm-gcc.tdragon.net/) distribution, 
+to avoid certain issues with library accessibility. 
+
+NOTE: from September 2022, some of this files in this folder are built with
 64-bit compiler, in order to support functionality in certain utilities.
-- All are FREEWARE for any and all uses!!
+
+- All programs here are licensed under Creative Commons CC0 1.0 Universal;  
+https://creativecommons.org/publicdomain/zero/1.0/
 
 *** 
 
