@@ -594,20 +594,6 @@ static int read_dir_tree(dirs* cur_node)
             //  Unfortunately, strstr() is case-sensitive...
             // if (strstr (dp->d_name, name_comp) != NULL) {
             if (mystrstr (fdata.cFileName, name_comp) != NULL) {
-               // ftemp->attrib = (uchar) fdata.dwFileAttributes;
-               
-               // printf ("[%s%s]\n", show_path, dp->d_name);
-               // time_t statbuf.st_atime;    /* time of last access */
-               // time_t statbuf.st_mtime;    /* time of last modification */
-               // time_t statbuf.st_ctime;    /* time of last status change */
-               // ftm = localtime((time_t *) &statbuf.st_mtime) ;
-               // secs  = ftm->tm_sec ;
-               // mins  = ftm->tm_min ;
-               // hour  = ftm->tm_hour ;
-               // day   = ftm->tm_mday ;
-               // month = ftm->tm_mon + 1 ;
-               // year = 1900 + ftm->tm_year ;
-
                // FILETIME ft ;
                // if (n.fdate_option == FDATE_LAST_ACCESS)
                //    ft = fdata.ftLastAccessTime;
@@ -632,28 +618,12 @@ static int read_dir_tree(dirs* cur_node)
                test_display_state() ;
                print_output(month, day, year, hour, mins, secs, fsize, pathname, true) ;
                // printf ("%02d/%02d/%02d %02d:%02d:%02d [%s]\n", 
-               //    month,
-               //    day,
-               //    (int) (year % 100),
-               //    hour,
-               //    mins,
-               //    secs,
-               //    pathname);
+               //    month, day, (int) (year % 100), hour, mins, secs, pathname);
             }
          }
          //  process a file entry
          else {
             if (mystrstr (fdata.cFileName, name_comp) != NULL) {
-               // time_t statbuf.st_atime;    /* time of last access */
-               // time_t statbuf.st_mtime;    /* time of last modification */
-               // time_t statbuf.st_ctime;    /* time of last status change */
-               // ftm = localtime((time_t *) &statbuf.st_mtime) ;
-               // secs  = ftm->tm_sec ;
-               // mins  = ftm->tm_min ;
-               // hour  = ftm->tm_hour ;
-               // day   = ftm->tm_mday ;
-               // month = ftm->tm_mon + 1 ;
-               // year = 1900 + ftm->tm_year ;
                ft = fdata.ftLastWriteTime;
                FileTimeToLocalFileTime (&(ft), &lft);
                FileTimeToDosDateTime (&lft, &(outdt.dtime[1]), &(outdt.dtime[0]));
@@ -672,13 +642,7 @@ static int read_dir_tree(dirs* cur_node)
                test_display_state() ;
                print_output(month, day, year, hour, mins, secs, fsize, pathname, false) ;
                // printf ("%02d/%02d/%02d %02d:%02d:%02d  %s\n", 
-               //    month,
-               //    day,
-               //    (int) (year % 100),
-               //    hour,
-               //    mins,
-               //    secs,
-               //    pathname);
+               //    month, day, (int) (year % 100), hour, mins, secs, pathname);
             }
          }
       }  //  if file is parseable...
@@ -1478,7 +1442,7 @@ int main (int argc, char **argv)
    //  normal subdirectory search
    //***********************************************************
    else {
-      if (strlen (temp_path) == 0) {
+      if (strlen(temp_path) == 0) {
          strcpy(temp_path, ".") ;
       }
       // qualify (target_path);
@@ -1491,11 +1455,11 @@ int main (int argc, char **argv)
          target_path[2] = '/' ;
       }
 
-      printf ("searching %s\n", target_path);
+      printf("searching %s\n", target_path);
       //***********************************************************
       //  scan and build directory tree
       //***********************************************************
-      build_dir_tree (target_path); //  read and build the dir tree
+      build_dir_tree(target_path); //  read and build the dir tree
       test_display_state() ;
    }
 
