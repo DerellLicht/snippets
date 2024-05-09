@@ -191,7 +191,7 @@ Last Update: __August 10, 2017__
 
 *** 
 
-__apptest__ - This inappropriately-named file demonstrates two common WinAPI tasks
+__apptest__ - This inappropriately-named file demonstrates two common WinAPI tasks  
 Last Update: __June 24, 2018__
 
 This console application demonstrates two common WinAPI tasks:
