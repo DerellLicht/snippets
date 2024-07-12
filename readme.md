@@ -178,14 +178,6 @@ Only [A,U,G,C] characters are valid
 
 *** 
 
-__beer_cals__ - Estimates calories of ale  
-Last Update: __September 22, 2015__
-
-Estimates calories of ale, from both alcohol and carbohydrates, 
-based upon volume and alcohol content.  Volume may be input in milliliters or ounces.
-
-*** 
-
 __readall__ - list all files specified by a filespec with wildcards  
 Last Update: __October 12, 2020__
 
@@ -253,6 +245,15 @@ then displays either the number or its factors.
 Note: converting to 64-bit build, sped up handling of number which had
 a factor that was greater than 32 bits, by about 25%.
        
+*** 
+__beer_cals__ - Estimates calories of ale  
+Last Update: __September 22, 2015__
+
+Estimates calories of ale, from both alcohol and carbohydrates, 
+based upon volume and alcohol content.  Volume may be input in milliliters or ounces.
+Carbohydrates are calculated at 4 grams/ml of ale, which is not at all a good approximation,
+but I don't know any better method.
+
 *** 
 
 __makedepend__ - C/C++ makefile-dependency generator  
