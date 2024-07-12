@@ -1,7 +1,12 @@
-//************************************************************************************************
-//  How to generate argc/argv data for programs which do not have conventional main() function.
+//*****************************************************************
+//  cline.cpp:                                                   
+//  How to generate argc/argv data for programs which do not have 
+//  conventional main() function.
 //  These include Windows (WinMain) and embedded projects
-//************************************************************************************************
+//                                                                 
+//  written by:   Daniel D. Miller                                 
+//                                                                 
+//*****************************************************************
 
 #include <windows.h>
 #include <stdio.h>

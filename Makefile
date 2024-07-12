@@ -22,7 +22,7 @@ endif
 %.exe: %.cpp
 	$(TOOLS)\g++ $(CFLAGS) -Weffc++ $< -o $@
 
-all: hex_dump.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe readall.exe
+all: hex_dump.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe readall.exe cline.exe
 
 clean:
 	rm -f *.exe
