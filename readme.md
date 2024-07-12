@@ -133,7 +133,7 @@ This is typically to aid in updating syntax-highlighting values for programming 
 *** 
 
 __cline__ - generate argc/argv data from command-line input  
-Last Update: __July 26, 2023__
+Last Update: __July 12, 2024__
 
 How to generate argc/argv data for programs which do not have conventional main() function.  
 These include Windows (WinMain) and embedded projects
