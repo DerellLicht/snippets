@@ -138,11 +138,13 @@ Last Update: __July 12, 2024__
 How to generate argc/argv data for programs which do not have conventional main() function.  
 These include Windows (WinMain) and embedded projects.
 
+```
 D:\SourceCode\Git\snippets> cline derelict history*
 argv[0] = cline
 argc=3
 1: derelict
 2: history*
+```
 
 
 *** 
