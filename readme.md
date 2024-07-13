@@ -150,7 +150,7 @@ argc=3
 *** 
 
 __wcmdline__ - Unicode command-line handling and console output  
-Last Update: __July 12, 2024__
+Last Update: __July 13, 2024__
 
 Handle command-line arguments and console output for UNICODE programs.
 ```
