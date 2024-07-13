@@ -22,13 +22,16 @@ endif
 %.exe: %.cpp
 	$(TOOLS)\g++ $(CFLAGS) -Weffc++ $< -o $@
 
-all: hex_dump.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe readall.exe cline.exe
+all: hex_dump.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe readall.exe cline.exe wcmdline.exe
 
 clean:
 	rm -f *.exe
 
 apptest.exe: apptest.cpp
 	$(TOOLS)\g++ $(CFLAGS) -DUNICODE -D_UNICODE -Wno-write-strings -Weffc++ $< -o $@
+
+wcmdline.exe: wcmdline.cpp
+	$(TOOLS)\g++ $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@
 
 printf2.exe: printf2.c
 	$(TOOLS)\gcc $(CFLAGS) -DTEST_PRINTF $< -o $@

@@ -139,13 +139,29 @@ How to generate argc/argv data for programs which do not have conventional main(
 These include Windows (WinMain) and embedded projects.
 
 ```
-D:\SourceCode\Git\snippets> cline derelict history*
+D:\SourceCode\Git\snippets > cline derelict history*
 argv[0] = cline
 argc=3
 1: derelict
 2: history*
 ```
 
+
+*** 
+
+__wcmdline__ - Unicode command-line handling and console output  
+Last Update: __July 12, 2024__
+
+Handle command-line arguments and console output for UNICODE programs.
+```
+D:\SourceCode\Git\snippets > wcmdline test 1 2 3
+home=D:\SourceCode\Git\snippets
+argc=5
+arg 1: test
+arg 2: 1
+arg 3: 2
+arg 4: 3
+```
 
 *** 
 
