@@ -76,6 +76,7 @@ int main(int argc, char** argv)
    double sum = (side1 + side2 + side3) / 2.0 ;
    printf("intermediate sum parameter: %5.3f\n", sum);
    
+   // computer the area result
    double total_area = sqrt(sum * (sum-side1) * (sum-side2) * (sum-side3)) ;
    printf("area: %5.3f\n", total_area);
    
