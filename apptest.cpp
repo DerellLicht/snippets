@@ -117,16 +117,17 @@ typedef struct shgfp_s {
 } shgfp_t ;
 
 shgfp_t path_info[] = {
-{ CSIDL_PROGRAMS,        L"programs" },
-{ CSIDL_PERSONAL,        L"personal" },
-{ CSIDL_APPDATA,         L"appdata" },
-{ CSIDL_COMMON_APPDATA,  L"common appdata" },
-{ CSIDL_COMMON_PROGRAMS, L"common" },
-{ CSIDL_WINDOWS,         L"sysroot" },
-{ CSIDL_SYSTEM,          L"system" },
-{ CSIDL_COOKIES,         L"cookies" },
-{ CSIDL_INTERNET_CACHE,  L"inet cache" },
-{ 0,                     L"end of list" }} ;
+{ CSIDL_PROGRAMS,         L"programs" },
+{ CSIDL_PERSONAL,         L"personal" },
+{ CSIDL_APPDATA,          L"appdata" },
+{ CSIDL_COMMON_APPDATA,   L"common appdata" },
+{ CSIDL_COMMON_PROGRAMS,  L"common" },
+{ CSIDL_COMMON_DOCUMENTS, L"common documents" },
+{ CSIDL_WINDOWS,          L"sysroot" },
+{ CSIDL_SYSTEM,           L"system" },
+{ CSIDL_COOKIES,          L"cookies" },
+{ CSIDL_INTERNET_CACHE,   L"inet cache" },
+{ 0,                      L"end of list" }} ;
 
 int main(void)
 {
@@ -140,9 +141,9 @@ int main(void)
                              path_info[idx].csidl_number,
                              NULL, 0, szPath) ;
       if (result == 0) {
-         _tprintf(L"%-14s: [%s]\n", path_info[idx].desc, szPath) ;
+         _tprintf(L"%-17s: [%s]\n", path_info[idx].desc, szPath) ;
       } else {
-         _tprintf(L"%-14s: \n", path_info[idx].desc, get_system_message()) ;
+         _tprintf(L"%-17s: \n", path_info[idx].desc, get_system_message()) ;
       }
    }
    return 0;
