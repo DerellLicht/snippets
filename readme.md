@@ -125,6 +125,13 @@ which can be passed to `CreateFile()`.
 
 *** 
 
+__proc_time__ - Measure elapsed time using QueryPerformanceCounter()  
+Last Update: __November 29, 2024__
+
+Measure elapsed time using QueryPerformanceCounter() on Windows systems
+
+*** 
+
 __rgb2cref__ - convert RGB value into hex/decimal form  
 Last Update: __July 26, 2020__
 

@@ -24,7 +24,7 @@ endif
 
 all: hex_dump.exe heron.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe \
 printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe readall.exe \
-cline.exe wcmdline.exe
+cline.exe wcmdline.exe proc_time.exe
 
 clean:
 	rm -f *.exe
