@@ -250,7 +250,7 @@ and payment summary table, for a loan with the input parameters.
   
 Alternate mode:
 If number_months is 0, overpay is treated as the payment amount,
-and this program will // calculate and display the number of months
+and this program will calculate and display the number of months
 required to pay off principle.
   
 Also, if overpay is greater than payment, then overpay is treated as
