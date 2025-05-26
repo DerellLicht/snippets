@@ -47,7 +47,8 @@ static char const version_string[] = "1.03" ;
 
 #define  LOOP_FOREVER   true
 
-char tempstr[81] ;
+#define  INP_STR_LEN    80
+char tempstr[INP_STR_LEN+1] ;
 
 enum {
 D_STANDARD = 0,
@@ -74,7 +75,8 @@ int main(int argc, char** argv)
       case D_INTERACTIVE:
          puts("");
          printf("Enter a number (0 quits): ");
-         gets(tempstr) ;   //lint !e421  dangerous function
+         // gets(tempstr) ;   //lint !e421  dangerous function
+         fgets(tempstr, INP_STR_LEN, stdin);
          givennbr = strtoull(tempstr, NULL, 10) ;
          break;
          
