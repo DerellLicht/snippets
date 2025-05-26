@@ -2,3 +2,4 @@
 *.o
 _lint.tmp
 readme.orig.md
+output.txt

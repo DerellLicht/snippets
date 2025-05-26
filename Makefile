@@ -14,7 +14,7 @@ endif
 ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
 else
-TOOLS=c:\mingw\bin
+TOOLS=c:\tdm32\bin
 endif
 
 #  standard build rule

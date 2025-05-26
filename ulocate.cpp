@@ -451,14 +451,14 @@ static void print_output(int month, int day, long year, int hour, int mins, int 
    if (output_format & OFMT_SIZES) {
       if (fsize > 99999999LU) {
 #ifdef  USE_NEW_LLU      
-         printf("%"PRIu64"M ", fsize / 1000000LU);
+         printf("%I64uM ", fsize / 1000000LU);
 #else         
          printf("%5lluM ", fsize / 1000000LU);
 #endif         
       }
       else if (fsize > 999999L) {
 #ifdef  USE_NEW_LLU      
-         printf("%5"PRIu64"K ", fsize / 1000L);
+         printf("%5I64uK ", fsize / 1000L);
 #else         
          printf("%5lluK ", fsize / 1000L);
 #endif         
@@ -467,7 +467,7 @@ static void print_output(int month, int day, long year, int hour, int mins, int 
       }
       else {
 #ifdef  USE_NEW_LLU      
-         printf("%6"PRIu64" ", fsize);
+         printf("%6I64u ", fsize);
 #else         
          printf("%6llu ", fsize);
 #endif         
@@ -475,7 +475,7 @@ static void print_output(int month, int day, long year, int hour, int mins, int 
    } else 
    if (output_format & OFMT_SIZEL) {
 #ifdef  USE_NEW_LLU      
-      printf("%*"PRIu64" ", (int) size_len, fsize);
+      printf("%*I64u ", (int) size_len, fsize);
 #else         
       printf("%*llu ", (int) size_len, fsize);
 #endif         
@@ -564,11 +564,12 @@ static int read_dir_tree(dirs* cur_node)
       // }
       //  filter out directories if not requested
       bool fn_okay = true ;
-      if (strcmp(fdata.cFileName, "..") == 0  ||  strcmp(fdata.cFileName, ".") == 0) 
+      if (strcmp(fdata.cFileName, "..") == 0  ||  strcmp(fdata.cFileName, ".") == 0) {
          fn_okay = false;
-      if (debug)
-         printf("found %s, okay=%s\n", fdata.cFileName,
-            (fn_okay) ? "true" : "false") ;
+      }
+      if (debug) {
+         printf("found %s, okay=%s\n", fdata.cFileName, (fn_okay) ? "true" : "false") ;
+      }
       
       if (fn_okay) {
          wsprintf(pathname, "%s%s", cur_node->name, fdata.cFileName) ;
@@ -580,7 +581,7 @@ static int read_dir_tree(dirs* cur_node)
                 cur_node->sons = dtemp ;
             else 
                dtail->brothers = dtemp ;  //lint !e644 !e613
-            dtail = dtemp ;
+            dtail = dtemp ;   //  first time through this loop as directory, dtail gets assigned
 
             // dtail->name = new char[strlen(pathname)+1] ;
             dtail->name = new char[PATH_MAX] ;
