@@ -58,6 +58,9 @@ char const * const Version = "ULOCATE.EXE, Version 1.18";
 
 #define  USE_NEW_LLU  1
 
+//lint -e537  Repeated include file
+//lint -e451  header file repeatedly included but does not have a standard include guard
+
 #ifdef __MINGW32__
 #include <windows.h>
 #ifdef  USE_NEW_LLU      
@@ -76,7 +79,6 @@ char const * const Version = "ULOCATE.EXE, Version 1.18";
 #include <time.h>
 #include <limits.h>
 #include <dirent.h>
-#include <sys/stat.h>
 
 //lint -e10    Expecting '}'
 
@@ -580,7 +582,7 @@ static int read_dir_tree(dirs* cur_node)
             if (cur_node->sons == NULL) 
                 cur_node->sons = dtemp ;
             else 
-               dtail->brothers = dtemp ;  //lint !e644 !e613
+               dtail->brothers = dtemp ;  //lint !e644 !e613 NOLINT 
             dtail = dtemp ;   //  first time through this loop as directory, dtail gets assigned
 
             // dtail->name = new char[strlen(pathname)+1] ;
@@ -905,16 +907,16 @@ static int build_dir_tree(char* tpath)
    top = new_dir_node() ;
 
    //  derive root path name
-   strptr = (char *) new char[PATH_MAX] ;
+   strptr = (char *) new char[PATH_MAX+1] ;
    // if (strptr == 0) 
    //    error_exit(ENOMEM, NULL) ;
    top->name = strptr ;
-   strcpy(top->name, tpath) ;
+   strncpy(top->name, tpath, PATH_MAX) ;
 
    //  make sure base path ends with a slash
    int base_len = strlen(top->name) ;  //lint !e713
    if (top->name[base_len-1] != '/') {
-      strcat(top->name, "/") ;
+      strcat(top->name, "/") ;   // NOLINT
       // base_len++ ;
    }
    // strcpy(dir_path, base_path) ;
@@ -1219,7 +1221,7 @@ static const char path_sep = ':' ;
 
 static int search_path_for_name(void)
 {
-   char mypath[PATH_MAX] ;
+   char mypath[PATH_MAX+1] ;
    char *my_path = getenv("PATH") ;
    if (my_path == 0) {
       FILE *fd = popen("echo $PATH", "r") ;
@@ -1240,9 +1242,9 @@ static int search_path_for_name(void)
    //  in Windows environment, prepend '.' to path
 #ifdef __MINGW32__
    {
-   char tempath[PATH_MAX] ;
-   sprintf(tempath, ".;%s", my_path);
-   strcpy(mypath, tempath);
+   char tempath[PATH_MAX+1] ;
+   sprintf(tempath, ".;%s", my_path);  // add current directory to path
+   strncpy(mypath, tempath, PATH_MAX);
    my_path = mypath ;
    }
 #endif
