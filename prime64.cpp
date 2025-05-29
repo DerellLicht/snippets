@@ -40,6 +40,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifndef  __MINGW64__
+#define  USE_LLU
+#endif
+
 static char const version_string[] = "1.03" ;
 
 //lint -esym(818, argv)  could be declared as pointing to const
@@ -55,6 +59,7 @@ D_STANDARD = 0,
 D_INTERACTIVE
 } ;
 
+
 //**********************************************************************
 int main(int argc, char** argv)
 {
@@ -68,6 +73,8 @@ int main(int argc, char** argv)
    puts("****************************************************");
    puts("This program determines whether a number is a prime,");
    puts("then displays either the number or its factors.");
+   
+   printf("sizeof int: %u bytes\n", (unsigned) sizeof(int));
 
    do {  /* Repeat main program until entry = 0 */
       givennbr = power = 0L ;
@@ -102,14 +109,21 @@ int main(int argc, char** argv)
             power++ ;
             nbrleft >>= 1 ;
          }
+#ifdef  USE_LLU         
+         printf("The factors of %llu are:\n\n", givennbr) ;
+#else         
          printf("The factors of %I64u are:\n\n", givennbr) ;
-         // printf("The factors of %llu are:\n\n", givennbr) ;
+#endif         
          printf("          Factor                       Power \n");
          header_displayed = true ;
          //  Okay, I get it... when the preceding while loop is done,
          //  if original number was multiple of 2,
          //  then nbrleft will equal 1, that being the power sign
+#ifdef  USE_LLU         
+         printf("   %20llu       %20llu\n", (__int64) 2, (__int64) power) ;
+#else         
          printf("   %20I64u       %20I64u\n", (__int64) 2, (__int64) power) ;
+#endif         
       }
 
       //****************************************************
@@ -150,11 +164,19 @@ int main(int argc, char** argv)
             while ((nbrdiv * nextodd) == nbrleft) ;
             
             if (!header_displayed) {
+#ifdef  USE_LLU         
+               printf("The factors of %llu are:\n\n", givennbr) ;
+#else               
                printf("The factors of %I64u are:\n\n", givennbr) ;
+#endif               
                printf("          Factor                       Power \n");
                header_displayed = true ;
             }
+#ifdef  USE_LLU         
+            printf("   %20llu       %20llu\n", nextodd, (__int64) power) ;
+#else            
             printf("   %20I64u       %20I64u\n", nextodd, (__int64) power) ;
+#endif            
          }  /* IF nbrleft%nextodd    */
          nextodd += 2;
       }     /* while nextodd*nbrleft <= nbrleft */
@@ -166,10 +188,18 @@ int main(int argc, char** argv)
       //  check for remaining value
       //****************************************************
       if (!header_displayed) {
+#ifdef  USE_LLU         
+         printf("%llu is a prime number\n", givennbr) ; 
+#else         
          printf("%I64u is a prime number\n", givennbr) ; 
+#endif         
       }
       else if (nbrleft > 1) {
+#ifdef  USE_LLU         
+         printf("   %20llu       %20llu\n", nbrleft, (__int64) 1) ;
+#else         
          printf("   %20I64u       %20I64u\n", nbrleft, (__int64) 1) ;
+#endif         
       }
    }
    while (givennbr != 0);

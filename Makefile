@@ -1,5 +1,5 @@
 USE_DEBUG = NO
-USE_64BIT = YES
+USE_64BIT = NO
 
 ifeq ($(USE_DEBUG),YES)
 CFLAGS=-Wall -O -g
@@ -14,6 +14,7 @@ endif
 ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
 else
+#TOOLS=c:\mingw32\bin
 TOOLS=c:\tdm32\bin
 endif
 
@@ -35,9 +36,15 @@ apptest.exe: apptest.cpp
 wcmdline.exe: wcmdline.cpp
 	$(TOOLS)\g++ $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@
 
+prime64.exe: prime64.cpp
+	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
+
+ulocate.exe: ulocate.cpp
+	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
+
 printf2.exe: printf2.c
-	$(TOOLS)\gcc $(CFLAGS) -DTEST_PRINTF $< -o $@
+	$(TOOLS)\gcc $(CFLAGS) -DTEST_PRINTF -Wno-int-to-pointer-cast $< -o $@
 
 serial_enum.exe: serial_enum.cpp
-	$(TOOLS)\g++ $(CFLAGS) -DUNICODE -D_UNICODE $< -o $@ -lsetupapi
+	$(TOOLS)\g++ $(CFLAGS) -Wno-unused-function -DUNICODE -D_UNICODE $< -o $@ -lsetupapi
 

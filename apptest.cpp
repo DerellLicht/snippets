@@ -29,9 +29,6 @@
 // system  : [C:\WINDOWS\system32]
 //*************************************************************************
 
-//  the elevated __MSVCRT_VERSION__ declaration is required in order to
-//  enable _O_U16TEXT in fcntl.h
-#define __MSVCRT_VERSION__    0x0800
 #include <windows.h>
 #include <stdio.h>
 #include <io.h>
@@ -133,7 +130,6 @@ int main(void)
 {
    TCHAR szPath[MAX_PATH];
 
-   _setmode(_fileno(stdout), _O_U16TEXT); //  enable UNICODE printf()
    uint idx ;
    for (idx=0; path_info[idx].csidl_number != 0; idx++) {
 
