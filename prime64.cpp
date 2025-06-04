@@ -40,9 +40,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifndef  __MINGW64__
-#define  USE_LLU
-#endif
+// #define  USE_LLU
+#undef  USE_LLU
 
 static char const version_string[] = "1.03" ;
 
