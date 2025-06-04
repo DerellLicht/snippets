@@ -11,18 +11,26 @@ endif
 #CFLAGS += -std=c++98
 #LFLAGS += -std=c++98
 
+#  clang++ vs tdm g++
+#  Basically, clang gives *much* clearer compiler error messages...
+#  However, it often generates somewhat larger files.
+
 ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
 #TOOLS=c:\tdm-gcc-64\bin
 else
 #TOOLS=c:\mingw32\bin
 TOOLS=c:\tdm32\bin
+#TOOLS=D:\clang\bin
 endif
+
+GPP_NAME=g++
+#GPP_NAME=clang++
 
 #  standard build rule
 #  Files which need variations on this, can be specified below
 %.exe: %.cpp
-	$(TOOLS)\g++ $(CFLAGS) -Weffc++ $< -o $@
+	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -Weffc++ $< -o $@
 
 all: hex_dump.exe heron.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe \
 printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe readall.exe \
@@ -32,20 +40,20 @@ clean:
 	rm -f *.exe
 
 apptest.exe: apptest.cpp
-	$(TOOLS)\g++ $(CFLAGS) -DUNICODE -D_UNICODE -Wno-write-strings -Weffc++ $< -o $@
+	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -DUNICODE -D_UNICODE -Wno-write-strings -Weffc++ $< -o $@
 
 wcmdline.exe: wcmdline.cpp
-	$(TOOLS)\g++ $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@
+	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@
 
 prime64.exe: prime64.cpp
 	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
 
 ulocate.exe: ulocate.cpp
-	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
+	d:\tdm64\bin\$(GPP_NAME) $(CFLAGS) -Weffc++ $< -o $@
 
 printf2.exe: printf2.c
 	$(TOOLS)\gcc $(CFLAGS) -DTEST_PRINTF -Wno-int-to-pointer-cast $< -o $@
 
 serial_enum.exe: serial_enum.cpp
-	$(TOOLS)\g++ $(CFLAGS) -Wno-unused-function -DUNICODE -D_UNICODE $< -o $@ -lsetupapi
+	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -Wno-unused-function -DUNICODE -D_UNICODE $< -o $@ -lsetupapi
 

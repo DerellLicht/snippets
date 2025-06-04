@@ -57,6 +57,7 @@
 char const * const Version = "ULOCATE.EXE, Version 1.18";
 
 #define  USE_NEW_LLU  1
+// #undef  USE_NEW_LLU
 
 //lint -e537  Repeated include file
 //lint -e451  header file repeatedly included but does not have a standard include guard
