@@ -20,12 +20,12 @@ TOOLS=d:\tdm64\bin
 #TOOLS=c:\tdm-gcc-64\bin
 else
 #TOOLS=c:\mingw32\bin
-TOOLS=c:\tdm32\bin
-#TOOLS=D:\clang\bin
+#TOOLS=c:\tdm32\bin
+TOOLS=D:\clang\bin
 endif
 
-GPP_NAME=g++
-#GPP_NAME=clang++
+#GPP_NAME=g++
+GPP_NAME=clang++
 
 #  standard build rule
 #  Files which need variations on this, can be specified below
@@ -49,7 +49,7 @@ prime64.exe: prime64.cpp
 	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
 
 ulocate.exe: ulocate.cpp
-	d:\tdm64\bin\$(GPP_NAME) $(CFLAGS) -Weffc++ $< -o $@
+	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
 
 printf2.exe: printf2.c
 	$(TOOLS)\gcc $(CFLAGS) -DTEST_PRINTF -Wno-int-to-pointer-cast $< -o $@
