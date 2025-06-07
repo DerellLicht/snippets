@@ -13,19 +13,20 @@ endif
 
 #  clang++ vs tdm g++
 #  Basically, clang gives *much* clearer compiler error messages...
-#  However, it often generates somewhat larger files.
+#  Note: programs built with clang++ will require libc++.dll 
+#  in order to be used elsewhere.
+#  That is why the executable files are smaller than TDM ...
 
 ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
 #TOOLS=c:\tdm-gcc-64\bin
 else
-#TOOLS=c:\mingw32\bin
-#TOOLS=c:\tdm32\bin
-TOOLS=D:\clang\bin
+TOOLS=c:\tdm32\bin
+#TOOLS=D:\clang\bin
 endif
 
-#GPP_NAME=g++
-GPP_NAME=clang++
+GPP_NAME=g++
+#GPP_NAME=clang++
 
 #  standard build rule
 #  Files which need variations on this, can be specified below
