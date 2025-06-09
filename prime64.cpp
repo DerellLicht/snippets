@@ -40,7 +40,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// #define  USE_LLU
+//#define  USE_LLU
 #undef  USE_LLU
 
 static char const version_string[] = "1.03" ;

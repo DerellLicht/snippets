@@ -57,7 +57,7 @@
 char const * const Version = "ULOCATE.EXE, Version 1.18";
 
 #define  USE_NEW_LLU  1
-// #undef  USE_NEW_LLU
+//#undef  USE_NEW_LLU
 
 //lint -e537  Repeated include file
 //lint -e451  header file repeatedly included but does not have a standard include guard
@@ -81,6 +81,8 @@ char const * const Version = "ULOCATE.EXE, Version 1.18";
 #include <limits.h>
 #include <dirent.h>
 
+#define  MAX_PATH_LEN   1024
+
 //lint -e10    Expecting '}'
 
 //lint -e534   Ignoring return value of function
@@ -102,8 +104,8 @@ typedef unsigned long long  u64 ;
 static const bool LOOP_FOREVER = true ;
 // #endif
 
-static char target_path[PATH_MAX];
-static char temp_path[PATH_MAX];
+static char target_path[MAX_PATH_LEN];
+static char temp_path[MAX_PATH_LEN];
 
 #ifdef __MINGW32__
 union u64toul {
@@ -136,9 +138,9 @@ union parse_time {
    } ;
 
 #else
-static char lfn_dest[PATH_MAX];
-static char lfn_path[PATH_MAX];
-static char res_dest[PATH_MAX];
+static char lfn_dest[MAX_PATH_LEN];
+static char lfn_path[MAX_PATH_LEN];
+static char res_dest[MAX_PATH_LEN];
 #endif
 
 static char name_comp[40];
@@ -231,7 +233,7 @@ int syslog(const char *fmt, ...)
 //  realpath  expands  all symbolic links and resolves references to 
 //  '/./', '/../' and extra '/' characters in the null terminated string 
 //  named by path and stores the canonicalized absolute pathname  in  the  
-//  buffer of size PATH_MAX named by resolved_path.  
+//  buffer of size MAX_PATH_LEN named by resolved_path.  
 //  The resulting path will have no symbolic link, '/./' or '/../' components.
 //****************************************************************************
 // unsigned qualify (char *argptr)
@@ -519,7 +521,7 @@ static int read_dir_tree(dirs* cur_node)
 {
    dirs *dtail = 0 ;
    dirs *dtemp ;
-   char pathname[PATH_MAX] ;
+   char pathname[MAX_PATH_LEN] ;
 
    // recurse_depth++ ;
    if (debug)
@@ -534,7 +536,7 @@ static int read_dir_tree(dirs* cur_node)
    }
 
 #ifdef __MINGW32__
-   char dirname[PATH_MAX] ;
+   char dirname[MAX_PATH_LEN] ;
    FILETIME ft, lft;
    // struct tm *ftm ;
    u64toul iconv;
@@ -587,7 +589,7 @@ static int read_dir_tree(dirs* cur_node)
             dtail = dtemp ;   //  first time through this loop as directory, dtail gets assigned
 
             // dtail->name = new char[strlen(pathname)+1] ;
-            dtail->name = new char[PATH_MAX] ;
+            dtail->name = new char[MAX_PATH_LEN] ;
             if (dtail->name == 0) {
                error_exit(ENOMEM, NULL) ; //  never returns
             }
@@ -806,7 +808,7 @@ static int read_dir_tree(dirs* cur_node)
          dtail = dtemp ;
 
          // dtail->name = new char[strlen(pathname)+1] ;
-         dtail->name = new char[PATH_MAX] ;
+         dtail->name = new char[MAX_PATH_LEN] ;
          if (dtail->name == 0) {
             error_exit(ENOMEM, NULL) ; //  never returns
          }
@@ -901,18 +903,18 @@ next_element:
 static int build_dir_tree(char* tpath)
 {
    char* strptr ;
-   // char base_path[PATH_MAX];
+   // char base_path[MAX_PATH_LEN];
 
    // strcpy(base_path, tpath) ;
    //  allocate struct for dir listing
    top = new_dir_node() ;
 
    //  derive root path name
-   strptr = (char *) new char[PATH_MAX+1] ;
+   strptr = (char *) new char[MAX_PATH_LEN+1] ;
    // if (strptr == 0) 
    //    error_exit(ENOMEM, NULL) ;
    top->name = strptr ;
-   strncpy(top->name, tpath, PATH_MAX) ;
+   strncpy(top->name, tpath, MAX_PATH_LEN) ;
 
    //  make sure base path ends with a slash
    int base_len = strlen(top->name) ;  //lint !e713
@@ -937,8 +939,8 @@ static int read_single_dir(char *sub_path)
 
 #ifdef __MINGW32__
    // unsigned cut_dot_dirs ;
-   char dirname[PATH_MAX] ;
-   char pathname[PATH_MAX] ;
+   char dirname[MAX_PATH_LEN] ;
+   char pathname[MAX_PATH_LEN] ;
    FILETIME ft, lft;
    u64toul iconv;
    parse_time outdt;
@@ -994,7 +996,7 @@ static int read_single_dir(char *sub_path)
             // dtail = dtemp ;
 
             // dtail->name = new char[strlen(pathname)+1] ;
-            // dtail->name = new char[PATH_MAX] ;
+            // dtail->name = new char[MAX_PATH_LEN] ;
             // if (dtail->name == 0) {
             //    error_exit(ENOMEM, NULL) ; //  never returns
             // }
@@ -1102,7 +1104,7 @@ next_element:
    DIR *dirp;                   /* pointer to directory */
    struct dirent *dp;
    struct stat statbuf ; 
-   char pathname[PATH_MAX] ;
+   char pathname[MAX_PATH_LEN] ;
 
    //  why not use cur_node->name instead of dir_path??
    if (debug)
@@ -1222,7 +1224,7 @@ static const char path_sep = ':' ;
 
 static int search_path_for_name(void)
 {
-   char mypath[PATH_MAX+1] ;
+   char mypath[MAX_PATH_LEN+1] ;
    char *my_path = getenv("PATH") ;
    if (my_path == 0) {
       FILE *fd = popen("echo $PATH", "r") ;
@@ -1243,9 +1245,9 @@ static int search_path_for_name(void)
    //  in Windows environment, prepend '.' to path
 #ifdef __MINGW32__
    {
-   char tempath[PATH_MAX+1] ;
+   char tempath[MAX_PATH_LEN+1] ;
    sprintf(tempath, ".;%s", my_path);  // add current directory to path
-   strncpy(mypath, tempath, PATH_MAX);
+   strncpy(mypath, tempath, MAX_PATH_LEN);
    my_path = mypath ;
    }
 #endif
@@ -1388,7 +1390,7 @@ int main (int argc, char **argv)
       }
    }
 
-   // printf("size of PATH_MAX=%u bytes\n", PATH_MAX) ;  //  4096 bytes
+   // printf("size of MAX_PATH_LEN=%u bytes\n", MAX_PATH_LEN) ;  //  4096 bytes
    //***********************************************************
    //  parse command line
    //***********************************************************

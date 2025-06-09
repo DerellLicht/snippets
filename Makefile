@@ -17,6 +17,13 @@ endif
 #  in order to be used elsewhere.
 #  That is why the executable files are smaller than TDM ...
 
+#  note that you don't need two separate toolchain installations to build for 32 and 64 bit; 
+#  it's enough with one of them, and you can call e.g. 
+#  x86_64-w64-mingw32-clang++ to build for 64 bit and 
+#  i686-w64-mingw32-clang++ to build for 32 bit. 
+#  The prefixless clang++ builds for the architecture that is the default 
+#     for the toolchain you're using.
+
 ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
 #TOOLS=d:\clang64\bin
