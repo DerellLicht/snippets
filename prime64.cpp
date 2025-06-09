@@ -60,6 +60,12 @@ D_INTERACTIVE
 
 
 //**********************************************************************
+unsigned get_build_size(void)
+{
+   return (sizeof(int*) == 8) ? 64 : 32 ;
+}
+
+//**********************************************************************
 int main(int argc, char** argv)
 {
    unsigned __int64 givennbr, nbrleft, nextodd;
@@ -68,13 +74,11 @@ int main(int argc, char** argv)
    int display = (argc > 1) ? D_STANDARD : D_INTERACTIVE ;
 
    // puts("PRIME32.EXE - Written by: Daniel D. Miller") ;
-   printf("PRIME64 V%s - Written by: Daniel D. Miller\n", version_string) ;
+   printf("PRIME%u V%s - Written by: Daniel D. Miller\n", get_build_size(), version_string) ;
    puts("****************************************************");
    puts("This program determines whether a number is a prime,");
    puts("then displays either the number or its factors.");
    
-   printf("sizeof int: %u bytes\n", (unsigned) sizeof(int));
-
    do {  /* Repeat main program until entry = 0 */
       givennbr = power = 0L ;
       switch (display) {

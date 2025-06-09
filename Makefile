@@ -19,6 +19,7 @@ endif
 
 ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
+#TOOLS=d:\clang64\bin
 #TOOLS=c:\tdm-gcc-64\bin
 else
 TOOLS=c:\tdm32\bin
