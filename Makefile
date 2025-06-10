@@ -6,15 +6,13 @@ CFLAGS=-Wall -O -g
 else
 CFLAGS=-Wall -O3 -s
 endif
-
-#  this flag does *not* enable %llu in printf...
-#CFLAGS += -std=c++98
-#LFLAGS += -std=c++98
+# use -static for clang and cygwin/mingw
+CFLAGS += -static
 
 #  clang++ vs tdm g++
 #  Basically, clang gives *much* clearer compiler error messages...
 #  Note: programs built with clang++ will require libc++.dll 
-#  in order to be used elsewhere.
+#  in order to be used elsewhere, unless compiled with -static
 #  That is why the executable files are smaller than TDM ...
 
 #  note that you don't need two separate toolchain installations to build for 32 and 64 bit; 
@@ -24,16 +22,25 @@ endif
 #  The prefixless clang++ builds for the architecture that is the default 
 #     for the toolchain you're using.
 
+# cygwin mingw paths
+# C:\cygwin64/bin/i686-w64-mingw32-g++.exe
+# C:\cygwin64/bin/x86_64-w64-mingw32-g++.exe
+
 ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
 #TOOLS=d:\clang64\bin
-#TOOLS=c:\tdm-gcc-64\bin
+#TOOLS=d:\tdm-gcc-64\bin
 else
-TOOLS=c:\tdm32\bin
+#TOOLS=d:\tdm32\bin
 #TOOLS=D:\clang\bin
+TOOLS=C:\cygwin64\bin
 endif
 
-GPP_NAME=g++
+#  32-bit executables
+GPP_NAME=i686-w64-mingw32-g++.exe
+#  64-bit executables
+#GPP_NAME=x86_64-w64-mingw32-g++ 
+#GPP_NAME=g++
 #GPP_NAME=clang++
 
 #  standard build rule
@@ -55,13 +62,15 @@ wcmdline.exe: wcmdline.cpp
 	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@
 
 prime64.exe: prime64.cpp
-	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
+#	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
+	C:\cygwin64/bin/x86_64-w64-mingw32-g++ $(CFLAGS) -static -Weffc++ $< -o $@
 
 ulocate.exe: ulocate.cpp
-	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
+#	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
+	C:\cygwin64/bin/x86_64-w64-mingw32-g++ -Wno-stringop-truncation $(CFLAGS) -static -Weffc++ $< -o $@
 
 printf2.exe: printf2.c
-	$(TOOLS)\gcc $(CFLAGS) -DTEST_PRINTF -Wno-int-to-pointer-cast $< -o $@
+	d:\tdm32\bin\gcc $(CFLAGS) -DTEST_PRINTF -Wno-int-to-pointer-cast $< -o $@
 
 serial_enum.exe: serial_enum.cpp
 	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -Wno-unused-function -DUNICODE -D_UNICODE $< -o $@ -lsetupapi

@@ -29,7 +29,7 @@
 // Timer 1 off: 18:15:23  Elapsed: 0:00:03.41
 // 
 //*****************************************************************
-//  Version    Date        Description
+//  Version    Date        Description 
 //   1.00      07/23/05    Original
 //   1.01      02/22/12    Fix bug on N*N, with N prime
 //   1.02      01/11/16    Change number-read function to strtoull()
@@ -40,8 +40,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-//#define  USE_LLU
-#undef  USE_LLU
+#define  USE_LLU
+// #undef  USE_LLU
 
 static char const version_string[] = "1.03" ;
 
@@ -60,6 +60,8 @@ D_INTERACTIVE
 
 
 //**********************************************************************
+//  this reports whether executable is 32-bit or 64-bit build
+//**********************************************************************
 unsigned get_build_size(void)
 {
    return (sizeof(int*) == 8) ? 64 : 32 ;
@@ -73,8 +75,7 @@ int main(int argc, char** argv)
    int next = 1 ;
    int display = (argc > 1) ? D_STANDARD : D_INTERACTIVE ;
 
-   // puts("PRIME32.EXE - Written by: Daniel D. Miller") ;
-   printf("PRIME%u V%s - Written by: Daniel D. Miller\n", get_build_size(), version_string) ;
+   printf("PRIME%u V%s - Written by: Derell Licht\n", get_build_size(), version_string) ;
    puts("****************************************************");
    puts("This program determines whether a number is a prime,");
    puts("then displays either the number or its factors.");
