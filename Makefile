@@ -49,7 +49,7 @@ GPP_NAME=i686-w64-mingw32-g++.exe
 	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -Weffc++ $< -o $@
 
 all: hex_dump.exe heron.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe \
-printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe readall.exe \
+printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe \
 cline.exe wcmdline.exe proc_time.exe
 
 clean:
@@ -59,6 +59,9 @@ apptest.exe: apptest.cpp
 	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -DUNICODE -D_UNICODE -Wno-write-strings -Weffc++ $< -o $@
 
 wcmdline.exe: wcmdline.cpp
+	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@
+
+readall.exe: readall.cpp
 	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@
 
 prime64.exe: prime64.cpp
