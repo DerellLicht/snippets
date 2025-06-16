@@ -50,7 +50,7 @@ GPP_NAME=i686-w64-mingw32-g++.exe
 
 all: hex_dump.exe heron.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe \
 printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe \
-cline.exe proc_time.exe qualify.exe
+cline.exe proc_time.exe 
 
 clean:
 	rm -f *.exe
@@ -60,9 +60,6 @@ apptest.exe: apptest.cpp
 
 wcmdline.exe: wcmdline.cpp
 	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@
-
-qualify.exe: qualify.cpp
-	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@ -lshlwapi
 
 prime64.exe: prime64.cpp
 #	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
