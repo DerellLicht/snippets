@@ -23,14 +23,16 @@
 #include <stdlib.h>
 #include <direct.h>             //  _getdrive()
 #include <sys/stat.h>
-//  lint says I don't need this header, and in fact for MSVC6.0
-//  I *don't* need it, but for gcc I do...
 #include <ctype.h>              //  tolower()
 #include <shlwapi.h>    // PathIsUNC(), etc
 #include <limits.h>
 #include <tchar.h>
 
-#include "qualify.h"
+// #include "qualify.h"
+#define  QUAL_WILDCARDS    0x01
+#define  QUAL_NO_PATH      0x02
+#define  QUAL_IS_FILE      0x04
+#define  QUAL_INV_DRIVE    0x80
 
 #define  LOOP_FOREVER   true
 #define  MAX_PATH_LEN      1024
