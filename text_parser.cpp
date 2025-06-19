@@ -36,14 +36,14 @@ char *next_field(char *q)
 //**********************************************************************
 int main(int argc, char **argv)
 {
-    char fname[PATH_MAX+1] = "" ;
+    char fname[MAX_PATH_LEN+1] = "" ;
 
     int idx ;
     for (idx=1; idx<argc; idx++)
     {
         char *p = argv[idx];
-        strncpy(fname, p, PATH_MAX);
-        fname[PATH_MAX] = 0 ;   //  ensure NULL-term
+        strncpy(fname, p, MAX_PATH_LEN);
+        fname[MAX_PATH_LEN] = 0 ;   //  ensure NULL-term
     }
     if (fname[0] == 0)
     {
