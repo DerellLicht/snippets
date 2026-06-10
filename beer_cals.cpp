@@ -9,7 +9,7 @@
 //  available on the bottle label.  I am using as my baseline, the carb
 //  content of Newcastle Brown Ale, a typical mid-strengh ale.
 //  
-//  Written by:  Danial D Miller
+//  Written by:  Daniel D Miller
 //*********************************************************************************
 
 #include <stdio.h>
@@ -72,8 +72,8 @@ int main(int argc, char **argv)
    //  there is in the grain) and initial vs final specific gravity.
    //  So this calculation is using some guesswork based on mid-strength ales.
    //  new values from 09/2015: http://www.shapefit.com/weight-loss/alcohol-calories.html
-   // Beer, regular (12 fl oz)	13g  / 12oz
-   // Beer, light (12 fl oz)	   4.5g / 12oz
+   // Beer, regular (12 fl oz)   13g  / 12oz
+   // Beer, light (12 fl oz)     4.5g / 12oz
    //  Per http://www.calorieking.com/foods/calories-in-ales-beers-brown-ale_f-ZmlkPTExNTM1Ng.html
    //  Newcastle Brown Ale (a mid-strength English ale) has 12.8g carbs in 12oz bottle,
    //  which roughly agrees with the previous calculation.
