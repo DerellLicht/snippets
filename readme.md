@@ -75,7 +75,7 @@ __read_files__ - a single-file solution for reading all the files in a specified
 Last Update: __June 29, 2026__
 
 This file does not do any of the special functions that my normal,
-dere_libs-based projects do, such as:
+der_libs-based projects do, such as:
 - expanding the specified file spec to a fully-qualified form
 - handling UNICODE
 - providing access to debug/info functions such as syslog() and get_system_message()  
