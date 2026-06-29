@@ -1,0 +1,18 @@
+#https://clang.llvm.org/extra/clang-tidy/#id2
+Checks: |
+  bugprone-*,
+  -bugprone-branch-clone,
+  clang-analyzer-*,
+  clang-diagnostic-*,
+  cppcoreguidelines-*,
+  -cppcoreguidelines-pro-type-vararg,
+  -cppcoreguidelines-macro-to-enum,
+  -cppcoreguidelines-avoid-c-arrays,
+  -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+  -cppcoreguidelines-macro-usage,
+  -cppcoreguidelines-avoid-non-const-global-variables,
+  modernize-*,
+  -modernize-macro-to-enum,
+  -modernize-avoid-c-arrays,
+  performance-*,
+  
