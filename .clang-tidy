@@ -14,5 +14,6 @@ Checks: |
   modernize-*,
   -modernize-macro-to-enum,
   -modernize-avoid-c-arrays,
+  -modernize-use-trailing-return-type,
   performance-*,
   

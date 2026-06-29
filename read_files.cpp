@@ -71,7 +71,7 @@ static std::vector<ffdata> flist;
 
 //**********************************************************************************
 // int read_files(std::string filespec)
-auto read_files(const std::string &filespec) -> int
+int read_files(const std::string &filespec)
 {
    WIN32_FIND_DATA fdata ; //  long-filename file struct
    HANDLE handle = FindFirstFile (filespec.c_str(), &fdata);
