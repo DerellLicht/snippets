@@ -4,9 +4,11 @@
 //  
 //  This file does not do any of the special functions that my normal 
 //  der_libs-based projects do, such as:
+//  
 //  - expanding the specified file spec to a fully-qualified form
 //  - handling UNICODE
 //  - providing access to debug/info functions such as syslog() and get_system_message()
+//  
 //  If such expanded capabilities are required, I recommend copy my uni_file_mgr
 //  repo and working from that.  But if you just want a single-file option that
 //  just reads the files and saves them in a vector, this is your solution.
