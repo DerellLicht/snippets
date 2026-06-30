@@ -3,20 +3,23 @@
 //  which calculates the area of an irregular triangle,
 //  given only the lengths of the three sides, but no angles.
 //  
-//  Copyright 2023  Daniel D Miller
+//  Copyright 2023  Derell Licht
+//  build: g++ -Wall -O2 heron.cpp -o heron.exe
+// 
+//  lint:  clang-tidy read_files.cpp -- 
 //***********************************************************************
 
 #include <windows.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
 
 //lint -esym(818, argv)   Pointer parameter could be declared as pointing to const
 //lint -e10               Expecting '}'
 //lint -esym(119, strtod) Too many arguments (2) for prototype 'strtod(const char *)'
 
 //***********************************************************************
-static void usage(void)
+static void usage()
 {
    puts("Usage: heron side1_len side2_len side3_len");
    puts("");
@@ -27,7 +30,6 @@ static void usage(void)
 }
 
 //***********************************************************************
-
 int main(int argc, char** argv)
 {
    double side1 = 0.0 ;
@@ -37,23 +39,22 @@ int main(int argc, char** argv)
    usage();
    
    //  parse command line
-   int idx ;
    int sides_count = 0 ;
-   for (idx=1; idx<argc; idx++) {
-      char *p = argv[idx];
+   for (int idx=1; idx<argc; idx++) {
+      char *p = argv[idx]; // NOLINT
       switch (sides_count) {
       case 0:
-         side1 = strtod(p, NULL);
+         side1 = strtod(p, nullptr);
          sides_count++ ;
          break ;
          
       case 1:
-         side2 = strtod(p, NULL);
+         side2 = strtod(p, nullptr);
          sides_count++ ;
          break ;
          
       case 2:
-         side3 = strtod(p, NULL);
+         side3 = strtod(p, nullptr);
          sides_count++ ;
          break ;
          
@@ -73,7 +74,7 @@ int main(int argc, char** argv)
    printf("parameters: side1: %5.3f, side2: %5.3f, side3: %5.3f\n", side1, side2, side3);
    
    //  compute the sum parameter
-   double sum = (side1 + side2 + side3) / 2.0 ;
+   double sum = (side1 + side2 + side3) / 2.0 ; // NOLINT
    printf("intermediate sum parameter: %5.3f\n", sum);
    
    // computer the area result
