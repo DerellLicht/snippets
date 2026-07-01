@@ -2,9 +2,9 @@
 ::  To see An A-Z Index of Windows CMD commands, visit:
 ::  https://ss64.com/nt/
 
+@if /I "%~2"=="" goto :usage
 @if /I "%~1"=="--build" goto :build
 @if /I "%~1"=="--check" goto :check
-@if /I "%~2"=="" goto :usage
 
 :usage
    @echo USAGE:
@@ -15,7 +15,7 @@
    @echo    --check - run clang-tidy against ^<filename^>.cpp
    @echo.
    @echo    Either --build or --check are required
-   @echo    ^<filename^>  [mandatory, filename does *not* include extension here]
+   @echo    ^<filename^>  [mandatory; filename does *not* include extension here]
    @echo.
    @echo    Example: 
    @echo    do_one_file --build read_files
