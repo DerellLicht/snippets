@@ -43,6 +43,10 @@ GPP_NAME=i686-w64-mingw32-g++.exe
 #GPP_NAME=g++
 #GPP_NAME=clang++
 
+#  clang-tidy options
+CHFLAGS =  --extra-arg=-isystemD:/tdm64/lib/gcc/x86_64-w64-mingw32/10.3.0/include 
+CHFLAGS += --extra-arg=-isystemD:/tdm64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/x86_64-w64-mingw32
+
 #  standard build rule
 #  Files which need variations on this, can be specified below
 %.exe: %.cpp
@@ -51,6 +55,9 @@ GPP_NAME=i686-w64-mingw32-g++.exe
 all: hex_dump.exe heron.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe \
 printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe \
 cline.exe proc_time.exe 
+
+check:
+	cmd /C "d:\llvm\bin\clang-tidy.exe $(CHFLAGS) $(CPPSRC) $(CHTAIL)"
 
 clean:
 	rm -f *.exe

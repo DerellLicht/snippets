@@ -45,13 +45,13 @@
 #include <windows.h>
 #include <tchar.h>
 #ifdef  STAND_ALONE
-#include <stdio.h>
+#include <cstdio>
 #endif
 #ifdef _lint
 #include <stdlib.h>  //  atoi()
 #endif
-#include <limits.h>
-#include <ctype.h>
+#include <climits>
+#include <cctype>
 
 // #include "wcommon.h"
 
@@ -75,7 +75,7 @@ DEFINE_GUID(GUID_DEVINTERFACE_COMPORT, 0x86E0D1E0L, 0x8089, 0x11D0, 0x9C, 0xE4, 
 
 // Struct used when enumerating the available serial ports
 // Holds information about an individual serial port.
-typedef struct SSerInfo_s {
+struct SSerInfo_s {
    struct SSerInfo_s *next ;
    unsigned index ;
    unsigned portnum ;
@@ -83,8 +83,12 @@ typedef struct SSerInfo_s {
    TCHAR strFriendlyName[MAX_PATH_LEN+1];     // Full name to be displayed to a user
    BOOL bDeviceOpens;
    BOOL bEnumerates;
-} SSerInfo_t, *SSerInfo_p ;
-static SSerInfo_p sp_top = 0 ;
+} ;
+
+using SSerInfo_t = struct SSerInfo_s ;
+using SSerInfo_p = SSerInfo_t * ;
+
+static SSerInfo_p sp_top = nullptr ;
 static SSerInfo_p sp_tail ;
 static unsigned port_count = 0 ;
 
@@ -92,8 +96,8 @@ static unsigned port_count = 0 ;
 //**********************************************************************
 void strip_newlines(char *rstr)
 {
-   int slen = (int) strlen(rstr) ;
-   while (1) {
+   size_t slen = strlen(rstr) ;
+   while (true) {
       if (slen == 0)
          break;
       if (*(rstr+slen-1) == '\n'  ||  *(rstr+slen-1) == '\r') {
@@ -114,16 +118,16 @@ char *get_system_message(void)
    static char msg[261] ;
    // int slen ;
 
-   LPVOID lpMsgBuf;
+   LPVOID lpMsgBuf = nullptr;
    FormatMessage(
       FORMAT_MESSAGE_ALLOCATE_BUFFER |
       FORMAT_MESSAGE_FROM_SYSTEM |
       FORMAT_MESSAGE_IGNORE_INSERTS,
-      NULL,
+      nullptr,
       GetLastError(),
       MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-      (LPTSTR) &lpMsgBuf,
-      0, 0);
+      (LPTSTR) &lpMsgBuf,  //  NOLINT
+      0, nullptr);
    // Process any inserts in lpMsgBuf.
    // ...
    // Display the string.
@@ -152,7 +156,7 @@ char *get_system_message(void)
 int syslog(const char *fmt, ...)
 {
    char consoleBuffer[3000] ;
-   va_list al; //lint !e522
+   va_list al; //lint !e522  NOLINT
 
    va_start(al, fmt);   //lint !e1055 !e530
    vsprintf(consoleBuffer, fmt, al);   //lint !e64
@@ -167,8 +171,7 @@ int syslog(const char *fmt, ...)
 //****************************************************************************
 static bool port_enumerated(unsigned new_port)
 {
-   SSerInfo_p sptemp ;
-   for (sptemp = sp_top; sptemp != 0; sptemp = sptemp->next) {
+   for (auto sptemp = sp_top; sptemp != nullptr; sptemp = sptemp->next) {
       if (sptemp->portnum == new_port)
          return true;
    }
@@ -178,7 +181,8 @@ static bool port_enumerated(unsigned new_port)
 //****************************************************************************
 void add_new_port(unsigned new_port)
 {
-   SSerInfo_p si = new SSerInfo_t ;
+   // SSerInfo_p si = new SSerInfo_t ;
+   auto si = new SSerInfo_t ;
    memset((char *) si, 0, sizeof(SSerInfo_t)) ;
    wsprintf(si->strDevPath, _T("\\\\.\\COM%u"), new_port) ;
    wsprintf(si->strFriendlyName, _T("unknown device (COM%u)"), new_port) ;
@@ -187,7 +191,7 @@ void add_new_port(unsigned new_port)
    si->index = port_count++ ;
    
    //  add new struct to list
-   if (sp_top == 0) 
+   if (sp_top == nullptr) 
       sp_top = si ;
    else 
       sp_tail->next = si ;
@@ -197,7 +201,7 @@ void add_new_port(unsigned new_port)
 //****************************************************************************
 void add_new_port(unsigned new_port, TCHAR *pszFriendlyName)
 {
-   SSerInfo_p si = new SSerInfo_t ;
+   auto si = new SSerInfo_t ;
    memset((char *) si, 0, sizeof(SSerInfo_t)) ;
    // wsprintf(si->strDevPath, "COM%u", new_port) ;
    wsprintf(si->strDevPath, _T("\\\\.\\COM%u"), new_port) ;
@@ -208,7 +212,7 @@ void add_new_port(unsigned new_port, TCHAR *pszFriendlyName)
    si->index = port_count++ ;
    
    //  add new struct to list
-   if (sp_top == 0) 
+   if (sp_top == nullptr) 
       sp_top = si ;
    else 
       sp_tail->next = si ;
@@ -238,12 +242,11 @@ BOOL IsPortAvailable(int nPort)
 {
    TCHAR szPort[15];
    COMMCONFIG cc;
-   DWORD dwCCSize;
 
    wsprintf(szPort, _T("COM%d"), nPort);
 
    // Check if this port is available
-   dwCCSize = sizeof(cc);
+   DWORD dwCCSize = sizeof(cc);
    return GetDefaultCommConfig(szPort, &cc, &dwCCSize);
 }
 
@@ -254,15 +257,15 @@ BOOL IsPortAvailable(int nPort)
 //****************************************************************************
 void CountCommPorts(void)
 {
-   unsigned idx ;
-   for (idx=0; idx<256; idx++)
+   unsigned idx = 0;
+   for (idx=0; idx<256; idx++) {
       comm_port_avail[idx] = false ;
-   // ports.RemoveAll();
+   }
+   
    for (idx = 1; idx <= 255; idx++) {
-      if (IsPortAvailable( idx )) {
+      if (IsPortAvailable( (int) idx )) {
          comm_port_avail[idx] = true ;
          // printf("found COM%u\n", idx) ;
-         // ports.Add( nPort );
          if (!port_enumerated(idx)) 
             add_new_port(idx) ;
       }
@@ -284,9 +287,8 @@ unsigned get_serport_count(void)
 //****************************************************************************
 unsigned get_comm_num(unsigned index)
 {
-   SSerInfo_p si ;
    // printf("seeking %s\n", pszFriendlyName) ;
-   for (si=sp_top; si != 0; si = si->next) {
+   for (SSerInfo_p si=sp_top; si != nullptr; si = si->next) {
       if (si->index == index)
          return si->portnum;
    }
@@ -294,11 +296,10 @@ unsigned get_comm_num(unsigned index)
 }
 
 //****************************************************************************
-int get_comm_index(unsigned port_num)
+unsigned get_comm_index(unsigned port_num)
 {
-   SSerInfo_p si ;
    // printf("seeking %s\n", pszFriendlyName) ;
-   for (si=sp_top; si != 0; si = si->next) {
+   for (SSerInfo_p si=sp_top; si != nullptr; si = si->next) {
       if (si->portnum == port_num)
          // return si->portnum;
          return si->index;
@@ -309,35 +310,34 @@ int get_comm_index(unsigned port_num)
 //****************************************************************************
 TCHAR *get_dev_path(unsigned port_num)
 {
-   SSerInfo_p si ;
    // printf("seeking %s\n", pszFriendlyName) ;
-   for (si=sp_top; si != 0; si = si->next) {
+   for (auto si=sp_top; si != nullptr; si = si->next) {
       if (si->portnum == port_num)
          // return si->portnum;
          return si->strDevPath ;
    }
-   return 0;
+   return nullptr;
 }
 
 //****************************************************************************
 TCHAR *get_disp_path(unsigned port_num)
 {
-   SSerInfo_p si ;
+   // SSerInfo_p si ;
    // printf("seeking %s\n", pszFriendlyName) ;
-   for (si=sp_top; si != 0; si = si->next) {
+   for (auto si=sp_top; si != nullptr; si = si->next) {
       if (si->portnum == port_num)
          // return si->portnum;
          return si->strFriendlyName ;
    }
-   return 0;
+   return nullptr;
 }
 
 //****************************************************************************
 static bool match_port_number(TCHAR *pszFriendlyName, unsigned nPort)
 {
-   SSerInfo_p si ;
+   // SSerInfo_p si ;
    // printf("seeking %s\n", pszFriendlyName) ;
-   for (si=sp_top; si != 0; si = si->next) {
+   for (auto si=sp_top; si != nullptr; si = si->next) {
       // if (si->portnum != 0)
       //    continue;
       // printf("%s=%s\n", si->strPortDesc, pszFriendlyName);
@@ -354,10 +354,9 @@ void fill_cport_combobox(HWND hwnd, unsigned init_idx)
 {
    TCHAR cbentry[81] ;
 
-   SSerInfo_p sptemp ;
    // unsigned j ;
    // for (j=0; elements[j] != 0; j++) {
-   for (sptemp = sp_top; sptemp != 0; sptemp = sptemp->next) {
+   for (SSerInfo_p sptemp = sp_top; sptemp != nullptr; sptemp = sptemp->next) {
       // printf("%s\n", sptemp->strDevPath) ;
       wsprintf(cbentry, _T("COM%u: %s"), sptemp->portnum, sptemp->strFriendlyName ) ;
       
@@ -409,8 +408,8 @@ BOOL UsingSetupAPI2(void)
 {
   //First need to convert the name "Ports" to a GUID using SetupDiClassGuidsFromName
   DWORD dwGuids = 0;
-  // lpfnSETUPDICLASSGUIDSFROMNAME(_T("Ports"), NULL, 0, &dwGuids);
-  SetupDiClassGuidsFromName(_T("Ports"), NULL, 0, &dwGuids) ;
+  // lpfnSETUPDICLASSGUIDSFROMNAME(_T("Ports"), nullptr, 0, &dwGuids);
+  SetupDiClassGuidsFromName(_T("Ports"), nullptr, 0, &dwGuids) ;
   if (dwGuids == 0) {
       printf("SetupDiClassGuidsFromName (init): %s\n", get_system_message()) ;
       return FALSE;
@@ -421,7 +420,7 @@ BOOL UsingSetupAPI2(void)
   GUID *pGuids = new GUID[dwGuids] ;
   // ATL::CHeapPtr<GUID> pGuids;
   // if (!pGuids.Allocate(dwGuids))
-  if (pGuids == NULL) {
+  if (pGuids == nullptr) {
       SetLastError(ERROR_OUTOFMEMORY);
       puts("Out Of Memory") ;
       return FALSE;
@@ -430,15 +429,18 @@ BOOL UsingSetupAPI2(void)
   //Call the function again
   if (!SetupDiClassGuidsFromName(_T("Ports"), pGuids, dwGuids, &dwGuids)) {
       printf("SetupDiClassGuidsFromName (read): %s\n", get_system_message()) ;
+      delete[] pGuids ;
       return FALSE;
   }
 
   //Now create a "device information set" which is required to enumerate all the ports
-  HDEVINFO hDevInfoSet = SetupDiGetClassDevs(pGuids, NULL, NULL, DIGCF_PRESENT);
+  HDEVINFO hDevInfoSet = SetupDiGetClassDevs(pGuids, nullptr, nullptr, DIGCF_PRESENT);
   if (hDevInfoSet == INVALID_HANDLE_VALUE) {
       printf("SetupDiGetClassDevs: %s\n", get_system_message()) ;
+      delete[] pGuids ;
       return FALSE;
   }
+  delete[] pGuids ;
 
   //Finally do the enumeration
   BOOL bMoreItems = TRUE;
@@ -464,7 +466,7 @@ BOOL UsingSetupAPI2(void)
         TCHAR pszPortName[256];
         DWORD dwSize = sizeof(pszPortName);
         DWORD dwType = 0;
-       if ((RegQueryValueEx(hDeviceKey, _T("PortName"), NULL, &dwType, reinterpret_cast<LPBYTE>(pszPortName), &dwSize) == ERROR_SUCCESS) && (dwType == REG_SZ))
+       if ((RegQueryValueEx(hDeviceKey, _T("PortName"), nullptr, &dwType, (LPBYTE)pszPortName, &dwSize) == ERROR_SUCCESS) && (dwType == REG_SZ))
         {
           //If it looks like "COMX" then
           //add it to the array which will be returned
@@ -535,7 +537,7 @@ BOOL UsingSetupAPI2(void)
 //  Now, I'm going to use the SPDRP_DEVICEDESC from each method
 //  to merge the two together and add the COMn port number to our data.
 //****************************************************************************
-static BOOL UsingSetupAPI1(void)
+static BOOL UsingSetupAPI1(void) // NOLINT
 {
    // char errstr[128] ;
    //Make sure we clear out any elements which may already be in the array(s)
@@ -544,7 +546,7 @@ static BOOL UsingSetupAPI1(void)
 
    //Now create a "device information set" which is required to enumerate all the ports
    GUID guid = GUID_DEVINTERFACE_COMPORT;
-   HDEVINFO hDevInfoSet = SetupDiGetClassDevs(&guid, NULL, NULL, DIGCF_PRESENT | DIGCF_DEVICEINTERFACE);
+   HDEVINFO hDevInfoSet = SetupDiGetClassDevs(&guid, nullptr, nullptr, DIGCF_PRESENT | DIGCF_DEVICEINTERFACE);
    if (hDevInfoSet == INVALID_HANDLE_VALUE) {
       syslog("SetupDiGetClassDevs: %s\n", get_system_message()) ;
       return FALSE;
@@ -578,8 +580,8 @@ static BOOL UsingSetupAPI1(void)
          TCHAR pszPortName[256];
          DWORD dwSize = sizeof(pszPortName);
          DWORD dwType = 0;
-         if ((RegQueryValueEx(hDeviceKey, _T("PortName"), NULL, &dwType, 
-               reinterpret_cast<LPBYTE>(pszPortName), &dwSize) == ERROR_SUCCESS) && 
+         if ((RegQueryValueEx(hDeviceKey, _T("PortName"), nullptr, &dwType, 
+               (LPBYTE) pszPortName, &dwSize) == ERROR_SUCCESS) && 
                (dwType == REG_SZ)) {
            //If it looks like "COMX" then
            //add it to the array which will be returned
@@ -644,18 +646,18 @@ static BOOL UsingSetupAPI1(void)
 //****************************************************************************
 static BOOL EnumPortsWdm(void)
 {
-   BOOL bOk ;
    SP_DEVICE_INTERFACE_DATA ifcData;
-   DWORD dwDetDataSize ;
+   DWORD dwDetDataSize = 0;
+   BOOL bOk = TRUE;
    // Create a device information set that will be the container for 
    // the device interfaces.
    GUID *guidDev = (GUID*) &GUID_CLASS_COMPORT;
 
-   SP_DEVICE_INTERFACE_DETAIL_DATA *pDetData = NULL;
+   SP_DEVICE_INTERFACE_DETAIL_DATA *pDetData = nullptr;
 
    HDEVINFO hDevInfo = SetupDiGetClassDevs( guidDev,
-      NULL,
-      NULL,
+      nullptr,
+      nullptr,
       DIGCF_PRESENT | DIGCF_DEVICEINTERFACE
       );
 
@@ -665,7 +667,6 @@ static BOOL EnumPortsWdm(void)
    }
 
    // Enumerate the serial ports
-   bOk = TRUE;
    dwDetDataSize = sizeof(SP_DEVICE_INTERFACE_DETAIL_DATA) + 256;
    pDetData = (SP_DEVICE_INTERFACE_DETAIL_DATA*) new char[dwDetDataSize];
    // This is required, according to the documentation.  Yes, it's weird.
@@ -673,22 +674,23 @@ static BOOL EnumPortsWdm(void)
    pDetData->cbSize = sizeof(SP_DEVICE_INTERFACE_DETAIL_DATA);
    for (DWORD ii=0; bOk; ii++) {
       bOk = SetupDiEnumDeviceInterfaces(hDevInfo,
-         NULL, guidDev, ii, &ifcData);
+         nullptr, guidDev, ii, &ifcData);
       if (bOk) {
          // Got a device. Get the details.
          SP_DEVINFO_DATA devdata = {sizeof(SP_DEVINFO_DATA)};  //lint !e785
          bOk = SetupDiGetDeviceInterfaceDetail(hDevInfo,
-            &ifcData, pDetData, dwDetDataSize, NULL, &devdata);
+            &ifcData, pDetData, dwDetDataSize, nullptr, &devdata);
          if (bOk) {
             //  allocate initial struct
-            SSerInfo_p si = new SSerInfo_t ;
+            auto si = new SSerInfo_t ;
+            // memset((char *) si, 0, sizeof(SSerInfo_t)) ;
             memset((char *) si, 0, sizeof(SSerInfo_t)) ;
 
             // strncpy(si->strDevPath, pDetData->DevicePath, MAX_PATH_LEN);
             lstrcpyn(si->strDevPath, pDetData->DevicePath, MAX_PATH_LEN);
             // Got a path to the device. Try to get some more info.
             BOOL bSuccess = SetupDiGetDeviceRegistryProperty(hDevInfo, &devdata, 
-               SPDRP_FRIENDLYNAME, NULL, (PBYTE) si->strFriendlyName, MAX_PATH_LEN, NULL);
+               SPDRP_FRIENDLYNAME, nullptr, (PBYTE)si->strFriendlyName, MAX_PATH_LEN, nullptr);
             si->bEnumerates = true ;
 
             //  SPDRP_DEVICEDESC is subset of SPDRP_FRIENDLYNAME
@@ -716,7 +718,7 @@ static BOOL EnumPortsWdm(void)
                si->index = port_count++ ;
                
                //  add new struct to list
-               if (sp_top == 0) 
+               if (sp_top == nullptr) 
                   sp_top = si ;
                else 
                   sp_tail->next = si ;
@@ -742,7 +744,7 @@ static BOOL EnumPortsWdm(void)
          }
       }
    }
-   if (pDetData != NULL)   //lint !e774
+   if (pDetData != nullptr)   //lint !e774
       delete [] (char*)pDetData;
    if (hDevInfo != INVALID_HANDLE_VALUE)
       SetupDiDestroyDeviceInfoList(hDevInfo);
@@ -751,7 +753,7 @@ static BOOL EnumPortsWdm(void)
    //    throw strErr;
    return TRUE ;
 error_exit:
-   if (pDetData != NULL)   //lint !e774
+   if (pDetData != nullptr)   //lint !e774
       delete [] (char*)pDetData;
    if (hDevInfo != INVALID_HANDLE_VALUE)
       SetupDiDestroyDeviceInfoList(hDevInfo);
@@ -802,23 +804,24 @@ void EnumSerialPorts(void)
 
    //  01/01/15 - move this test until after *both* of the previous functions
    //  have been run.  They search different parts of the registry.
-   if (sp_top == 0)
+   if (sp_top == nullptr) {
       goto build_compatibility_mode;
+   }
 
    //  look for other ports which do not enumerate
    // CountCommPorts() ;
 
    //  test each port to see if it will enumerate
-   SSerInfo_p rsi ;
-   for (rsi = sp_top; rsi != 0; rsi = rsi->next) {
+   // SSerInfo_p rsi ;
+   for (auto rsi = sp_top; rsi != nullptr; rsi = rsi->next) {
        // Only display ports that can be opened for read/write
        HANDLE hCom = CreateFile(rsi->strDevPath,
           GENERIC_READ | GENERIC_WRITE,
           0,    /* comm devices must be opened w/exclusive-access */
-          NULL, /* no security attrs */
+          nullptr, /* no security attrs */
           OPEN_EXISTING, /* comm devices must use OPEN_EXISTING */
           0,    /* not overlapped I/O */
-          NULL  /* hTemplate must be NULL for comm devices */
+          nullptr  /* hTemplate must be NULL for comm devices */
           );
        if (hCom == INVALID_HANDLE_VALUE) {
           // It can't be opened; remove it.
@@ -853,7 +856,7 @@ build_compatibility_mode:
 char *unicode2ascii(WCHAR *UnicodeStr)
 {
    static char AsciiStr[MAX_UNICODE_LEN+1] ;
-   WideCharToMultiByte(CP_ACP, 0, UnicodeStr, -1, AsciiStr, MAX_UNICODE_LEN, NULL, NULL);
+   WideCharToMultiByte(CP_ACP, 0, UnicodeStr, -1, AsciiStr, MAX_UNICODE_LEN, nullptr, nullptr);
    return AsciiStr ;
 }
 
@@ -871,8 +874,7 @@ int main(int argc, char **argv)
    bool show_device_name = false ; 
 
    //  parse command line
-   int idx ;
-   for (idx=1; idx<argc; idx++) {
+   for (int idx=1; idx<argc; idx++) {
       char *p = argv[idx];
       if (*p == '-'  ||  *p == '/') {
          p++ ;
@@ -894,10 +896,10 @@ int main(int argc, char **argv)
    EnumSerialPorts();
 
    // printf("found %u ports\n", port_count) ;
-   SSerInfo_p sptemp ;
+   // SSerInfo_p sptemp ;
    printf("Port   Opens  Enums  Device description\n") ;
    printf("=====  =====  =====  ============================\n") ;
-   for (sptemp = sp_top; sptemp != 0; sptemp = sptemp->next) {
+   for (auto sptemp = sp_top; sptemp != nullptr; sptemp = sptemp->next) {
       printf("COM%-2u   %-3s    %-3s   %s\n", 
          sptemp->portnum,
          (sptemp->bDeviceOpens) ? "YES" : "no",

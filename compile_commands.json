@@ -1,0 +1,166 @@
+[
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "hex_dump.cpp",
+   "-o",
+   "hex_dump.exe"
+  ],
+  "file": "hex_dump.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "heron.cpp",
+   "-o",
+   "heron.exe"
+  ],
+  "file": "heron.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "ascii.cpp",
+   "-o",
+   "ascii.exe"
+  ],
+  "file": "ascii.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "beer_cals.cpp",
+   "-o",
+   "beer_cals.exe"
+  ],
+  "file": "beer_cals.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "dms2dd.cpp",
+   "-o",
+   "dms2dd.exe"
+  ],
+  "file": "dms2dd.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "mortgage.cpp",
+   "-o",
+   "mortgage.exe"
+  ],
+  "file": "mortgage.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "C:cygwin64/bin/x86_64-w64-mingw32-g++",
+   "-Wall",
+   "-O3",
+   "-s",
+   "-static",
+   "-static",
+   "-Weffc++",
+   "prime64.cpp",
+   "-o",
+   "prime64.exe"
+  ],
+  "file": "prime64.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "D:/cygwin64/bin/x86_64-w64-mingw32-g++",
+   "-Wall",
+   "-O3",
+   "-static",
+   "-DUNICODE",
+   "-D_UNICODE",
+   "serial_enum.cpp",
+   "-o",
+   "serial_enum.exe"
+  ],
+  "file": "serial_enum.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "d:/tdm32/bin/gcc",
+   "-Wall",
+   "-O3",
+   "-s",
+   "-static",
+   "-DTEST_PRINTF",
+   "-Wno-int-to-pointer-cast",
+   "printf2.c",
+   "-o",
+   "printf2.exe"
+  ],
+  "file": "printf2.c"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "C:cygwin64/bin/x86_64-w64-mingw32-g++",
+   "-Wno-stringop-truncation",
+   "-Wall",
+   "-O3",
+   "-s",
+   "-static",
+   "-static",
+   "-Weffc++",
+   "ulocate.cpp",
+   "-o",
+   "ulocate.exe"
+  ],
+  "file": "ulocate.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "textfont.cpp",
+   "-o",
+   "textfont.exe"
+  ],
+  "file": "textfont.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "apptest.cpp",
+   "-o",
+   "apptest.exe"
+  ],
+  "file": "apptest.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "cline.cpp",
+   "-o",
+   "cline.exe"
+  ],
+  "file": "cline.cpp"
+ },
+ {
+  "directory": "D:\\SourceCode\\Git\\snippets",
+  "arguments": [
+   "-Weffc++",
+   "proc_time.cpp",
+   "-o",
+   "proc_time.exe"
+  ],
+  "file": "proc_time.cpp"
+ }
+]

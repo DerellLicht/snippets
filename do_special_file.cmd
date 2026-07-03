@@ -1,6 +1,8 @@
 ::  This will be an example file that demonstrates flow-control options
 ::  To see An A-Z Index of Windows CMD commands, visit:
 ::  https://ss64.com/nt/
+::  
+::  This special script is used only for serial_enum.cpp
 
 @if /I "%~2"=="" goto :usage
 @if /I "%~1"=="--build" goto :build
@@ -26,6 +28,6 @@
    @goto :eof
 
 :check
-   clang-tidy %2.cpp 
+   clang-tidy --extra-arg=-isystemD:/tdm64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++ --extra-arg=-isystemD:/tdm64/lib/gcc/x86_64-w64-mingw32/10.3.0/include/c++/x86_64-w64-mingw32 %2.cpp 
    @goto :eof
 
