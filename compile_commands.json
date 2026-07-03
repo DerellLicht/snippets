@@ -65,8 +65,6 @@
    "C:cygwin64/bin/x86_64-w64-mingw32-g++",
    "-Wall",
    "-O3",
-   "-s",
-   "-static",
    "-static",
    "-Weffc++",
    "prime64.cpp",

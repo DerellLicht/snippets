@@ -1,5 +1,6 @@
 USE_DEBUG = NO
 USE_64BIT = NO
+USE_LEGACY = YES
 
 ifeq ($(USE_DEBUG),YES)
 CFLAGS=-Wall -O -g
@@ -7,7 +8,7 @@ else
 CFLAGS=-Wall -O3 -s
 endif
 # use -static for clang and cygwin/mingw
-CFLAGS += -static
+# CFLAGS += -static
 
 #  clang++ vs tdm g++
 #  Basically, clang gives *much* clearer compiler error messages...
@@ -30,18 +31,22 @@ ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
 #TOOLS=d:\clang64\bin
 #TOOLS=d:\tdm-gcc-64\bin
-else
-#TOOLS=d:\tdm32\bin
-#TOOLS=D:\clang\bin
-TOOLS=C:\cygwin64\bin
-endif
-
-#  32-bit executables
-GPP_NAME=i686-w64-mingw32-g++.exe
 #  64-bit executables
 #GPP_NAME=x86_64-w64-mingw32-g++ 
 #GPP_NAME=g++
 #GPP_NAME=clang++
+else
+ifeq ($(USE_LEGACY),YES)
+TOOLS=d:\tdm32\bin
+GPP_NAME=g++.exe
+else
+#TOOLS=d:\tdm32\bin
+#TOOLS=D:\clang\bin
+TOOLS=C:\cygwin64\bin
+#  32-bit executables
+GPP_NAME=i686-w64-mingw32-g++.exe
+endif
+endif
 
 #  clang-tidy options
 CHFLAGS =  --extra-arg=-isystemD:/tdm64/lib/gcc/x86_64-w64-mingw32/10.3.0/include 
@@ -54,7 +59,7 @@ CHFLAGS += --extra-arg=-isystemD:/tdm64/lib/gcc/x86_64-w64-mingw32/10.3.0/includ
 
 all: hex_dump.exe heron.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe \
 printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe \
-cline.exe proc_time.exe 
+cline.exe proc_time.exe read_files.exe
 
 check:
 	cmd /C "d:\llvm\bin\clang-tidy.exe $(CHFLAGS) $(CPPSRC) $(CHTAIL)"
@@ -62,6 +67,8 @@ check:
 clean:
 	rm -f *.exe
 
+# specific build instructions are used for programs which require build toolchain
+# other than the default d:\tdm32, or those who require custom command line
 apptest.exe: apptest.cpp
 	$(TOOLS)\$(GPP_NAME) $(CFLAGS) -DUNICODE -D_UNICODE -Wno-write-strings -Weffc++ $< -o $@
 
@@ -70,7 +77,7 @@ wcmdline.exe: wcmdline.cpp
 
 prime64.exe: prime64.cpp
 #	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
-	C:\cygwin64/bin/x86_64-w64-mingw32-g++ $(CFLAGS) -static -Weffc++ $< -o $@
+	C:/cygwin64/bin/x86_64-w64-mingw32-g++ $(CFLAGS) -static -Weffc++ $< -o $@
 
 ulocate.exe: ulocate.cpp
 #	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@

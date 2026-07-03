@@ -37,8 +37,9 @@
 //                         (for MOD operation) with a multiply
 //*****************************************************************
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
 
 #define  USE_LLU
 // #undef  USE_LLU
@@ -53,7 +54,7 @@ static char const version_string[] = "1.03" ;
 #define  INP_STR_LEN    80
 char tempstr[INP_STR_LEN+1] ;
 
-enum {
+enum : std::uint8_t {
 D_STANDARD = 0,
 D_INTERACTIVE
 } ;
@@ -70,8 +71,8 @@ unsigned get_build_size(void)
 //**********************************************************************
 int main(int argc, char** argv)
 {
-   unsigned __int64 givennbr, nbrleft, nextodd;
-   int power ;
+   unsigned __int64 givennbr = 0, nbrleft = 0, nextodd = 0;
+   int power = 0 ;
    int next = 1 ;
    int display = (argc > 1) ? D_STANDARD : D_INTERACTIVE ;
 
@@ -80,23 +81,23 @@ int main(int argc, char** argv)
    puts("This program determines whether a number is a prime,");
    puts("then displays either the number or its factors.");
    
-   do {  /* Repeat main program until entry = 0 */
-      givennbr = power = 0L ;
+   do {  //  NOLINT Repeat main program until entry = 0 
+      givennbr = power = 0L ; //  NOLINT
       switch (display) {
       case D_INTERACTIVE:
          puts("");
          printf("Enter a number (0 quits): ");
          // gets(tempstr) ;   //lint !e421  dangerous function  
          fgets(tempstr, INP_STR_LEN, stdin);
-         givennbr = strtoull(tempstr, NULL, 10) ;
+         givennbr = strtoull(tempstr, nullptr, 10) ;
          break;
          
       // case D_STANDARD:
       default:
-         if (argv[next] == NULL)
+         if (argv[next] == nullptr)
             exit(0) ;
          puts("****************************************************\n");
-         givennbr = strtoull(argv[next++], NULL, 10) ;
+         givennbr = strtoull(argv[next++], nullptr, 10) ;
          break;
       }
       if (givennbr == 0) {
@@ -150,7 +151,7 @@ int main(int argc, char** argv)
          if ((nbrdiv * nextodd) == nbrleft) {
             //  Later note: this inner loop only executes repeatedly,
             //  if a large factor is present in a *very* large number, which is quite rare.
-            //  otherwise, we don't get much penefit from the inner conversion loop,
+            //  otherwise, we don't get much benefit from the inner conversion loop,
             //  because we end up back out at the outer loop.
             // 
             // The factors of 18446744073709551597 are:
@@ -159,7 +160,7 @@ int main(int argc, char** argv)
             //     6148914691236517199                          1
             // Timer 1 off: 12:18:23  Elapsed: 0:00:08.72
             // 
-            do {
+            do {  //  NOLINT
                nbrleft /= nextodd ;
                nbrdiv = nbrleft / nextodd ;
                power++ ;
