@@ -369,6 +369,10 @@ void strip_newlines(char *rstr)
 char *mystrstr(char *haystack, char *needle)
 {
    if (whole_word_search) {
+      //  if needle is found in haystack, 
+      //  then we need to check before and after needle to 
+      //  look for white space (SPC, TAB, CR, LF, NUL).
+      //  If present on both ends, we have a hit.
       return (strcmp(needle, haystack) == 0) ? needle : nullptr ;
    } 
    uint slen = strlen(needle) ;
