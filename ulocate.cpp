@@ -97,7 +97,7 @@ using uint = unsigned int ;
 using u32  = unsigned long ;
 using u64  = unsigned long long ;
 
-#define  SPC   ' '
+static const char SPC = ' ' ;
 static const bool LOOP_FOREVER = true ;
 
 static char target_path[MAX_PATH_LEN];
