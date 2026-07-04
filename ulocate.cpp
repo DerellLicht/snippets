@@ -35,6 +35,7 @@
 // 1.17  10/29/18    ULOCATE mod - no, we *still* want to support switches,
 //                   as *well* as base search path
 // 1.18  08/27/21    -p option prepends '.' to search path
+// 1.19  07/04/26    -w (whole word search) now works
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
 //  but I have no idea what the cause is.  
@@ -51,7 +52,7 @@
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
 
-char const * const Version = "ULOCATE.EXE, Version 1.18";
+char const * const Version = "ULOCATE.EXE, Version 1.19";
 
 // #define  USE_NEW_LLU  1
 #undef  USE_NEW_LLU
@@ -96,6 +97,7 @@ using uint = unsigned int ;
 using u32  = unsigned long ;
 using u64  = unsigned long long ;
 
+#define  SPC   ' '
 static const bool LOOP_FOREVER = true ;
 
 static char target_path[MAX_PATH_LEN];
@@ -366,26 +368,52 @@ void strip_newlines(char *rstr)
 #endif
 
 //**********************************************************
+//  Note: we are looking at filenames here, so whitespace will 
+//        only be SPC, not TAB.
+//        This would not be true of a general application
+//**********************************************************
 char *mystrstr(char *haystack, char *needle)
 {
-   if (whole_word_search) {
-      //  if needle is found in haystack, 
-      //  then we need to check before and after needle to 
-      //  look for white space (SPC, TAB, CR, LF, NUL).
-      //  If present on both ends, we have a hit.
-      return (strcmp(needle, haystack) == 0) ? needle : nullptr ;
-   } 
    uint slen = strlen(needle) ;
-   char *strptr = haystack ;
-   while (true) {
-      if (strncasecmp(strptr, needle, slen) == 0) {
-         // printf("rlen=%d, strptr=%s, h
-         return strptr ;
+   //  for whole_word_search, 
+   //  if needle is found in haystack, 
+   //  then we need to check before and after matched text
+   //  to look for white space (SPC, TAB, CR, LF, NUL).
+   //  If present on both ends, we have a hit.
+   if (whole_word_search) {
+      bool pre_white_space = true ; //  start with true for beginning of line
+      char *strptr = haystack ;
+      while (true) {
+         if (strncasecmp(strptr, needle, slen) == 0) {
+            bool post_white_space =  (*(strptr+slen) == SPC) 
+                                  || (*(strptr+slen) == 0)
+                                  ? true : false ;
+            //  if we matched string, and both pre-match and post-match
+            //  characters are white space, then we found our match.
+            //  otherwise, just keep searching
+            if (pre_white_space &&  post_white_space) {
+               return strptr ;
+            }
+         }
+         pre_white_space = (*strptr == SPC) ? true : false ;
+         //  go to next char
+         strptr++ ;
+         if (*strptr == 0)
+            return nullptr;
       }
-      strptr++ ;
-      // rlen++ ;
-      if (*strptr == 0)
-         return nullptr;
+      
+   }
+   else {
+      char *strptr = haystack ;
+      while (true) {
+         if (strncasecmp(strptr, needle, slen) == 0) {
+            return strptr ;
+         }
+         //  go to next char
+         strptr++ ;
+         if (*strptr == 0)
+            return nullptr;
+      }
    }
 }
 
@@ -598,6 +626,9 @@ static int read_dir_tree(dirs* cur_node)
             //  do what you wish with each located file here.
             //  Unfortunately, strstr() is case-sensitive...
             // if (strstr (dp->d_name, name_comp) != NULL) {
+            
+            // ulocate -w Yes "D:\music\mobile/Progressive Rock 2"            
+            // ulocate -w Rock "D:\music\mobile"
             if (mystrstr (fdata.cFileName, name_comp) != nullptr) {
                // FILETIME ft ;
                // if (n.fdate_option == FDATE_LAST_ACCESS)
