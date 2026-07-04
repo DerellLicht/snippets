@@ -95,17 +95,11 @@ char const * const Version = "ULOCATE.EXE, Version 1.18";
 //lint -esym(628, __builtin_va_start)
 //lint -esym(551, follow_symlinks)
 
-// typedef unsigned char       u8 ;
-// typedef unsigned int        uint ;
-// typedef unsigned long       u32 ;
-// typedef unsigned long long  u64 ;
 using uint = unsigned int ;
 using u32  = unsigned long ;
 using u64  = unsigned long long ;
 
-// #ifndef __MINGW32__
 static const bool LOOP_FOREVER = true ;
-// #endif
 
 static char target_path[MAX_PATH_LEN];
 static char temp_path[MAX_PATH_LEN];
