@@ -1,5 +1,5 @@
 //********************************************************************************
-//  Copyright (c) 2020  Daniel D Miller
+//  Copyright (c) 2020  Derell Licht
 //  License: freeware
 //  
 //  rgb2cref.cpp - convert RGB value into hex/decimal form

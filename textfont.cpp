@@ -1,5 +1,5 @@
 //*******************************************************************
-//  Copyright (c) 1994  Daniel D Miller
+//  Copyright (c) 1994  Derell Licht
 //  This software is released as freeware, with no restrictions on use,
 //  commercial or otherwise.
 //  

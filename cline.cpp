@@ -4,7 +4,7 @@
 //  conventional main() function.
 //  These include Windows (WinMain) and embedded projects
 //                                                                 
-//  written by:   Daniel D. Miller                                 
+//  written by:   Derell Licht                                 
 //                                                                 
 //*****************************************************************
 

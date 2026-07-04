@@ -20,8 +20,8 @@
  replace outbyte(c) by your own function call.
 */
 //*******************************************************************************
-//  Updated by Daniel D Miller.  Changes to the original Menie code are
-//  Copyright 2009-2013 Daniel D Miller
+//  Updated by Derell Licht.  Changes to the original Menie code are
+//  Copyright 2009-2013 Derell Licht
 //  All such changes are distributed under the same license as the original,
 //  as described above.
 //  11/06/09 - adding floating-point support

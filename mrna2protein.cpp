@@ -1,10 +1,10 @@
 //****************************************************************************
-//  Copyright (c) 2020  Daniel D Miller
+//  Copyright (c) 2020  Derell Licht
 //  
 //  mRNA2protein - parse an mRNA nucleotide sequence, and 
 //  output corresponding protein codes, in either 3 or 1 character format.
 //                                                                 
-//  Written by:   Daniel D. Miller  
+//  Written by:   Derell Licht  
 //                                                                 
 //  compile:  gcc -Wall -O2 -s mrna2protein.cpp -o mrna2protein.exe
 // 

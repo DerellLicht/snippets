@@ -3,7 +3,7 @@
 //  This program reads in a number, determines whether it          
 //  is a prime, and prints either the number or its factors.       
 //                                                                 
-//  written by:   Daniel D. Miller                                 
+//  written by:   Derell Licht                                 
 //                                                                 
 //*****************************************************************
 //  Maximum integer input (64-bit): 18,446,744,073,709,551,615

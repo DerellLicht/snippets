@@ -28,7 +28,7 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // 
 //*************************************************************************
-// Copyright (c) 2003-2015  Daniel D Miller
+// Copyright (c) 2003-2015  Derell Licht
 // This version of this program is distributed by me as free software,
 // under the same terms as Zach Gorman's original version;
 // see the license listed above.

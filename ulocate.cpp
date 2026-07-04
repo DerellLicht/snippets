@@ -1,14 +1,10 @@
 //****************************************************************************
-//  Copyright (c) 2006-2021  Daniel D Miller
+//  Copyright (c) 2006-2026  Derell Licht
 //  
 //  ulocate: Locate filenames containing a certain component,
 //  starting at specified path.
-//                                                                 
-//  Written by:   Daniel D. Miller  
-//                                                                 
-//  compile:  gcc -Wall -O2 -s ulocate.cpp -o ulocate
-//  lint:    c:\lint9\lint-nt +v -width(160,4) -ic:\lint9 mingw.lnt -os(_lint.tmp) filename
-//                                                                 
+//  
+//  Written by:   Derell Licht  
 //****************************************************************************
 // ver   date        description
 // ====  ========    =========================================
@@ -41,8 +37,9 @@
 // 1.18  08/27/21    -p option prepends '.' to search path
 //****************************************************************************
 //  Well, I've found the source of this inexplicable message in the Windows system log,
-//  but I have no idea what the cause is.  Both errno and GetLastError()
-//  indicate "no error".
+//  but I have no idea what the cause is.  
+//  Both errno and GetLastError() indicate "no error".
+//  
 // readdir enter   
 // Invalid parameter passed to C runtime function. 
 // readdir exit [0] [C:\Users\All Users\NVIDIA\Updatus\Download\33020A60/] 

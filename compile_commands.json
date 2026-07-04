@@ -2,7 +2,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "hex_dump.cpp",
    "-o",
@@ -13,7 +13,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "heron.cpp",
    "-o",
@@ -24,7 +24,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "ascii.cpp",
    "-o",
@@ -35,7 +35,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "beer_cals.cpp",
    "-o",
@@ -46,7 +46,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "dms2dd.cpp",
    "-o",
@@ -57,7 +57,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "mortgage.cpp",
    "-o",
@@ -83,7 +83,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Wall",
    "-O3",
    "-static",
@@ -98,7 +98,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Wall",
    "-O3",
    "-s",
@@ -128,7 +128,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "textfont.cpp",
    "-o",
@@ -139,7 +139,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "apptest.cpp",
    "-o",
@@ -150,7 +150,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "cline.cpp",
    "-o",
@@ -161,7 +161,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "proc_time.cpp",
    "-o",
@@ -172,7 +172,7 @@
  {
   "directory": "D:\\SourceCode\\Git\\snippets",
   "arguments": [
-   "D:/llvm/bin/x86_64-w64-mingw32-clang++.exe",
+   "D:/llvm/bin/i686-w64-mingw32-clang++.exe",
    "-Weffc++",
    "read_files.cpp",
    "-o",

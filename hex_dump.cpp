@@ -1,7 +1,7 @@
 //***************************************************************************
 //  HEX_DUMP.CPP: Read data and display as both binary and ASCII data.
 //  
-//  Written by:   Daniel D. Miller
+//  Written by:   Derell Licht
 //  
 //  Last Update:  08/15/17 19:56
 //***************************************************************************

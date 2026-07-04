@@ -1,9 +1,9 @@
 //*************************************************************************
-//  Copyright (c) 2013  Daniel D Miller
+//  Copyright (c) 2013  Derell Licht
 //  This program is freeware, with no restrictions on use, of any sort.
 //  Finding Windows system directories
 //  
-//  Written by:  Daniel D Miller
+//  Written by:  Derell Licht
 //  
 //  build: g++ -Wall -O2 -DUNICODE -D_UNICODE -Wno-write-strings apptest.cpp -o apptest.exe
 //*************************************************************************

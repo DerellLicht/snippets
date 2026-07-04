@@ -1,5 +1,5 @@
 //*********************************************************************************
-//  Copyright (c) 2013-2015 Daniel D Miller
+//  Copyright (c) 2013-2015 Derell Licht
 //  beer_cals.cpp
 //  A utility to estimate calorie content of beer/ale, based on volume
 //  and alcohol content.  
@@ -9,7 +9,7 @@
 //  available on the bottle label.  I am using as my baseline, the carb
 //  content of Newcastle Brown Ale, a typical mid-strengh ale.
 //  
-//  Written by:  Daniel D Miller
+//  Written by:  Derell Licht
 //*********************************************************************************
 
 #include <stdio.h>
