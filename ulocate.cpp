@@ -69,16 +69,16 @@ char const * const Version = "ULOCATE.EXE, Version 1.18";
 #include <inttypes.h>
 #endif
 #include <direct.h>  //  _getdrive()
-#include <ctype.h>
+#include <cctype>    
 #else
 #include <string.h>
 #endif
-#include <stdio.h>
+#include <cstdio>    
 #include <unistd.h>  //  readlink() 
-#include <stdlib.h>
-#include <errno.h>
-#include <time.h>
-#include <limits.h>
+#include <cstdlib>   
+#include <cerrno>
+#include <ctime>
+#include <climits>
 #include <dirent.h>
 
 #define  MAX_PATH_LEN   1024
@@ -96,9 +96,12 @@ char const * const Version = "ULOCATE.EXE, Version 1.18";
 //lint -esym(551, follow_symlinks)
 
 // typedef unsigned char       u8 ;
-typedef unsigned int        uint ;
-typedef unsigned long       u32 ;
-typedef unsigned long long  u64 ;
+// typedef unsigned int        uint ;
+// typedef unsigned long       u32 ;
+// typedef unsigned long long  u64 ;
+using uint = unsigned int ;
+using u32  = unsigned long ;
+using u64  = unsigned long long ;
 
 // #ifndef __MINGW32__
 static const bool LOOP_FOREVER = true ;
@@ -170,7 +173,7 @@ struct dirs {
    dirs *sons;
    char *name;
 };
-static dirs *top = NULL;
+static dirs *top = nullptr;
 
 //***************  function prototypes  ***************
 static int read_dir_tree (dirs * cur_node);
@@ -251,9 +254,9 @@ char *realpath(const char *path, char *resolved_path)
    unsigned len ;
    // unsigned qresult = 0;
 
-   if (path == NULL  ||  resolved_path == NULL) {
+   if (path == nullptr  ||  resolved_path == nullptr) {
       errno = EINVAL ;
-      return NULL;
+      return nullptr;
    }
 
    //******************************************************
@@ -301,10 +304,10 @@ char *realpath(const char *path, char *resolved_path)
    //******************************************************
    //  get expanded path (this doesn't support UNC)
    //******************************************************
-   plen = GetFullPathName (argptr, _MAX_PATH, (LPTSTR) pathptr, NULL);
+   plen = GetFullPathName (argptr, _MAX_PATH, (LPTSTR) pathptr, nullptr);
    if (plen == 0) {
       errno = ENOENT ;
-      return NULL;
+      return nullptr;
    }
 
    len = strlen (pathptr);
@@ -316,7 +319,7 @@ char *realpath(const char *path, char *resolved_path)
       //  see if there are wildcards in argument.
       //  If not, see whether path is a directory or a file,
       //  or nothing.  If directory, append wildcard char
-      if (strpbrk (pathptr, "*?") == NULL) {
+      if (strpbrk (pathptr, "*?") == nullptr) {
          if (*(pathptr + len - 1) == '\\') {
             len--;
             *(pathptr + len) = 0;
@@ -327,7 +330,7 @@ char *realpath(const char *path, char *resolved_path)
          if (handle == INVALID_HANDLE_VALUE) {
             // qresult |= QUAL_INV_DRIVE; //  path does not exist.
             errno = ENOENT ;
-            return NULL;
+            return nullptr;
          }
          else {
             // if (fffdata.attrib & _A_SUBDIR)
@@ -375,11 +378,11 @@ void strip_newlines(char *rstr)
 char *mystrstr(char *haystack, char *needle)
 {
    if (whole_word_search) {
-      return (strcmp(needle, haystack) == 0) ? needle : 0 ;
+      return (strcmp(needle, haystack) == 0) ? needle : nullptr ;
    } 
    uint slen = strlen(needle) ;
    char *strptr = haystack ;
-   while (1) {
+   while (true) {
       if (strncasecmp(strptr, needle, slen) == 0) {
          // printf("rlen=%d, strptr=%s, h
          return strptr ;
@@ -387,17 +390,18 @@ char *mystrstr(char *haystack, char *needle)
       strptr++ ;
       // rlen++ ;
       if (*strptr == 0)
-         return 0;
+         return nullptr;
    }
 }
 
 //**********************************************************
 void error_exit(int errcode, char *msg)
 {
-   if (errcode < 0)
+   if (errcode < 0) {
        errcode = -errcode ;
+   }
 
-   if (msg == 0) {
+   if (msg == nullptr) {
       printf("%s\n", strerror(errcode)) ;
    } else {
       printf("%s: %s\n", msg, strerror(errcode)) ;
@@ -413,8 +417,8 @@ void error_exit(int errcode, char *msg)
 static dirs *new_dir_node (void)
 {
    dirs *dtemp = new dirs;
-   // if (dtemp == NULL)
-   //    error_exit (ENOMEM, NULL);
+   // if (dtemp == nullptr)
+   //    error_exit (ENOMEM, nullptr);
    memset ((char *) dtemp, 0, sizeof (struct dirs));  //lint !e668
    return dtemp;
 }
@@ -458,14 +462,14 @@ static void print_output(int month, int day, long year, int hour, int mins, int 
 #ifdef  USE_NEW_LLU      
          printf("%I64uM ", fsize / 1000000LU);
 #else         
-         printf("%5lluM ", fsize / 1000000LU);
+         printf("%5lluM ", fsize / 1000000LU);  // NOLINT
 #endif         
       }
       else if (fsize > 999999L) {
 #ifdef  USE_NEW_LLU      
          printf("%5I64uK ", fsize / 1000L);
 #else         
-         printf("%5lluK ", fsize / 1000L);
+         printf("%5lluK ", fsize / 1000L);  // NOLINT
 #endif         
          // nputs (n.colorsize, tempstr);
          // nputs (n.colorsize ^ 0x08, "K");
@@ -474,14 +478,14 @@ static void print_output(int month, int day, long year, int hour, int mins, int 
 #ifdef  USE_NEW_LLU      
          printf("%6I64u ", fsize);
 #else         
-         printf("%6llu ", fsize);
+         printf("%6llu ", fsize);  // NOLINT
 #endif         
       }
    } else 
    if (output_format & OFMT_SIZEL) {
 #ifdef  USE_NEW_LLU      
       printf("%*I64u ", (int) size_len, fsize);
-#else         
+#else                                          
       printf("%*llu ", (int) size_len, fsize);
 #endif         
    }
@@ -519,7 +523,7 @@ static size_t prev_len = 0 ;
 
 static int read_dir_tree(dirs* cur_node)
 {
-   dirs *dtail = 0 ;
+   dirs *dtail = nullptr ;
    dirs *dtemp ;
    char pathname[MAX_PATH_LEN] ;
 
@@ -539,8 +543,8 @@ static int read_dir_tree(dirs* cur_node)
    char dirname[MAX_PATH_LEN] ;
    FILETIME ft, lft;
    // struct tm *ftm ;
-   u64toul iconv;
-   parse_time outdt;
+   u64toul iconv {};
+   parse_time outdt {};
    int secs, mins, hour, day, month, year ;
    u64 fsize ;
    bool done = false;
@@ -582,7 +586,7 @@ static int read_dir_tree(dirs* cur_node)
          //  process a directory entry
          if ((fdata.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
             dtemp = new_dir_node() ;
-            if (cur_node->sons == NULL) 
+            if (cur_node->sons == nullptr) 
                 cur_node->sons = dtemp ;
             else 
                dtail->brothers = dtemp ;  //lint !e644 !e613 NOLINT 
@@ -590,8 +594,8 @@ static int read_dir_tree(dirs* cur_node)
 
             // dtail->name = new char[strlen(pathname)+1] ;
             dtail->name = new char[MAX_PATH_LEN] ;
-            if (dtail->name == 0) {
-               error_exit(ENOMEM, NULL) ; //  never returns
+            if (dtail->name == nullptr) {
+               error_exit(ENOMEM, nullptr) ; //  never returns
             }
             // sprintf(dtail->name, "%s/", fdata.cFileName) ;
             sprintf(dtail->name, "%s/", pathname) ;
@@ -599,7 +603,7 @@ static int read_dir_tree(dirs* cur_node)
             //  do what you wish with each located file here.
             //  Unfortunately, strstr() is case-sensitive...
             // if (strstr (dp->d_name, name_comp) != NULL) {
-            if (mystrstr (fdata.cFileName, name_comp) != NULL) {
+            if (mystrstr (fdata.cFileName, name_comp) != nullptr) {
                // FILETIME ft ;
                // if (n.fdate_option == FDATE_LAST_ACCESS)
                //    ft = fdata.ftLastAccessTime;
@@ -629,7 +633,7 @@ static int read_dir_tree(dirs* cur_node)
          }
          //  process a file entry
          else {
-            if (mystrstr (fdata.cFileName, name_comp) != NULL) {
+            if (mystrstr (fdata.cFileName, name_comp) != nullptr) {
                ft = fdata.ftLastWriteTime;
                FileTimeToLocalFileTime (&(ft), &lft);
                FileTimeToDosDateTime (&lft, &(outdt.dtime[1]), &(outdt.dtime[0]));
@@ -666,8 +670,8 @@ static int read_dir_tree(dirs* cur_node)
 
    // printf("search %s\n", dir_path) ;
    DIR *dirp = opendir(cur_node->name);
-   if (dirp == NULL) {
-      // error_exit(errno, NULL) ; //  never returns
+   if (dirp == nullptr) {
+      // error_exit(errno, nullptr) ; //  never returns
       goto next_element;
       // perror(dir_path);
       // exit(1) ;
@@ -682,7 +686,7 @@ static int read_dir_tree(dirs* cur_node)
 // syslog("readdir enter \n") ;
       dp = readdir(dirp) ;
 // syslog("readdir exit [%u] [%s]\n", (uint) GetLastError(), cur_node->name) ;
-      if (dp == NULL)
+      if (dp == nullptr)
          break;
       if (strcmp(dp->d_name, "..") == 0  ||  strcmp(dp->d_name, ".") == 0) 
          continue;
@@ -801,7 +805,7 @@ static int read_dir_tree(dirs* cur_node)
       //  process directory
       if ((S_ISDIR(statbuf.st_mode)) != 0) {
          dtemp = new_dir_node() ;
-         if (cur_node->sons == NULL) 
+         if (cur_node->sons == nullptr) 
              cur_node->sons = dtemp ;
          else 
             dtail->brothers = dtemp ;  //lint !e644
@@ -810,7 +814,7 @@ static int read_dir_tree(dirs* cur_node)
          // dtail->name = new char[strlen(pathname)+1] ;
          dtail->name = new char[MAX_PATH_LEN] ;
          if (dtail->name == 0) {
-            error_exit(ENOMEM, NULL) ; //  never returns
+            error_exit(ENOMEM, nullptr) ; //  never returns
          }
          sprintf(dtail->name, "%s/", pathname) ;
          // printf("... [%s]\n", dtail->name) ;
@@ -820,8 +824,8 @@ static int read_dir_tree(dirs* cur_node)
 
          //  do what you wish with each located file here.
          //  Unfortunately, strstr() is case-sensitive...
-         // if (strstr (dp->d_name, name_comp) != NULL) {
-         if (mystrstr (dp->d_name, name_comp) != NULL) {
+         // if (strstr (dp->d_name, name_comp) != nullptr) {
+         if (mystrstr (dp->d_name, name_comp) != nullptr) {
             // printf ("[%s%s]\n", show_path, dp->d_name);
             // FileTimeToLocalFileTime(&(fdata.ftLastWriteTime), &lft) ;
             // FileTimeToSystemTime(&lft, &stm) ;
@@ -851,7 +855,7 @@ static int read_dir_tree(dirs* cur_node)
 
       //  we found a normal file
       else {
-         if (mystrstr (dp->d_name, name_comp) != NULL) {
+         if (mystrstr (dp->d_name, name_comp) != nullptr) {
             // time_t statbuf.st_atime;    /* time of last access */
             // time_t statbuf.st_mtime;    /* time of last modification */
             // time_t statbuf.st_ctime;    /* time of last status change */
@@ -890,7 +894,7 @@ static int read_dir_tree(dirs* cur_node)
 next_element:
    //  next, build tree lists for subsequent levels (recursive)
    dirs* ktemp ;
-   for (ktemp = cur_node->sons; ktemp != 0; ktemp = ktemp->brothers) 
+   for (ktemp = cur_node->sons; ktemp != nullptr; ktemp = ktemp->brothers) 
       read_dir_tree(ktemp) ;
 
    // if (recurse_depth == 2)
@@ -912,12 +916,12 @@ static int build_dir_tree(char* tpath)
    //  derive root path name
    strptr = (char *) new char[MAX_PATH_LEN+1] ;
    // if (strptr == 0) 
-   //    error_exit(ENOMEM, NULL) ;
+   //    error_exit(ENOMEM, nullptr) ;
    top->name = strptr ;
    strncpy(top->name, tpath, MAX_PATH_LEN) ;
 
    //  make sure base path ends with a slash
-   int base_len = strlen(top->name) ;  //lint !e713
+   size_t base_len = strlen(top->name) ;  //lint !e713
    if (top->name[base_len-1] != '/') {
       strcat(top->name, "/") ;   // NOLINT
       // base_len++ ;
@@ -942,8 +946,8 @@ static int read_single_dir(char *sub_path)
    char dirname[MAX_PATH_LEN] ;
    char pathname[MAX_PATH_LEN] ;
    FILETIME ft, lft;
-   u64toul iconv;
-   parse_time outdt;
+   u64toul iconv {};
+   parse_time outdt {};
    int secs, mins, hour, day, month, year ;
    u64 fsize ;
    bool done = false;
@@ -989,7 +993,7 @@ static int read_single_dir(char *sub_path)
          //  process a directory entry
          if ((fdata.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
             // dtemp = new_dir_node() ;
-            // if (cur_node->sons == NULL) 
+            // if (cur_node->sons == nullptr) 
             //     cur_node->sons = dtemp ;
             // else 
             //    dtail->brothers = dtemp ;  //lint !e644 !e613
@@ -998,15 +1002,15 @@ static int read_single_dir(char *sub_path)
             // dtail->name = new char[strlen(pathname)+1] ;
             // dtail->name = new char[MAX_PATH_LEN] ;
             // if (dtail->name == 0) {
-            //    error_exit(ENOMEM, NULL) ; //  never returns
+            //    error_exit(ENOMEM, nullptr) ; //  never returns
             // }
             // sprintf(dtail->name, "%s/", fdata.cFileName) ;
             // sprintf(dtail->name, "%s/", pathname) ;
 
             //  do what you wish with each located file here.
             //  Unfortunately, strstr() is case-sensitive...
-            // if (strstr (dp->d_name, name_comp) != NULL) {
-            if (mystrstr (fdata.cFileName, name_comp) != NULL) {
+            // if (strstr (dp->d_name, name_comp) != nullptr) {
+            if (mystrstr (fdata.cFileName, name_comp) != nullptr) {
                // ftemp->attrib = (uchar) fdata.dwFileAttributes;
                
                // printf ("[%s%s]\n", show_path, dp->d_name);
@@ -1056,7 +1060,7 @@ static int read_single_dir(char *sub_path)
          }
          //  process a file entry
          else {
-            if (mystrstr (fdata.cFileName, name_comp) != NULL) {
+            if (mystrstr (fdata.cFileName, name_comp) != nullptr) {
                // time_t statbuf.st_atime;    /* time of last access */
                // time_t statbuf.st_mtime;    /* time of last modification */
                // time_t statbuf.st_ctime;    /* time of last status change */
@@ -1112,7 +1116,7 @@ next_element:
 
    // printf("search %s\n", dir_path) ;
    dirp = opendir(sub_path);
-   if (dirp == NULL) {
+   if (dirp == nullptr) {
       if (verbose)
          printf("%s: %s\n", sub_path, strerror(errno)) ;
       return (int) errno;
@@ -1123,7 +1127,7 @@ next_element:
    int secs, mins, hour, day, month ;
    long year ;
    u64 fsize ;
-   while ((dp = readdir(dirp)) != NULL) {
+   while ((dp = readdir(dirp)) != nullptr) {
       sprintf(pathname, "%s/%s", sub_path, dp->d_name) ;
       if (debug)
          printf("pathname=[%s]\n", pathname) ;
@@ -1151,8 +1155,8 @@ next_element:
 
          //  do what you wish with each located file here.
          //  Unfortunately, strstr() is case-sensitive...
-         // if (strstr (dp->d_name, name_comp) != NULL) {
-         if (mystrstr (dp->d_name, name_comp) != NULL) {
+         // if (strstr (dp->d_name, name_comp) != nullptr) {
+         if (mystrstr (dp->d_name, name_comp) != nullptr) {
             // printf ("[%s%s]\n", show_path, dp->d_name);
             // FileTimeToLocalFileTime(&(fdata.ftLastWriteTime), &lft) ;
             // FileTimeToSystemTime(&lft, &stm) ;
@@ -1182,7 +1186,7 @@ next_element:
 
       //  we found a normal file
       else {
-         if (mystrstr (dp->d_name, name_comp) != NULL) {
+         if (mystrstr (dp->d_name, name_comp) != nullptr) {
             // time_t statbuf.st_atime;    /* time of last access */
             // time_t statbuf.st_mtime;    /* time of last modification */
             // time_t statbuf.st_ctime;    /* time of last status change */
@@ -1226,14 +1230,14 @@ static int search_path_for_name(void)
 {
    char mypath[MAX_PATH_LEN+1] ;
    char *my_path = getenv("PATH") ;
-   if (my_path == 0) {
+   if (my_path == nullptr) {
       FILE *fd = popen("echo $PATH", "r") ;
-      if (fd == 0) {
+      if (fd == nullptr) {
          perror("popen(PATH)") ;
          return ENODEV;
       }
       my_path = fgets(mypath, sizeof(mypath), fd) ;
-      if (my_path == 0) {
+      if (my_path == nullptr) {
          perror("fgets(PATH)") ;
          return ENODEV;
       }
@@ -1255,7 +1259,7 @@ static int search_path_for_name(void)
       printf("PATH=[%s]\n", my_path) ;
    }
    char *hd = my_path ;
-   while (1) {
+   while (true) {
       unsigned copy_count = 0 ;
       char *tptr = temp_path ;
       while (*hd != path_sep  &&  *hd != 0) {
@@ -1318,7 +1322,7 @@ bool loop_over_switches(char *p)
 
       case 'x':
          p++ ;
-         size_len = (uint) atoi(p) ;
+         size_len = (uint) atoi(p) ;   // NOLINT  atoi() works beautifully...
          if (size_len == 0)
              size_len = 6 ;
          break;
@@ -1356,7 +1360,7 @@ int main (int argc, char **argv)
    //***********************************************************
    int start_idx = 1 ;
    char *ulocate_env = getenv("ULOCATE");
-   if (ulocate_env != NULL)
+   if (ulocate_env != nullptr)
    {
       // argv[0] = ulocate_env ;
       // start_idx = 0 ;
@@ -1365,7 +1369,7 @@ int main (int argc, char **argv)
       {
          //  see if there are any further args in string
          char *next_arg = strchr(p, ' ');
-         if (next_arg != NULL)
+         if (next_arg != nullptr)
          {
             *next_arg++ = 0 ;
          }
@@ -1383,7 +1387,7 @@ int main (int argc, char **argv)
          }
          //  goto next arg, if any
          p = next_arg ;
-         if (next_arg == NULL)
+         if (next_arg == nullptr)
          {
             break;
          }
@@ -1453,7 +1457,7 @@ int main (int argc, char **argv)
       }
       // qualify (target_path);
       p = realpath(temp_path, target_path) ;
-      if (p == 0) {
+      if (p == nullptr) {
          perror(temp_path) ;
          return 1;
       }

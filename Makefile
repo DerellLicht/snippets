@@ -59,7 +59,7 @@ CHFLAGS += --extra-arg=-isystemD:/tdm64/lib/gcc/x86_64-w64-mingw32/10.3.0/includ
 
 all: hex_dump.exe heron.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe \
 printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe \
-cline.exe proc_time.exe read_files.exe
+cline.exe proc_time.exe read_files.exe ulocate.exe
 
 check:
 	cmd /C "d:\llvm\bin\clang-tidy.exe $(CHFLAGS) $(CPPSRC) $(CHTAIL)"
@@ -79,6 +79,7 @@ prime64.exe: prime64.cpp
 #	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
 	C:/cygwin64/bin/x86_64-w64-mingw32-g++ $(CFLAGS) -static -Weffc++ $< -o $@
 
+#  I use cygwin vs tdm here, because I want %llu to work
 ulocate.exe: ulocate.cpp
 #	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
 	C:\cygwin64/bin/x86_64-w64-mingw32-g++ -Wno-stringop-truncation $(CFLAGS) -static -Weffc++ $< -o $@
