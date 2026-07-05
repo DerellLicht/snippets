@@ -29,7 +29,7 @@ endif
 
 ifeq ($(USE_64BIT),YES)
 TOOLS=d:\tdm64\bin
-#TOOLS=d:\clang64\bin
+#TOOLS=d:\llvm64\bin
 #TOOLS=d:\tdm-gcc-64\bin
 #  64-bit executables
 #GPP_NAME=x86_64-w64-mingw32-g++ 
@@ -41,7 +41,7 @@ TOOLS=d:\tdm32\bin
 GPP_NAME=g++.exe
 else
 #TOOLS=d:\tdm32\bin
-#TOOLS=D:\clang\bin
+#TOOLS=d:\llvm\bin
 TOOLS=C:\cygwin64\bin
 #  32-bit executables
 GPP_NAME=i686-w64-mingw32-g++.exe
