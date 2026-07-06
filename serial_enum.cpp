@@ -131,17 +131,18 @@ char *get_system_message(void)
    // Process any inserts in lpMsgBuf.
    // ...
    // Display the string.
-   strncpy(msg, (char *) lpMsgBuf, 260) ;
+   if (lpMsgBuf == nullptr) {
+      sprintf(msg, "FormatMessage() failed");
+   }
+   else {
+      strncpy(msg, (char *) lpMsgBuf, 260) ;
 
-   // Free the buffer.
-   LocalFree( lpMsgBuf );
+      // Free the buffer.
+      LocalFree( lpMsgBuf );
 
-   //  trim the newline off the message before copying it...
-   strip_newlines(msg) ;
-   // slen = strlen(msg) ;
-   // if (msg[slen-1] == 10  ||  msg[slen-1] == 13) {
-   //    msg[slen-1] = 0 ;
-   // }
+      //  trim the newline off the message before copying it...
+      strip_newlines(msg) ;
+   }
 
    return msg;
 }
