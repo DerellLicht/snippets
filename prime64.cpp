@@ -54,11 +54,11 @@ static char const version_string[] = "1.03" ;
 #define  INP_STR_LEN    80
 char tempstr[INP_STR_LEN+1] ;
 
+//  NOTE: the uint8_t requires <cstdint>
 enum : std::uint8_t {
 D_STANDARD = 0,
 D_INTERACTIVE
 } ;
-
 
 //**********************************************************************
 //  this reports whether executable is 32-bit or 64-bit build
