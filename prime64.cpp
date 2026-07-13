@@ -29,6 +29,12 @@
 // Timer 1 off: 18:15:23  Elapsed: 0:00:03.41
 // 
 //*****************************************************************
+//  Executable sizes with different build tools (2026)
+// 
+//  15360 D:\SourceCode\Git\snippets/prime64.clang64.exe
+//  42496 D:\SourceCode\Git\snippets/prime64.cygwin64.exe
+//  90112 D:\SourceCode\Git\snippets/prime64.tdm64.exe
+//*****************************************************************
 //  Version    Date        Description 
 //   1.00      07/23/05    Original
 //   1.01      02/22/12    Fix bug on N*N, with N prime

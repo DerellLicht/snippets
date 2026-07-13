@@ -55,7 +55,7 @@ endif
 
 all: hex_dump.exe heron.exe ascii.exe beer_cals.exe dms2dd.exe mortgage.exe prime64.exe \
 printf2.exe ulocate.exe serial_enum.exe textfont.exe apptest.exe \
-cline.exe proc_time.exe read_files.exe ulocate.exe
+cline.exe proc_time.exe read_files.exe ulocate.exe copy_icloud.exe
 
 clean:
 	rm -f *.exe
@@ -70,12 +70,17 @@ wcmdline.exe: wcmdline.cpp
 
 prime64.exe: prime64.cpp
 #	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
-	C:/cygwin64/bin/x86_64-w64-mingw32-g++ $(CFLAGS) -static -Weffc++ $< -o $@
-
+#	C:/cygwin64/bin/x86_64-w64-mingw32-g++ $(CFLAGS) -static -Weffc++ $< -o $@
+	D:\llvm/bin/x86_64-w64-mingw32-clang++.exe $(CFLAGS) -static -Weffc++ $< -o $@
+   
 #  I use cygwin vs tdm here, because I want %llu to work
 ulocate.exe: ulocate.cpp
-#	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
+#	d:\tdm64\bin\g++ -Wno-stringop-truncation $(CFLAGS) -Weffc++ $< -o $@
 	C:\cygwin64/bin/x86_64-w64-mingw32-g++ -Wno-stringop-truncation $(CFLAGS) -static -Weffc++ $< -o $@
+#	D:\llvm/bin/x86_64-w64-mingw32-clang++.exe $(CFLAGS) -static -Weffc++ $< -o $@
+
+copy_icloud.exe: copy_icloud.cpp
+	d:\tdm64\bin\\g++ -std=c++17 -O2 -o copy_icloud.exe copy_icloud.cpp
 
 printf2.exe: printf2.c
 	d:\tdm32\bin\gcc $(CFLAGS) -DTEST_PRINTF -Wno-int-to-pointer-cast $< -o $@
