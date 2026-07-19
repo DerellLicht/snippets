@@ -45,7 +45,7 @@
 
 #include <cstdio>
 #include <cstdlib>
-#include <cstdint>
+#include <cstdint>   //  for uint8_t
 
 #define  USE_LLU
 // #undef  USE_LLU
