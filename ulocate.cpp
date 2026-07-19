@@ -51,6 +51,10 @@
 //  I *suspect* that the basic issue is that I'm using unix-based functions
 //  to traverse the directory tree, and am somewhere confusing Windows.
 //****************************************************************************
+// 258048 ulocate.clang64.exe
+// 139264 ulocate.cygwin64.exe
+// 161792 ulocate.tdm64.exe
+//****************************************************************************
 
 char const * const Version = "ULOCATE.EXE, Version 1.19";
 
