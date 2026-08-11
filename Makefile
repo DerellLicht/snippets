@@ -2,7 +2,7 @@ USE_DEBUG = NO
 USE_64BIT = NO
 USE_LEGACY = YES
 
-include ..\tool_select.mak 
+include .\tool_select.mak
 
 ifeq ($(USE_DEBUG),YES)
 CFLAGS=-Wall -O -g
