@@ -71,31 +71,19 @@ char const * const Version = "ULOCATE.EXE, Version 1.19";
 #include <inttypes.h>
 #endif
 #include <direct.h>  //  _getdrive()
-#include <cctype>    
+#include <ctype.h>    
 #else
 #include <string.h>
 #endif
-#include <cstdio>    
+#include <stdio.h>
 #include <unistd.h>  //  readlink() 
-#include <cstdlib>   
-#include <cerrno>
-#include <ctime>
-#include <climits>
+#include <stdlib.h>   
+#include <errno.h>
+#include <time.h>
+#include <limits.h>
 #include <dirent.h>
 
 #define  MAX_PATH_LEN   1024
-
-//lint -e10    Expecting '}'
-
-//lint -e534   Ignoring return value of function
-//lint -e716   while(1) ... 
-//lint -e818   Pointer parameter could be declared as pointing to const
-//lint -e830   Location cited in prior message
-//lint -e831   Reference cited in prior message
-
-//lint -esym(526, __builtin_va_start)
-//lint -esym(628, __builtin_va_start)
-//lint -esym(551, follow_symlinks)
 
 using uint = unsigned int ;
 using u32  = unsigned long ;
