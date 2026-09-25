@@ -1,6 +1,7 @@
 USE_DEBUG = NO
 USE_64BIT = NO
-USE_LEGACY = YES
+USE_CLANG = YES
+USE_LEGACY = NO
 
 include .\tool_select.mak
 

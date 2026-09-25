@@ -4,3 +4,5 @@ _lint.tmp
 readme.orig.md
 output.txt
 qualify.orig.cpp
+snippets.list.clang.txt
+snippets.list.tdm32.txt
