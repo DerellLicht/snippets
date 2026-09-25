@@ -34,7 +34,6 @@ wcmdline.exe: wcmdline.cpp
 	$(TOOLS)\$(GNAME) $(CFLAGS) -DUNICODE -D_UNICODE -Weffc++ $< -o $@
 
 prime64.exe: prime64.cpp
-#	d:\tdm64\bin\g++ $(CFLAGS) -Weffc++ $< -o $@
 #	C:/cygwin64/bin/x86_64-w64-mingw32-g++ $(CFLAGS) -static -Weffc++ $< -o $@
 	D:\llvm/bin/x86_64-w64-mingw32-clang++.exe $(CFLAGS) -static -Weffc++ $< -o $@
    
