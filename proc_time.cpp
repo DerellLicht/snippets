@@ -28,34 +28,38 @@ u64 get_clocks_per_second(void)
    return clocks_per_sec64 ;
 }
 
+//*************************************************************************
+u64 get_clocks_per_msec(void)
+{
+   return get_clocks_per_second() / 1000 ;
+}
+
 //****************************************************************************
-uint calc_elapsed_time(bool done)
+u64 calc_elapsed_time(bool done)
 {
    static u64 ti = 0 ;
-   uint secs = 0 ;
+   u64 secs = 0 ;
    if (!done) {
       ti = proc_time() ;
    } else {
       u64 tf = proc_time() ;
-      secs = (uint) ((tf - ti) / get_clocks_per_second()) ;
-      // syslog("send_serial_msg: %u seconds", secs) ;
+      secs = (tf - ti) / get_clocks_per_second() ;
    }
    return secs;
 }
 
 //****************************************************************************
-uint calc_elapsed_msec(bool done)
+u64 calc_elapsed_msec(bool done)
 {
    static u64 ti = 0 ;
-   uint secs = 0 ;
+   u64 msecs = 0 ;
    if (!done) {
       ti = proc_time() ;
    } else {
       u64 tf = proc_time() ;
-      secs = (uint) ((tf - ti) / (get_clocks_per_second()/1000)) ;
-      // syslog("send_serial_msg: %u seconds", secs) ;
+      msecs = (tf - ti) / get_clocks_per_msec() ;
    }
-   return secs;
+   return msecs;
 }
 
 //****************************************************************************
